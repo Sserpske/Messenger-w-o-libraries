@@ -7,6 +7,40 @@
   <link rel="stylesheet" type="text/css" href="app.css">
 </head>
 <body>
-
+<main class="authorization">
+  <div class="authorization__background"></div>
+  <div class="authorization__shadow"></div>
+  <div class="authorization__wrapper">
+    <div class="authorization__form-wrapper primary-form">
+      <form class="primary-form__form" method="post" action="">
+        <h1 class="primary-form__title">Вход</h1>
+        <div class="primary-form__fields-wrapper">
+          <ul class="primary-form__fields-list">
+            <li class="primary-form__fields-item">
+              <div class="main-input">
+                <label class="main-input__label">Почта</label>
+                <input class="main-input__input" type="email">
+                <span class="main-input__error-message">Не правильная почта</span>
+              </div>
+            </li>
+            <li class="primary-form__fields-item">
+              <div class="main-input">
+                <label class="main-input__label">Пароль</label>
+                <input class="main-input__input" type="password">
+                <span class="main-input__error-message">Укажите пароль</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="authorization__form-buttons primary-form__buttons">
+          <button class="primary-form__button main-button">
+            <span class="main-button__inner-text">Авторизоваться</span>
+          </button>
+          <a class="primary-form__subtle-button" href="index.html">Нет аккаунта?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
 </body>
 </html>

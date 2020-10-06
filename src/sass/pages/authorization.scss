@@ -1,0 +1,57 @@
+.authorization {
+  position: relative;
+  height: 100vh;
+
+  @include max-height(440px) {
+    height: auto;
+  }
+}
+
+.authorization__background {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: -2;
+  opacity: 0.20;
+  background-color: rgba(#000000, 0.08);
+  background-image: url("images/pattern-cucumber.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+
+  @include max-height(440px) {
+    height: 100%;
+    overflow: auto;
+  }
+}
+
+.authorization__shadow {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  background-color: rgba(#000000, 0.1);
+  overflow: hidden;
+
+  @include max-height(440px) {
+    height: 100%;
+    overflow: auto;
+  }
+}
+
+.authorization__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.authorization__form-wrapper {
+  width: 340px;
+  box-sizing: border-box;
+}
+
+.authorization__form-buttons {
+  margin-top: 150px;
+}
