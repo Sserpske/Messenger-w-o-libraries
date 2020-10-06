@@ -10,8 +10,8 @@
 <main class="registration">
   <div class="registration__background"></div>
   <div class="registration__shadow"></div>
-  <div class="registration__form-wrapper">
-    <div class="primary-form">
+  <div class="registration__wrapper">
+    <div class="registration__form-wrapper primary-form">
       <form class="primary-form__form" method="post" action="">
         <h1 class="primary-form__title">Регистрация</h1>
         <div class="primary-form__fields-wrapper">
@@ -25,52 +25,54 @@
             </li>
             <li class="primary-form__fields-item">
               <div class="main-input">
-                <label>Логин</label>
-                <input type="text">
+                <label class="main-input__label">Логин</label>
+                <input class="main-input__input" type="text">
                 <span class="main-input__error-message">Длина логина должна быть не менее 3 символов</span>
               </div>
             </li>
             <li class="primary-form__fields-item">
               <div class="main-input">
-                <label>Телефон</label>
-                <input type="text">
+                <label class="main-input__label">Телефон</label>
+                <input class="main-input__input" type="text">
                 <span class="main-input__error-message">Не правильный номер</span>
               </div>
             </li>
             <li class="primary-form__fields-item">
               <div class="main-input">
-                <label>Имя</label>
-                <input type="text">
+                <label class="main-input__label">Имя</label>
+                <input class="main-input__input" type="text">
                 <span class="main-input__error-message">Укажите имя</span>
               </div>
             </li>
             <li class="primary-form__fields-item">
               <div class="main-input">
-                <label>Фамилия</label>
-                <input type="text">
+                <label class="main-input__label">Фамилия</label>
+                <input class="main-input__input" type="text">
                 <span class="main-input__error-message">Укажите фамилию</span>
               </div>
             </li>
             <li class="primary-form__fields-item">
               <div class="main-input">
-                <label>Пароль</label>
-                <input type="password">
+                <label class="main-input__label">Пароль</label>
+                <input class="main-input__input" type="password">
                 <span class="main-input__error-message">Укажите пароль</span>
               </div>
             </li>
             <li class="primary-form__fields-item">
               <div class="main-input">
-                <label>Пароль (ещё раз)</label>
-                <input type="password">
+                <label class="main-input__label">Пароль (ещё раз)</label>
+                <input class="main-input__input" type="password">
                 <span class="main-input__error-message">Пароли не совпадают</span>
               </div>
             </li>
           </ul>
         </div>
-        <button class="main-button">
-          <span class="main-button__inner-text">Зарегистрироваться</span>
-        </button>
-        <a class="registration__subtle-button" href="auth.html">Войти</a>
+        <div class="primary-form__buttons">
+          <button class="primary-form__button main-button">
+            <span class="main-button__inner-text">Зарегистрироваться</span>
+          </button>
+          <a class="primary-form__subtle-button" href="auth.html">Войти</a>
+        </div>
       </form>
     </div>
   </div>

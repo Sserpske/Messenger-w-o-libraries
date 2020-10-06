@@ -1,3 +1,9 @@
+/* Helpers */
+@import "helpers/normalize";
+@import "helpers/mixins";
+
+@import "global";
+
 /* Pages */
 @import "pages/registration";
 
