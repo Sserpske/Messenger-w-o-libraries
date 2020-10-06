@@ -2,7 +2,7 @@
   position: relative;
   height: 100vh;
 
-  @include max-height(560px) {
+  @include max-height(535px) {
     height: auto;
   }
 }
@@ -20,7 +20,7 @@
   background-size: cover;
   overflow: hidden;
 
-  @include max-height(560px) {
+  @include max-height(535px) {
     height: 100%;
     overflow: auto;
   }
@@ -34,7 +34,7 @@
   background-color: rgba(#000000, 0.1);
   overflow: hidden;
 
-  @include max-height(560px) {
+  @include max-height(535px) {
     height: 100%;
     overflow: auto;
   }

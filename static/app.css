@@ -325,7 +325,7 @@ body {
 .registration {
   position: relative;
   height: 100vh; }
-  @media (max-height: 560px) {
+  @media (max-height: 535px) {
     .registration {
       height: auto; } }
 
@@ -341,7 +341,7 @@ body {
   background-position: center;
   background-size: cover;
   overflow: hidden; }
-  @media (max-height: 560px) {
+  @media (max-height: 535px) {
     .registration__background {
       height: 100%;
       overflow: auto; } }
@@ -353,7 +353,7 @@ body {
   z-index: -1;
   background-color: rgba(0, 0, 0, 0.1);
   overflow: hidden; }
-  @media (max-height: 560px) {
+  @media (max-height: 535px) {
     .registration__shadow {
       height: 100%;
       overflow: auto; } }
@@ -426,7 +426,7 @@ body {
 
 .primary-form__fields-item {
   list-style: none;
-  margin-bottom: 10px; }
+  margin-bottom: 25px; }
 
 .primary-form__fields-list {
   padding: 0;
@@ -461,6 +461,7 @@ body {
     text-decoration: underline; }
 
 .main-input {
+  position: relative;
   display: flex;
   flex-direction: column; }
 
@@ -472,10 +473,20 @@ body {
   margin-top: 7px; }
 
 .main-input__label {
-  font-size: 11px;
+  font-size: 13px;
   color: #999999;
   line-height: 1;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 5px;
+  transition: 0.2s ease all; }
+
+.main-input__input:focus ~ .main-input__label,
+.main-input__input:valid ~ .main-input__label {
+  top: -15px;
+  font-size: 10px; }
 
 .main-input__input {
   border: none;
@@ -486,8 +497,6 @@ body {
   font-weight: 600;
   padding-left: 0;
   padding-bottom: 4px; }
-  .main-input__input:focus {
-    border-bottom-color: #1D6669; }
 
 .main-button {
   border: none;
