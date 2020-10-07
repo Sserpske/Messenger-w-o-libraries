@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Мессенджер</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body>
+<style>
+  /* Почему-то мой сборщик выкидывает эти правила из .сss */
+  .chat-card__last-message {
+    -moz-box-orient: horizontal;
+    -webkit-box-orient: vertical;
+  }
+</style>
+<main class="messenger-app">
+  <div class="messenger-app__background"></div>
+  <div class="messenger-app__shadow"></div>
+  <div class="messenger-app__main-window container">
+    <div class="messenger-app__left-side">
+      <div class="messenger-app__left-head">
+        <div class="messenger-app__user">
+          <img class="messenger-app__user-avatar" src="images/user.jpeg">
+        </div>
+        <div class="search-bar">
+          <input class="search-bar__input" placeholder="Поиск" type="search">
+        </div>
+      </div>
+      <ul class="messenger-app__chats-list">
+        <li class="messenger-app__chats-item">
+          <div class="chat-card">
+            <img class="chat-card__avatar" src="images/user2.jpeg">
+            <div class="chat-card__user-info">
+              <span class="chat-card__name">Женя</span>
+              <span class="chat-card__last-message">Изображение</span>
+            </div>
+            <div class="chat-card__tech-info">
+              <span class="chat-card__time">10:49</span>
+              <span class="chat-card__new-messages-number">2</span>
+            </div>
+          </div>
+        </li>
+        <li class="messenger-app__chats-item">
+          <div class="chat-card">
+            <img class="chat-card__avatar" src>
+            <div class="chat-card__user-info">
+              <span class="chat-card__name">Киноклуб</span>
+              <span class="chat-card__last-message"><b>Вы:</b> стикер</span>
+            </div>
+            <div class="chat-card__tech-info">
+              <span class="chat-card__time">11:11</span>
+            </div>
+          </div>
+        </li>
+        <li class="messenger-app__chats-item">
+          <div class="chat-card">
+            <img class="chat-card__avatar" src>
+            <div class="chat-card__user-info">
+              <span class="chat-card__name">Илья</span>
+              <span class="chat-card__last-message">Друзья, у меня для вас особенный выпуск новостей! Лалf</span>
+            </div>
+            <div class="chat-card__tech-info">
+              <span class="chat-card__time">11:11</span>
+              <span class="chat-card__new-messages-number">8</span>
+            </div>
+          </div>
+        </li>
+        <li class="messenger-app__chats-item">
+          <div class="chat-card">
+            <img class="chat-card__avatar" src>
+            <div class="chat-card__user-info">
+              <span class="chat-card__name">Вадим</span>
+              <span class="chat-card__last-message"><b>Вы:</b> Привет</span>
+            </div>
+            <div class="chat-card__tech-info">
+              <span class="chat-card__time">11:11</span>
+            </div>
+          </div>
+        </li>
+        <li class="messenger-app__chats-item">
+          <div class="chat-card">
+            <img class="chat-card__avatar" src>
+            <div class="chat-card__user-info">
+              <span class="chat-card__name">Петя</span>
+              <span class="chat-card__last-message">И Human Interface Guidelines и Material Design рекомендуют</span>
+            </div>
+            <div class="chat-card__tech-info">
+              <span class="chat-card__time">11:11</span>
+            </div>
+          </div>
+        </li>
+        <li class="messenger-app__chats-item">
+          <div class="chat-card">
+            <img class="chat-card__avatar" src>
+            <div class="chat-card__user-info">
+              <span class="chat-card__name">1, 2, 3</span>
+              <span class="chat-card__last-message">Миллионы россиян ежедневно проводят десятки часов своего времени в каптёрке</span>
+            </div>
+            <div class="chat-card__tech-info">
+              <span class="chat-card__time">Пт</span>
+            </div>
+          </div>
+        </li>
+        <li class="messenger-app__chats-item">
+          <div class="chat-card">
+            <img class="chat-card__avatar" src>
+            <div class="chat-card__user-info">
+              <span class="chat-card__name">Design Destroyer</span>
+              <span class="chat-card__last-message">В 2008 году художник Jon Rafman  начал собирать и не собрал</span>
+            </div>
+            <div class="chat-card__tech-info">
+              <span class="chat-card__time">Ср</span>
+            </div>
+          </div>
+        </li>
+        <li class="messenger-app__chats-item">
+          <div class="chat-card">
+            <img class="chat-card__avatar" src>
+            <div class="chat-card__user-info">
+              <span class="chat-card__name">Петя</span>
+              <span class="chat-card__last-message">В 2008 году художник Jon Rafman  начал собирать что-то надо дописать</span>
+            </div>
+            <div class="chat-card__tech-info">
+              <span class="chat-card__time">Пн</span>
+            </div>
+          </div>
+        </li>
+        <li class="messenger-app__chats-item">
+          <div class="chat-card">
+            <img class="chat-card__avatar" src>
+            <div class="chat-card__user-info">
+              <span class="chat-card__name">Фёдор</span>
+              <span class="chat-card__last-message">Пока!</span>
+            </div>
+            <div class="chat-card__tech-info">
+              <span class="chat-card__time">Пн</span>
+            </div>
+          </div>
+        </li>
+        <li class="messenger-app__chats-item">
+          <div class="chat-card">
+            <img class="chat-card__avatar" src>
+            <div class="chat-card__user-info">
+              <span class="chat-card__name">Пати</span>
+              <span class="chat-card__last-message">Ура! Пятница!</span>
+            </div>
+            <div class="chat-card__tech-info">
+              <span class="chat-card__time">1 Мая 2020</span>
+            </div>
+          </div>
+        </li>
+        <li class="messenger-app__chats-item">
+          <div class="chat-card">
+            <img class="chat-card__avatar" src>
+            <div class="chat-card__user-info">
+              <span class="chat-card__name">Семья</span>
+              <span class="chat-card__last-message">Едем на дачу</span>
+            </div>
+            <div class="chat-card__tech-info">
+              <span class="chat-card__time">12 Апр 2020</span>
+            </div>
+          </div>
+        </li>
+        <li class="messenger-app__chats-item">
+          <div class="chat-card">
+            <img class="chat-card__avatar" src>
+            <div class="chat-card__user-info">
+              <span class="chat-card__name">Женёк</span>
+              <span class="chat-card__last-message">Где пропал?</span>
+            </div>
+            <div class="chat-card__tech-info">
+              <span class="chat-card__time">11:11</span>
+            </div>
+          </div>
+        </li>
+        <li class="messenger-app__chats-item">
+          <div class="chat-card">
+            <img class="chat-card__avatar" src>
+            <div class="chat-card__user-info">
+              <span class="chat-card__name">Макс</span>
+              <span class="chat-card__last-message">Видео</span>
+            </div>
+            <div class="chat-card__tech-info">
+              <span class="chat-card__time">11:11</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="messenger-app__right-side">
+      <div class="messenger-app__chat-area-wrapper">
+        <div class="messenger-app__chat-notice">Выберите чат, чтобы отправить сообщение</div>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

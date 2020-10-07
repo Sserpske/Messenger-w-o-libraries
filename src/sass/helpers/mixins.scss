@@ -16,13 +16,6 @@
   }
 }
 
-@mixin truncate($truncation-boundary) {
-  max-width: $truncation-boundary;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 @mixin pseudo($display: block, $pos: absolute, $content: ''){
   content: $content;
   display: $display;

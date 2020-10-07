@@ -321,6 +321,11 @@ body {
   background-color: #ffffff;
   color: #000000; }
 
+.container {
+  max-width: 1050px;
+  margin: 0 auto;
+  height: 100%; }
+
 /* Pages */
 .registration {
   position: relative;
@@ -417,6 +422,86 @@ body {
 .authorization__form-buttons {
   margin-top: 150px; }
 
+.messenger-app {
+  position: relative;
+  height: 100vh; }
+
+.messenger-app__background {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: -2;
+  opacity: 0.20;
+  background-color: rgba(0, 0, 0, 0.08);
+  background-image: url("images/pattern-cucumber.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden; }
+
+.messenger-app__shadow {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.1);
+  overflow: hidden; }
+
+.messenger-app__main-window {
+  display: flex;
+  background-color: #ffffff; }
+
+.messenger-app__left-side {
+  background-color: #FBFBFB;
+  border-right: 1px solid #EAEAEA;
+  width: 29%;
+  overflow-x: hidden; }
+  .messenger-app__left-side::-webkit-scrollbar {
+    width: 3px;
+    height: 3px; }
+  .messenger-app__left-side::-webkit-scrollbar-track {
+    background-color: #999; }
+  .messenger-app__left-side::-webkit-scrollbar-track-piece {
+    background-color: #ffffff; }
+  .messenger-app__left-side::-webkit-scrollbar-thumb {
+    background-color: #999999; }
+
+.messenger-app__left-head {
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.messenger-app__user {
+  padding-top: 15px;
+  padding-bottom: 5px; }
+
+.messenger-app__user-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-left: 9px; }
+
+.messenger-app__chats-list {
+  padding-left: 0; }
+
+.messenger-app__chats-item {
+  box-sizing: border-box;
+  list-style: none;
+  border-top: 1px solid #EAEAEA;
+  position: relative; }
+
+.messenger-app__right-side {
+  width: 71%; }
+
+.messenger-app__chat-notice {
+  color: #1D6669;
+  font-size: 16px; }
+
+.messenger-app__chat-area-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; }
+
 /* Blocks */
 .primary-form {
   background-color: #ffffff;
@@ -507,3 +592,88 @@ body {
   font-size: 13px;
   cursor: pointer;
   transition: .2s; }
+
+.search-bar {
+  position: relative; }
+
+.search-bar__input {
+  border: 1px solid #EAEAEA;
+  background-color: #EFEFEF;
+  outline: none;
+  width: 100%;
+  border-radius: 6px;
+  padding: 5px 10px; }
+  .search-bar__input:focus::-webkit-input-placeholder {
+    color: transparent; }
+  .search-bar__input::-webkit-input-placeholder {
+    text-align: center; }
+  .search-bar__input:focus::-moz-placeholder {
+    color: transparent; }
+  .search-bar__input::-moz-placeholder {
+    text-align: center; }
+  .search-bar__input:focus:-moz-placeholder {
+    color: transparent; }
+  .search-bar__input:-moz-placeholder {
+    text-align: center; }
+  .search-bar__input:focus:-ms-input-placeholder {
+    color: transparent; }
+  .search-bar__input:-ms-input-placeholder {
+    text-align: center; }
+
+.chat-card {
+  display: flex;
+  padding: 12px 10px;
+  cursor: pointer;
+  transition: .15s; }
+  .chat-card:hover {
+    background-color: #CAE8EA; }
+
+.chat-card__avatar {
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  background-color: #EFEFEF; }
+
+.chat-card__user-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px; }
+
+.chat-card__tech-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto; }
+
+.chat-card__name {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 7px; }
+
+.chat-card__last-message {
+  font-size: 13px;
+  color: #999999;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  line-height: 1.1;
+  margin-right: 20px; }
+
+.chat-card__tech-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; }
+
+.chat-card__time {
+  color: #999999;
+  font-size: 10px;
+  line-height: 1; }
+
+.chat-card__new-messages-number {
+  background-color: #1BA5AB;
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 1;
+  padding: 5px 8px;
+  border-radius: 50%; }

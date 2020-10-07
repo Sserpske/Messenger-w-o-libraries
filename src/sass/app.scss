@@ -7,8 +7,11 @@
 /* Pages */
 @import "pages/registration";
 @import "pages/authorization";
+@import "pages/messenger-app";
 
 /* Blocks */
 @import "blocks/primary-form";
 @import "blocks/main-input";
 @import "blocks/main-button";
+@import "blocks/search-bar";
+@import "blocks/chat-card";
