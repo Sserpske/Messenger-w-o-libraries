@@ -326,6 +326,9 @@ body {
   margin: 0 auto;
   height: 100%; }
 
+.hidden {
+  display: none !important; }
+
 /* Pages */
 .registration {
   position: relative;
@@ -422,7 +425,7 @@ body {
 .authorization__form-buttons {
   margin-top: 150px; }
 
-.messenger-app {
+.messenger-app__wrapper {
   position: relative;
   height: 100vh; }
 
@@ -467,6 +470,7 @@ body {
     background-color: #999999; }
 
 .messenger-app__left-head {
+  position: relative;
   padding-left: 10px;
   padding-right: 10px; }
 
@@ -478,7 +482,8 @@ body {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  margin-left: 9px; }
+  margin-left: 9px;
+  cursor: pointer; }
 
 .messenger-app__chats-list {
   padding-left: 0; }
@@ -496,11 +501,124 @@ body {
   color: #1D6669;
   font-size: 16px; }
 
-.messenger-app__chat-area-wrapper {
+.messenger-app__chat-notice-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%; }
+
+.messenger-app__profile-menu {
+  top: 60px;
+  left: 16px; }
+
+.messenger-app__chat-area-wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+
+.messenger-app__user-tab {
+  position: static;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #EAEAEA;
+  padding-bottom: 10px;
+  padding-top: 10px; }
+
+.messenger-app__current-user-menu {
+  right: 0;
+  top: 50px; }
+
+.messenger-app__user-tab-menu-wrapper {
+  margin-left: auto;
+  position: relative; }
+
+.messenger-app__current-user-info {
+  display: flex;
+  align-items: center; }
+
+.messenger-app__current-user-avatar {
+  width: 35px;
+  border-radius: 50%;
+  margin-right: 8px; }
+
+.messenger-app__current-user-name {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1; }
+
+.messenger-app__user-tab-button {
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .messenger-app__user-tab-button:focus, .messenger-app__user-tab-button:hover {
+    background-color: #F5F5F5; }
+
+.messenger-app__chat-window {
+  flex: 1 1 0;
+  overflow-x: hidden;
+  overflow-y: auto; }
+  .messenger-app__chat-window::-webkit-scrollbar {
+    width: 6px;
+    height: 3px; }
+  .messenger-app__chat-window::-webkit-scrollbar-track {
+    background-color: #999; }
+  .messenger-app__chat-window::-webkit-scrollbar-track-piece {
+    background-color: #ffffff; }
+  .messenger-app__chat-window::-webkit-scrollbar-thumb {
+    background-color: #999999; }
+
+.messenger-app__footer-tab {
+  width: 100%;
+  border-top: 1px solid #EAEAEA;
+  display: flex;
+  padding-top: 11px;
+  padding-bottom: 11px; }
+
+.messenger-app__attachment-wrapper {
+  position: relative;
+  margin-right: 10px; }
+
+.messenger-app__attachment-menu {
+  bottom: 50px; }
+
+.messenger-app__attachment-button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0; }
+
+.messenger-app__insert-message-input {
+  background-color: #EFEFEF;
+  border-radius: 30px;
+  border: none;
+  outline: none; }
+
+.messenger-app__send-button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 12px; }
+
+.messenger-app__insert-message-wrapper {
+  flex: 1 1 0; }
+
+.messenger-app__insert-message-input {
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box; }
 
 /* Blocks */
 .primary-form {
@@ -677,3 +795,38 @@ body {
   line-height: 1;
   padding: 5px 8px;
   border-radius: 50%; }
+
+.context-menu {
+  position: absolute;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 12px;
+  min-width: 162px;
+  padding: 15px 24px;
+  z-index: 100;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.14);
+  white-space: nowrap; }
+
+.context-menu__list {
+  padding-left: 0;
+  margin: 0; }
+
+.context-menu__item {
+  list-style: none; }
+  .context-menu__item + .context-menu__item {
+    margin-top: 15px; }
+
+.context-menu__action {
+  display: flex;
+  align-items: center;
+  color: #1E1E1E;
+  text-decoration: none;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer; }
+
+.context-menu__icon {
+  max-width: 22px;
+  max-height: 22px;
+  margin-right: 8px; }
