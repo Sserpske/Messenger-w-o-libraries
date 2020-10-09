@@ -589,7 +589,7 @@ body {
   margin-right: 10px; }
 
 .messenger-app__attachment-menu {
-  bottom: 50px; }
+  bottom: 54px; }
 
 .messenger-app__attachment-button {
   border: none;
@@ -619,6 +619,33 @@ body {
   width: 100%;
   padding: 10px 20px;
   box-sizing: border-box; }
+
+.messenger-app__message-time {
+  color: #999999;
+  align-self: flex-end; }
+
+.messenger-app__message-container {
+  background-color: #f8f8f8;
+  border-radius: 0 12px 12px 12px;
+  padding: 11px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 80%;
+  max-width: 90%;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content; }
+  .messenger-app__message-container_right {
+    margin-left: auto;
+    margin-right: 10px;
+    background-color: #CAE8EA; }
+    .messenger-app__message-container_right .messenger-app__message-time {
+      color: #1D6669; }
+
+.messenger-app__message-body {
+  color: #1E1E1E; }
 
 /* Blocks */
 .primary-form {
