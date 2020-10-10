@@ -1,0 +1,45 @@
+.primary-form__fields-item {
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+.primary-form__fields-list {
+  padding: 0;
+  margin-bottom: 27px;
+}
+
+.primary-form__title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 27px;
+  margin-top: 18px;
+  text-align: center;
+  letter-spacing: .5px;
+}
+
+.primary-form__button {
+  background-color: #1BA5AB;
+  margin-bottom: 14px;
+  width: 100%;
+
+  &:hover {
+    background-color: #1D6669;
+  }
+}
+
+.primary-form__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.primary-form__subtle-button {
+  text-align: center;
+  font-size: 13px;
+  text-decoration: none;
+  color: #1D6669;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

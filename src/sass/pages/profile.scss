@@ -1,0 +1,145 @@
+.profile__wrapper {
+  position: relative;
+  height: 100vh;
+}
+
+.profile__background {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: -2;
+  opacity: 0.20;
+  background-color: rgba(#000000, 0.08);
+  background-image: url("images/pattern-cucumber.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.profile__shadow {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  background-color: rgba(#000000, 0.1);
+  overflow: hidden;
+}
+
+.profile__wrapper {
+  box-sizing: border-box;
+  position: relative;
+  background-color: #ffffff;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #999;
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: #ffffff;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #999999;
+  }
+}
+
+.profile__data-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 340px;
+}
+
+.profile__avatar {
+  width: 130px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.profile__display-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.profile__data {
+  margin-top: 60px;
+  width: 100%;
+}
+
+.profile__data-line {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  line-height: 1;
+
+  &+ .profile__data-line {
+    border-top: 1px solid #EAEAEA;
+    padding-top: 10px;
+  }
+}
+
+.profile__line-title {
+  font-weight: 600;
+  color: #1E1E1E;
+}
+
+.profile__line-value {
+  color: #999999;
+  font-weight: 600;
+}
+
+.profile__actions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 60px;
+}
+
+.profile__link {
+  text-decoration: none;
+  margin-bottom: 10px;
+  line-height: 1;
+  font-weight: 600;
+
+  &+ .profile__link {
+    padding-top: 10px;
+    border-top: 1px solid #EAEAEA;
+  }
+
+  &_green {
+    color: #1D6669;
+  }
+
+  &_red {
+    color: #E2534F;
+  }
+}
+
+.profile__return-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  background-color: #1BA5AB;
+  border-radius: 50%;
+  top: 10px;
+  left: 10px;
+}
+
+.profile__form {
+  width: 100%;
+}

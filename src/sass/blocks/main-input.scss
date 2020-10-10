@@ -1,0 +1,42 @@
+.main-input {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-input__error-message {
+  display: none;
+  font-size: 10px;
+  color: #E2534F;
+  line-height: 1;
+  margin-top: 7px;
+}
+
+.main-input__label {
+  font-size: 13px;
+  color: #999999;
+  line-height: 1;
+  margin-bottom: 5px;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 5px;
+  transition: 0.2s ease all;
+}
+
+.main-input__input:focus ~ .main-input__label,
+.main-input__input:valid ~ .main-input__label {
+  top: -15px;
+  font-size: 10px;
+}
+
+.main-input__input {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #1BA5AB;
+  transition: .3s;
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 0;
+  padding-bottom: 4px;
+}
