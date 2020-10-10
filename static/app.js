@@ -1,4 +1,5 @@
 const context_buttons = document.querySelectorAll('.js-toggle-context');
+const form_button = document.querySelector('.js-send-form');
 
 context_buttons.forEach((element) => {
   const menu_type = element.dataset.context;
@@ -7,4 +8,18 @@ context_buttons.forEach((element) => {
   element.addEventListener('click',() => {
     context_menu.classList.toggle('hidden');
   })
-})
+});
+
+form_button.addEventListener('click', (e) => {
+  const form = e.currentTarget.closest('form');
+  const fields = form.querySelectorAll('.main-input__input');
+  const fields_data = {};
+
+  e.preventDefault();
+
+  fields.forEach((input) => {
+    fields_data[input.name] = input.value;
+  })
+
+  console.log(fields_data);
+});

@@ -242,35 +242,3 @@
   padding: 10px 20px;
   box-sizing: border-box;
 }
-
-.messenger-app__message-time {
-  color: #999999;
-  align-self: flex-end;
-}
-
-.messenger-app__message-container {
-  background-color: #f8f8f8;
-  border-radius: 0 12px 12px 12px;
-  padding: 11px;
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 80%;
-  max-width: 90%;
-  max-width: fit-content;
-
-  &_right {
-    margin-left: auto;
-    margin-right: 10px;
-    background-color: #CAE8EA;
-
-    .messenger-app__message-time {
-      color: #1D6669;
-    }
-  }
-}
-
-.messenger-app__message-body {
-  color: #1E1E1E;
-}

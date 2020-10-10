@@ -8,6 +8,8 @@
 @import "pages/registration";
 @import "pages/authorization";
 @import "pages/messenger-app";
+@import "pages/profile";
+@import "pages/error";
 
 /* Blocks */
 @import "blocks/primary-form";
@@ -16,3 +18,4 @@
 @import "blocks/search-bar";
 @import "blocks/chat-card";
 @import "blocks/context-menu";
+@import "blocks/message";

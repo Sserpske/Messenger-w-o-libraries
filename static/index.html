@@ -18,49 +18,49 @@
           <ul class="primary-form__fields-list">
             <li class="primary-form__fields-item">
               <div class="main-input">
-                <input class="main-input__input" type="email" required>
+                <input class="main-input__input" type="email" name="email" required>
                 <label class="main-input__label">Почта</label>
                 <span class="main-input__error-message">Не правильная почта</span>
               </div>
             </li>
             <li class="primary-form__fields-item">
               <div class="main-input">
-                <input class="main-input__input" type="text" required>
+                <input class="main-input__input" type="text" name="login" required>
                 <label class="main-input__label">Логин</label>
                 <span class="main-input__error-message">Длина логина должна быть не менее 3 символов</span>
               </div>
             </li>
             <li class="primary-form__fields-item">
               <div class="main-input">
-                <input class="main-input__input" type="text" required>
+                <input class="main-input__input" type="text" name="phone" required>
                 <label class="main-input__label">Телефон</label>
                 <span class="main-input__error-message">Не правильный номер</span>
               </div>
             </li>
             <li class="primary-form__fields-item">
               <div class="main-input">
-                <input class="main-input__input" type="text" required>
+                <input class="main-input__input" type="text" name="first_name" required>
                 <label class="main-input__label">Имя</label>
                 <span class="main-input__error-message">Укажите имя</span>
               </div>
             </li>
             <li class="primary-form__fields-item">
               <div class="main-input">
-                <input class="main-input__input" type="text" required>
+                <input class="main-input__input" type="text" name="second_name" required>
                 <label class="main-input__label">Фамилия</label>
                 <span class="main-input__error-message">Укажите фамилию</span>
               </div>
             </li>
             <li class="primary-form__fields-item">
               <div class="main-input">
-                <input class="main-input__input" type="password" required>
+                <input class="main-input__input" type="password" name="password" required>
                 <label class="main-input__label">Пароль</label>
                 <span class="main-input__error-message">Укажите пароль</span>
               </div>
             </li>
             <li class="primary-form__fields-item">
               <div class="main-input">
-                <input class="main-input__input" type="password" required>
+                <input class="main-input__input" type="password" name="password" required>
                 <label class="main-input__label">Пароль (ещё раз)</label>
                 <span class="main-input__error-message">Пароли не совпадают</span>
               </div>
@@ -68,7 +68,7 @@
           </ul>
         </div>
         <div class="primary-form__buttons">
-          <button class="primary-form__button main-button">
+          <button class="primary-form__button main-button js-send-form">
             <span class="main-button__inner-text">Зарегистрироваться</span>
           </button>
           <a class="primary-form__subtle-button" href="auth.html">Войти</a>
@@ -77,5 +77,6 @@
     </div>
   </div>
 </main>
+<script src="app.js"></script>
 </body>
 </html>

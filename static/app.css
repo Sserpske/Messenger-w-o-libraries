@@ -374,7 +374,11 @@ body {
 
 .registration__form-wrapper {
   width: 340px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.14); }
 
 .authorization {
   position: relative;
@@ -420,7 +424,11 @@ body {
 
 .authorization__form-wrapper {
   width: 340px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.14); }
 
 .authorization__form-buttons {
   margin-top: 150px; }
@@ -620,40 +628,174 @@ body {
   padding: 10px 20px;
   box-sizing: border-box; }
 
-.messenger-app__message-time {
-  color: #999999;
-  align-self: flex-end; }
+.profile__wrapper {
+  position: relative;
+  height: 100vh; }
 
-.messenger-app__message-container {
-  background-color: #f8f8f8;
-  border-radius: 0 12px 12px 12px;
-  padding: 11px;
+.profile__background {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: -2;
+  opacity: 0.20;
+  background-color: rgba(0, 0, 0, 0.08);
+  background-image: url("images/pattern-cucumber.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden; }
+
+.profile__shadow {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.1);
+  overflow: hidden; }
+
+.profile__wrapper {
+  box-sizing: border-box;
+  position: relative;
+  background-color: #ffffff;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; }
+  .profile__wrapper::-webkit-scrollbar {
+    width: 8px;
+    height: 3px; }
+  .profile__wrapper::-webkit-scrollbar-track {
+    background-color: #999; }
+  .profile__wrapper::-webkit-scrollbar-track-piece {
+    background-color: #ffffff; }
+  .profile__wrapper::-webkit-scrollbar-thumb {
+    background-color: #999999; }
+
+.profile__data-wrapper {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 80%;
-  max-width: 90%;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content; }
-  .messenger-app__message-container_right {
-    margin-left: auto;
-    margin-right: 10px;
-    background-color: #CAE8EA; }
-    .messenger-app__message-container_right .messenger-app__message-time {
-      color: #1D6669; }
+  align-items: center;
+  width: 340px; }
 
-.messenger-app__message-body {
+.profile__avatar {
+  width: 130px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-bottom: 20px; }
+
+.profile__display-name {
+  font-size: 16px;
+  font-weight: 600; }
+
+.profile__data {
+  margin-top: 60px;
+  width: 100%; }
+
+.profile__data-line {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  line-height: 1; }
+  .profile__data-line + .profile__data-line {
+    border-top: 1px solid #EAEAEA;
+    padding-top: 10px; }
+
+.profile__line-title {
+  font-weight: 600;
   color: #1E1E1E; }
 
-/* Blocks */
-.primary-form {
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.14); }
+.profile__line-value {
+  color: #999999;
+  font-weight: 600; }
 
+.profile__actions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 60px; }
+
+.profile__link {
+  text-decoration: none;
+  margin-bottom: 10px;
+  line-height: 1;
+  font-weight: 600; }
+  .profile__link + .profile__link {
+    padding-top: 10px;
+    border-top: 1px solid #EAEAEA; }
+  .profile__link_green {
+    color: #1D6669; }
+  .profile__link_red {
+    color: #E2534F; }
+
+.profile__return-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  background-color: #1BA5AB;
+  border-radius: 50%;
+  top: 10px;
+  left: 10px; }
+
+.profile__form {
+  width: 100%; }
+
+.error__wrapper {
+  position: relative;
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.error__background {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: -2;
+  opacity: 0.20;
+  background-color: rgba(0, 0, 0, 0.08);
+  background-image: url("images/pattern-cucumber.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden; }
+
+.error__shadow {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.1);
+  overflow: hidden; }
+
+.error__text-wrapper {
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.error__code {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 20px; }
+
+.error__text {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 50px; }
+
+.error__return-link {
+  text-decoration: none;
+  color: #1D6669;
+  font-weight: 600; }
+
+/* Blocks */
 .primary-form__fields-item {
   list-style: none;
   margin-bottom: 25px; }
@@ -851,9 +993,40 @@ body {
   border: none;
   background: none;
   padding: 0;
-  cursor: pointer; }
+  cursor: pointer;
+  outline: none; }
 
 .context-menu__icon {
   max-width: 22px;
   max-height: 22px;
   margin-right: 8px; }
+
+.message__container {
+  background-color: #f8f8f8;
+  border-radius: 0 12px 12px 12px;
+  padding: 11px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 80%;
+  max-width: 90%;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content; }
+  .message__container_right {
+    margin-left: auto;
+    margin-right: 10px;
+    background-color: #CAE8EA;
+    border-radius: 12px 12px 0 12px; }
+    .message__container_right .message__time {
+      color: #1D6669; }
+    .message__container_right + .message__container:not(:last-child) {
+      margin-bottom: 20px; }
+
+.message__body {
+  color: #1E1E1E; }
+
+.message__time {
+  color: #999999;
+  align-self: flex-end; }
