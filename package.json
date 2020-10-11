@@ -6,16 +6,6 @@
   "dependencies": {},
   "devDependencies": {
     "express": "4.17.1",
-    "autoprefixer": "9.1.x",
-    "browser-sync": "2.24.x",
-    "gulp": "4.0.x",
-    "gulp-plumber": "1.2.x",
-    "gulp-postcss": "8.0.x",
-    "gulp-sass": "4.0.x"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
   },
   "repository": {
     "type": "git",
