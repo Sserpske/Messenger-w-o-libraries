@@ -12,7 +12,7 @@ context_buttons.forEach((element) => {
 
 form_button.addEventListener('click', (e) => {
   const form = e.currentTarget.closest('form');
-  const fields = form.querySelectorAll('.main-input__input');
+  const fields = form.querySelectorAll('.main-field__input');
   const fields_data = {};
 
   e.preventDefault();

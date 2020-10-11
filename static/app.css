@@ -305,12 +305,6 @@ template {
 [hidden] {
   display: none; }
 
-/*
-div::after {
-  @include pseudo;
-  top: -1rem; left: -1rem;
-  width: 1rem; height: 1rem;
-}*/
 body {
   margin: 0;
   padding: 0;
@@ -563,7 +557,6 @@ body {
   width: 25px;
   height: 25px;
   background-color: transparent;
-  outline: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -601,7 +594,6 @@ body {
 
 .messenger-app__attachment-button {
   border: none;
-  outline: none;
   background-color: transparent;
   cursor: pointer;
   padding: 0; }
@@ -614,7 +606,6 @@ body {
 
 .messenger-app__send-button {
   border: none;
-  outline: none;
   background-color: transparent;
   cursor: pointer;
   padding: 0;
@@ -832,19 +823,19 @@ body {
   .primary-form__subtle-button:hover {
     text-decoration: underline; }
 
-.main-input {
+.main-field {
   position: relative;
   display: flex;
   flex-direction: column; }
 
-.main-input__error-message {
+.main-field__error-message {
   display: none;
   font-size: 10px;
   color: #E2534F;
   line-height: 1;
   margin-top: 7px; }
 
-.main-input__label {
+.main-field__label {
   font-size: 13px;
   color: #999999;
   line-height: 1;
@@ -855,12 +846,12 @@ body {
   top: 5px;
   transition: 0.2s ease all; }
 
-.main-input__input:focus ~ .main-input__label,
-.main-input__input:valid ~ .main-input__label {
+.main-field__input:focus ~ .main-field__label,
+.main-field__input:valid ~ .main-field__label {
   top: -15px;
   font-size: 10px; }
 
-.main-input__input {
+.main-field__input {
   border: none;
   outline: none;
   border-bottom: 1px solid #1BA5AB;
@@ -993,8 +984,7 @@ body {
   border: none;
   background: none;
   padding: 0;
-  cursor: pointer;
-  outline: none; }
+  cursor: pointer; }
 
 .context-menu__icon {
   max-width: 22px;
@@ -1003,7 +993,7 @@ body {
 
 .message__container {
   background-color: #f8f8f8;
-  border-radius: 0 12px 12px 12px;
+  border-radius: 0 12px 12px;
   padding: 11px;
   display: flex;
   flex-direction: column;
@@ -1018,7 +1008,7 @@ body {
     margin-left: auto;
     margin-right: 10px;
     background-color: #CAE8EA;
-    border-radius: 12px 12px 0 12px; }
+    border-radius: 12px 12px 0; }
     .message__container_right .message__time {
       color: #1D6669; }
     .message__container_right + .message__container:not(:last-child) {

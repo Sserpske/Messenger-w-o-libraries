@@ -1,10 +1,10 @@
-.main-input {
+.main-field {
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
-.main-input__error-message {
+.main-field__error-message {
   display: none;
   font-size: 10px;
   color: #E2534F;
@@ -12,7 +12,7 @@
   margin-top: 7px;
 }
 
-.main-input__label {
+.main-field__label {
   font-size: 13px;
   color: #999999;
   line-height: 1;
@@ -24,13 +24,13 @@
   transition: 0.2s ease all;
 }
 
-.main-input__input:focus ~ .main-input__label,
-.main-input__input:valid ~ .main-input__label {
+.main-field__input:focus ~ .main-field__label,
+.main-field__input:valid ~ .main-field__label {
   top: -15px;
   font-size: 10px;
 }
 
-.main-input__input {
+.main-field__input {
   border: none;
   outline: none;
   border-bottom: 1px solid #1BA5AB;

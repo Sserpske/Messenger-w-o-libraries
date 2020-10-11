@@ -1,6 +1,6 @@
 .message__container {
   background-color: #f8f8f8;
-  border-radius: 0 12px 12px 12px;
+  border-radius: 0 12px 12px;
   padding: 11px;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
     margin-left: auto;
     margin-right: 10px;
     background-color: #CAE8EA;
-    border-radius: 12px 12px 0 12px;
+    border-radius: 12px 12px 0;
 
     .message__time {
       color: #1D6669;
