@@ -5,7 +5,7 @@
   "main": "server.js",
   "dependencies": {},
   "devDependencies": {
-    "express": "^4.17.1",
+    "express": "4.17.1",
     "autoprefixer": "9.1.x",
     "browser-sync": "2.24.x",
     "gulp": "4.0.x",
