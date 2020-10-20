@@ -2,9 +2,13 @@
 
 Учебный проект Мессенджер.
 
-Запустить можно командами ```node server.js``` или ```gulp server```.
+##Запуск проекта
+1. Поднадобятся ruby-sass ```sudo apt install ruby-sass``` и typescript ```npm install typescript```
+2. Собираем стили ```sass src/sass/app.scss static/app.css```
+3. Собираем TypeScript ```tsc --build ./tsconfig.json```
+4. Запускаем сервер ```node server.js```
 
-В проекте есть следующие страницы:
+##Страницы
 
 1. / - страница регистрации
 2. /auth.html - авторизация
