@@ -1,21 +1,16 @@
-import Block from "../modules/block";
+import Block from "../modules/block.js";
+import render from "../utils/render";
 
 class Button extends Block {
-    constructor(props) {
+    constructor(props: object) {
         // Создаем враппер дом-элемент button
-        super("button", props);
+        super('button', props);
     }
 
     render() {
         // В проект должен быть ваш собственный шаблонизатор
         // return `<div>${this.props.text}</div>`;
     }
-}
-
-function render(query, block) {
-    const root = document.querySelector(query);
-    root.appendChild(block.getContent());
-    return root;
 }
 
 const button = new Button({

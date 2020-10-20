@@ -1,4 +1,4 @@
-import EventBus from "./event-bus";
+import EventBus from "./event-bus.js";
 export default class Block {
     /** JSDoc
      * @param {string} tagName
@@ -6,9 +6,8 @@ export default class Block {
      *
      * @returns {void}
      */
-    constructor(tagName = "div", props = {}) {
-        this._element = null;
-        this._meta = null;
+    constructor(tagName = 'div', props = {}) {
+        // @ts-ignore
         this.setProps = (nextProps) => {
             if (!nextProps) {
                 return;
@@ -44,12 +43,17 @@ export default class Block {
         this.componentDidMount(oldProps);
     }
     // Может переопределять пользователь, необязательно трогать
-    componentDidMount(oldProps) { }
+    //TODO вернуться сюда и разобраться как использовать old new props
+    // @ts-ignore
+    componentDidMount(oldProps) {
+    }
     _componentDidUpdate(oldProps, newProps) {
         this._render();
+        // @ts-ignore
         const response = this.componentDidUpdate(oldProps, newProps);
     }
     // Может переопределять пользователь, необязательно трогать
+    // @ts-ignore
     componentDidUpdate(oldProps, newProps) {
         return true;
     }
@@ -62,24 +66,24 @@ export default class Block {
         // Используйте шаблонизатор из npm или напишите свой безопасный
         // Нужно не в строку компилировать (или делать это правильно),
         // либо сразу в DOM-элементы возвращать из compile DOM-ноду
+        // @ts-ignore
         this._element.innerHTML = block;
     }
     // Может переопределять пользователь, необязательно трогать
-    render() { }
+    render() {
+    }
     getContent() {
         return this.element;
     }
     _makePropsProxy(props) {
-        // Можно и так передать this
-        // Такой способ больше не применяется с приходом ES6+
-        const self = this;
         props = new Proxy(props, {
-            set(target, prop, value) {
+            set: (target, prop, value) => {
+                // @ts-ignore
                 target[prop] = value;
-                self.eventBus().emit(Block.EVENTS.FLOW_CDU);
+                this.eventBus().emit(Block.EVENTS.FLOW_CDU);
                 return true;
             },
-            deleteProperty(target, prop) {
+            deleteProperty() {
                 throw new Error('нет доступа');
             }
         });
