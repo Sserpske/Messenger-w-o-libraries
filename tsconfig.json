@@ -3,7 +3,6 @@
     "module": "ES6",
     "target": "ES6",
     "outDir": "./static/js",
-    "sourceMap": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -11,7 +10,7 @@
     "strictNullChecks": true
   },
   "include": [
-    "src/**/*",
+    "src/js/**/*",
     "global.d.ts"
   ],
   "exclude": [

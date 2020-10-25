@@ -5,4 +5,3 @@ export default function render(query, block) {
     }
     return root;
 }
-//# sourceMappingURL=render.js.map

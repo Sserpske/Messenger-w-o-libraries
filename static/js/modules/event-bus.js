@@ -25,4 +25,3 @@ export default class EventBus {
         });
     }
 }
-//# sourceMappingURL=event-bus.js.map

@@ -75,7 +75,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */ }
 
 /**
@@ -790,7 +791,7 @@ body {
   list-style: none;
   margin-bottom: 25px; }
 
-.primary-form__fields-list {
+.primary-form__fields-wrapper {
   padding: 0;
   margin-bottom: 27px; }
 
@@ -828,7 +829,6 @@ body {
   flex-direction: column; }
 
 .main-field__error-message {
-  display: none;
   font-size: 10px;
   color: #E2534F;
   line-height: 1;
@@ -932,8 +932,6 @@ body {
   color: #999999;
   display: -webkit-box;
   -webkit-line-clamp: 2;
-  -moz-box-orient: horizontal;
-  -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.1;
   margin-right: 20px; }
@@ -1002,6 +1000,8 @@ body {
   margin-bottom: 10px;
   width: 80%;
   max-width: 90%;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
   max-width: fit-content; }
   .message__container_right {
     margin-left: auto;
@@ -1019,5 +1019,3 @@ body {
 .message__time {
   color: #999999;
   align-self: flex-end; }
-
-/*# sourceMappingURL=app.css.map */

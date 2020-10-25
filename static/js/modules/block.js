@@ -47,15 +47,14 @@ export default class Block {
     // @ts-ignore
     componentDidMount(oldProps) {
     }
-    _componentDidUpdate(oldProps, newProps) {
+    _componentDidUpdate() {
         this._render();
         // @ts-ignore
-        const response = this.componentDidUpdate(oldProps, newProps);
+        const response = this.componentDidUpdate();
     }
     // Может переопределять пользователь, необязательно трогать
     // @ts-ignore
-    componentDidUpdate(oldProps, newProps) {
-        return true;
+    componentDidUpdate() {
     }
     get element() {
         return this._element;
@@ -106,4 +105,3 @@ Block.EVENTS = {
     FLOW_RENDER: "flow:render",
     FLOW_CDU: "flow:component-did-update"
 };
-//# sourceMappingURL=block.js.map
