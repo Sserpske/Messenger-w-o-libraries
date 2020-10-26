@@ -2,7 +2,7 @@ import auth_template from "../StartPages/start.tmpl.js";
 import Block from "../../modules/block.js";
 import MainField from "../../components/MainField/MainField.js";
 import Validate from "../../modules/Validate.js";
-import Button from "../../components/button/Button.js";
+import Button from "../../components/Button/Button.js";
 export default class StartPages extends Block {
     constructor(props) {
         super('div', {

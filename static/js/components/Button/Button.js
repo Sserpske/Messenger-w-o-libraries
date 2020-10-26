@@ -2,7 +2,6 @@ import Block from "../../modules/block.js";
 import button_template from './button.tmpl.js';
 export default class Button extends Block {
     constructor(props) {
-        // Создаем враппер дом-элемент button
         super('button', props);
     }
     render() {

@@ -488,13 +488,8 @@ body {
   cursor: pointer; }
 
 .messenger-app__chats-list {
-  padding-left: 0; }
-
-.messenger-app__chats-item {
-  box-sizing: border-box;
-  list-style: none;
-  border-top: 1px solid #EAEAEA;
-  position: relative; }
+  padding-left: 0;
+  margin-top: 14px; }
 
 .messenger-app__right-side {
   width: 71%; }
@@ -901,7 +896,8 @@ body {
   display: flex;
   padding: 12px 10px;
   cursor: pointer;
-  transition: .15s; }
+  transition: .15s;
+  border-top: 1px solid #EAEAEA; }
   .chat-card:hover {
     background-color: #CAE8EA; }
 
@@ -990,7 +986,7 @@ body {
   max-height: 22px;
   margin-right: 8px; }
 
-.message__container {
+.message {
   background-color: #f8f8f8;
   border-radius: 0 12px 12px;
   padding: 11px;
@@ -1003,14 +999,14 @@ body {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content; }
-  .message__container_right {
+  .message_right {
     margin-left: auto;
     margin-right: 10px;
     background-color: #CAE8EA;
     border-radius: 12px 12px 0; }
-    .message__container_right .message__time {
+    .message_right .message__time {
       color: #1D6669; }
-    .message__container_right + .message__container:not(:last-child) {
+    .message_right + .message:not(:last-child) {
       margin-bottom: 20px; }
 
 .message__body {

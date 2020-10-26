@@ -1,4 +1,4 @@
-.message__container {
+.message {
   background-color: #f8f8f8;
   border-radius: 0 12px 12px;
   padding: 11px;
@@ -20,7 +20,7 @@
       color: #1D6669;
     }
 
-    &+ .message__container:not(:last-child) {
+    &+ .message:not(:last-child) {
       margin-bottom: 20px;
     }
   }

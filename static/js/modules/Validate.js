@@ -33,13 +33,13 @@ export default class Validate {
         };
         this.validateMap = {
             email: {
-                regex: /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/
+                regex: /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,}$/
             },
             password: {
                 regex: /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/
             },
             text: {
-                regex: /^[a-zA-Z][a-zA-Z0-9-_.]{2,20}$/
+                regex: /^[a-zа-я][a-zа-я0-9\w\s]{2,}$/ui
             },
             phone: {
                 regex: /^([+]+)*[0-9\x20\x28\x29\-]{5,20}$/
