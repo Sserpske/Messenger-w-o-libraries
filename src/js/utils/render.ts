@@ -1,6 +1,5 @@
-import ErrorPage from "../pages/ErrorPages/ErrorPage";
-
-export default function render(query: string, block: ErrorPage) {
+// @ts-ignore
+export default function render(query: string, block) {
   const root = document.querySelector(query);
 
   if (root) {

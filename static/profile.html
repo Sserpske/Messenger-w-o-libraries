@@ -6,36 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="app.css">
 </head>
-<body class="profile">
-<main class="profile__main">
-  <div class="profile__background"></div>
-  <div class="profile__shadow"></div>
-  <div class="profile__wrapper container">
-    <a class="profile__return-button" href="chat.html">
-      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-        <rect x="15" y="8.50006" width="13.75" height="2" transform="rotate(-180 15 8.50006)" fill="white"/>
-        <path d="M6.25 13.75L1.25 7.5L6.25 1.25" stroke="white" stroke-width="1.6"/>
-      </svg>
-    </a>
-    <div class="profile__data-wrapper">
-      <img class="profile__avatar" src="images/user.jpeg">
-      <div class="profile__display-name">Саша</div>
-      <div class="profile__data">
-        <div class="profile__data-line">
-          <div class="profile__line-title">Почта</div>
-          <div class="profile__line-value">mail@inbox.com</div>
-        </div>
-        <div class="profile__data-line">
-          <div class="profile__line-title">Логин</div>
-          <div class="profile__line-value">username</div>
-        </div>
-      </div>
-      <div class="profile__actions">
-        <a class="profile__link profile__link_green" href="edit_profile.html">Изменить данные</a>
-        <a class="profile__link profile__link_red" href="auth.html?logout=yes">Выйти</a>
-      </div>
-    </div>
-  </div>
-</main>
+<body>
+<div class="root">
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+<script src="js/pages/Profile/Profile.js" type="module"></script>
 </body>
 </html>

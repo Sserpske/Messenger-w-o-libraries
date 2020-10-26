@@ -4,7 +4,7 @@ import MainField from "../../components/MainField/MainField.js";
 import Validate from "../../modules/Validate.js";
 import Button from "../../components/Button/Button.js";
 
-interface IAuthPage {
+interface IStartPages {
   fields_data: {},
   title: string,
   button: {
@@ -19,7 +19,7 @@ interface IAuthPage {
 export default class StartPages extends Block {
   private validate: any;
   private fields: any;
-  constructor(props: IAuthPage) {
+  constructor(props: IStartPages) {
     super('div', {
       fields: new MainField({
         // @ts-ignore

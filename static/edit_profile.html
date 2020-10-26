@@ -6,97 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="app.css">
 </head>
-<body class="profile">
-<main class="profile__main">
-  <div class="profile__background"></div>
-  <div class="profile__shadow"></div>
-  <div class="profile__wrapper container">
-    <a class="profile__return-button" href="chat.html">
-      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-        <rect x="15" y="8.50006" width="13.75" height="2" transform="rotate(-180 15 8.50006)" fill="white"/>
-        <path d="M6.25 13.75L1.25 7.5L6.25 1.25" stroke="white" stroke-width="1.6"/>
-      </svg>
-    </a>
-    <div class="profile__data-wrapper">
-      <img class="profile__avatar" src="images/user.jpeg">
-      <div class="profile__form primary-form">
-        <form class="primary-form__form" method="post" action="">
-          <div class="primary-form__fields-wrapper">
-            <ul class="primary-form__fields-list">
-              <li class="primary-form__fields-item">
-                <div class="main-field">
-                  <input class="main-field__input" type="email" name="email" required>
-                  <label class="main-field__label">Почта</label>
-                  <span class="main-field__error-message">Не правильная почта</span>
-                </div>
-              </li>
-              <li class="primary-form__fields-item">
-                <div class="main-field">
-                  <input class="main-field__input" type="text" name="login" required>
-                  <label class="main-field__label">Логин</label>
-                  <span class="main-field__error-message">Длина логина должна быть не менее 3 символов</span>
-                </div>
-              </li>
-              <li class="primary-form__fields-item">
-                <div class="main-field">
-                  <input class="main-field__input" type="text" name="phone" required>
-                  <label class="main-field__label">Телефон</label>
-                  <span class="main-field__error-message">Не правильный номер</span>
-                </div>
-              </li>
-              <li class="primary-form__fields-item">
-                <div class="main-field">
-                  <input class="main-field__input" type="text" name="display_name" required>
-                  <label class="main-field__label">Отображаемое имя</label>
-                  <span class="main-field__error-message">Укажите имя</span>
-                </div>
-              </li>
-              <li class="primary-form__fields-item">
-                <div class="main-field">
-                  <input class="main-field__input" type="text" name="first_name" required>
-                  <label class="main-field__label">Имя</label>
-                  <span class="main-field__error-message">Укажите имя</span>
-                </div>
-              </li>
-              <li class="primary-form__fields-item">
-                <div class="main-field">
-                  <input class="main-field__input" type="text" name="second_name" required>
-                  <label class="main-field__label">Фамилия</label>
-                  <span class="main-field__error-message">Укажите фамилию</span>
-                </div>
-              </li>
-              <li class="primary-form__fields-item">
-                <div class="main-field">
-                  <input class="main-field__input" type="password" name="password" required>
-                  <label class="main-field__label">Старый пароль</label>
-                  <span class="main-field__error-message">Укажите пароль</span>
-                </div>
-              </li>
-              <li class="primary-form__fields-item">
-                <div class="main-field">
-                  <input class="main-field__input" type="password" name="password" required>
-                  <label class="main-field__label">Новый пароль</label>
-                  <span class="main-field__error-message">Укажите пароль</span>
-                </div>
-              </li>
-              <li class="primary-form__fields-item">
-                <div class="main-field">
-                  <input class="main-field__input" type="password" name="password" required>
-                  <label class="main-field__label">Новый пароль (ещё раз)</label>
-                  <span class="main-field__error-message">Пароли не совпадают</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="primary-form__buttons">
-            <button class="primary-form__button main-button js-send-form">
-              <span class="main-button__inner-text">Сохранить</span>
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</main>
+<body>
+<div class="root">
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+<script src="js/pages/EditProfile/EditProfile.js" type="module"></script>
 </body>
 </html>
