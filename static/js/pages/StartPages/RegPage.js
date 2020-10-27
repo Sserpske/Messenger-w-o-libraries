@@ -53,7 +53,7 @@ const page = new StartPages({
                 type: 'password',
                 name: 'password',
                 label: 'Пароль',
-                error_message: 'Не менее 8 символов, строчных и прописных латинских букв и цифр',
+                error_message: 'Не менее 8 символов, строчных и прописных букв и цифр',
                 validation_type: 'password'
             },
         ],
