@@ -37,7 +37,7 @@ class ChatsPage extends Block {
       const context_menu = this._element.querySelector('.js-context-' + menu_type);
 
       if (!context_menu) {
-        return
+        return;
       }
 
       element.addEventListener('click',() => {
