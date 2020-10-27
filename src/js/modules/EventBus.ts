@@ -2,8 +2,8 @@ export interface IEventBus {
   listeners: {
     [key: string]: Function[]
   }
-  on(event: string, callback: Function): void;
-  off(event: string, callback: Function): void;
+  on(event: string, callback: () => void): void;
+  off(event: string, callback: () => void): void;
   emit(event: string, ...args: []): void;
 }
 
@@ -16,7 +16,7 @@ export default class EventBus implements IEventBus {
     this.listeners = {};
   }
 
-  on(event: string, callback: Function):void {
+  on(event: string, callback: () => void): void {
     if (!this.listeners[event]) {
       this.listeners[event] = [];
     }
@@ -24,7 +24,7 @@ export default class EventBus implements IEventBus {
     this.listeners[event].push(callback);
   }
 
-  off(event: string, callback: Function):void {
+  off(event: string, callback: () => void): void {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`);
     }
@@ -39,7 +39,7 @@ export default class EventBus implements IEventBus {
       throw new Error(`Нет события: ${event}`);
     }
 
-    this.listeners[event].forEach(function (listener: () => {}) {
+    this.listeners[event].forEach(function (listener: (args?: []) => void) {
       listener(...args);
     });
   }

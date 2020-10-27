@@ -18,17 +18,19 @@ class ChatsPage extends Block {
     }
     bindEvents() {
         const button = this._element.querySelectorAll('.js-toggle-context');
-        if (button) {
-            button.forEach((element) => {
-                const menu_type = element.dataset.context;
-                const context_menu = this._element.querySelector('.js-context-' + menu_type);
-                element.addEventListener('click', () => {
-                    if (context_menu) {
-                        context_menu.classList.toggle('hidden');
-                    }
-                });
-            });
+        if (!button) {
+            return;
         }
+        button.forEach((element) => {
+            const menu_type = element.dataset.context;
+            const context_menu = this._element.querySelector('.js-context-' + menu_type);
+            if (!context_menu) {
+                return;
+            }
+            element.addEventListener('click', () => {
+                context_menu.classList.toggle('hidden');
+            });
+        });
     }
     componentDidMount() {
         this.bindEvents();

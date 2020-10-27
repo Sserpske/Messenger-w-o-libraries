@@ -21,18 +21,20 @@ class EditProfile extends Block {
         this.validate = new Validate(this._element);
         this.fields = this._element.querySelectorAll('input');
         const button = this._element.querySelector('.js-send-form');
-        if (button) {
-            button.addEventListener('click', (e) => {
-                const fields_data = {};
-                e.preventDefault();
-                if (this.validate.isFormValid(e)) {
-                    this.fields.forEach((input) => {
-                        fields_data[input.name] = input.value;
-                    });
-                    console.log(fields_data);
-                }
-            });
+        if (!button) {
+            return;
         }
+        button.addEventListener('click', (e) => {
+            const fields_data = {};
+            e.preventDefault();
+            if (!this.validate.isFormValid(e)) {
+                return;
+            }
+            this.fields.forEach((input) => {
+                fields_data[input.name] = input.value;
+            });
+            console.log(fields_data);
+        });
     }
     componentDidMount() {
         this.bindEvents();
@@ -100,7 +102,7 @@ const page = new EditProfile({
                 type: 'password',
                 name: 'oldPassword',
                 label: 'Старый пароль',
-                error_message: 'Пароль должен содержать строчные и прописные латинские буквы, цифры и не должен быть короче 8 символов',
+                error_message: 'Не менее 8 символов, строчных и прописных латинских букв и цифр',
                 validation_type: 'password'
             },
             {
@@ -108,7 +110,7 @@ const page = new EditProfile({
                 type: 'password',
                 name: 'newPassword',
                 label: 'Новый пароль',
-                error_message: 'Пароль должен содержать строчные и прописные латинские буквы, цифры и не должен быть короче 8 символов',
+                error_message: 'Не менее 8 символов, строчных и прописных латинских букв и цифр',
                 validation_type: 'password'
             },
         ],

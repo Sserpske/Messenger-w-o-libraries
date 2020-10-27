@@ -6,7 +6,6 @@ export default class MainField extends Block {
     }
     render() {
         const template = Handlebars.compile(message_template);
-        // @ts-ignore
         const { messages_data } = this.props;
         return template({ messages_data });
     }

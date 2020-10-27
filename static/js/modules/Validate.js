@@ -21,9 +21,7 @@ export default class Validate {
                     error_message.classList.add('hidden');
                     return true;
                 }
-                else {
-                    error_message.classList.remove('hidden');
-                }
+                error_message.classList.remove('hidden');
             }
             return false;
         };

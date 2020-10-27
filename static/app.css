@@ -912,7 +912,7 @@ body {
 /* Blocks */
 .primary-form__fields-item {
   list-style: none;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
 }
 
 .primary-form__fields-wrapper {
@@ -965,6 +965,8 @@ body {
   color: #E2534F;
   line-height: 1;
   margin-top: 7px;
+  position: absolute;
+  bottom: -11px;
 }
 
 .main-field__label {
@@ -1005,43 +1007,6 @@ body {
   font-size: 13px;
   cursor: pointer;
   transition: 0.2s;
-}
-
-.search-bar {
-  position: relative;
-}
-
-.search-bar__input {
-  border: 1px solid #EAEAEA;
-  background-color: #EFEFEF;
-  outline: none;
-  width: 100%;
-  border-radius: 6px;
-  padding: 5px 10px;
-}
-.search-bar__input:focus::-webkit-input-placeholder {
-  color: transparent;
-}
-.search-bar__input::-webkit-input-placeholder {
-  text-align: center;
-}
-.search-bar__input:focus::-moz-placeholder {
-  color: transparent;
-}
-.search-bar__input::-moz-placeholder {
-  text-align: center;
-}
-.search-bar__input:focus:-moz-placeholder {
-  color: transparent;
-}
-.search-bar__input:-moz-placeholder {
-  text-align: center;
-}
-.search-bar__input:focus:-ms-input-placeholder {
-  color: transparent;
-}
-.search-bar__input:-ms-input-placeholder {
-  text-align: center;
 }
 
 .chat-card {
