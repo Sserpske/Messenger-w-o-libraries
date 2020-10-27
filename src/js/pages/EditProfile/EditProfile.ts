@@ -1,0 +1,146 @@
+import auth_template from "./edit_profile.tmpl.js"
+import Block from "../../modules/Block.js";
+import MainField from "../../components/MainField/MainField.js";
+import Validate from "../../modules/Validate.js";
+import Button from "../../components/Button/Button.js";
+import render from "../../utils/render.js";
+
+interface IEditProfile {
+  fields_data: {
+    fields: Object[];
+    wrapper_class: string;
+  },
+  button: {
+    text: string;
+    button_class: string;
+  },
+}
+
+class EditProfile extends Block {
+  private validate: Validate;
+  private fields: NodeListOf<HTMLInputElement> | HTMLInputElement[];
+
+  constructor(props: IEditProfile) {
+    super('div', {
+      fields: new MainField({
+        wrapper_class: props.fields_data.wrapper_class,
+        fields: props.fields_data.fields
+      }),
+      button: new Button({
+        button_class: props.button.button_class,
+        text: props.button.text
+      })
+    });
+  }
+
+  bindEvents() {
+    this.validate = new Validate(this._element);
+    this.fields = this._element.querySelectorAll('input');
+
+    const button = this._element.querySelector('.js-send-form');
+
+    if (button) {
+      button.addEventListener('click', (e) => {
+        const fields_data: { [key: string]: string } = {};
+        e.preventDefault();
+
+        if (this.validate.isFormValid(e)) {
+          this.fields.forEach((input: HTMLInputElement) => {
+            fields_data[input.name] = input.value;
+          })
+
+          console.log(fields_data);
+        }
+      })
+    }
+  }
+
+  componentDidMount() {
+    this.bindEvents();
+  }
+
+  render() {
+    const template = Handlebars.compile(auth_template);
+    const { title, fields, button, change_button, page_class, link } = this.props;
+
+    return template({ fields: fields.render(), title, button: button.render(), change_button, page_class, link });
+  }
+}
+
+const page = new EditProfile({
+  fields_data: {
+    wrapper_class: 'primary-form__fields-wrapper',
+    fields: [
+      {
+        field_class: 'primary-form__fields-item',
+        type: 'email',
+        name: 'email',
+        label: 'Почта',
+        error_message: 'Не правильная почта',
+        validation_type: 'email'
+      },
+      {
+        field_class: 'primary-form__fields-item',
+        type: 'text',
+        name: 'login',
+        label: 'Логин',
+        error_message: 'Длина логина должна быть не менее 3 символов',
+        validation_type: 'text'
+      },
+      {
+        field_class: 'primary-form__fields-item',
+        type: 'text',
+        name: 'phone',
+        label: 'Телефон',
+        error_message: 'Не правильный номер',
+        validation_type: 'phone'
+      },
+      {
+        field_class: 'primary-form__fields-item',
+        type: 'text',
+        name: 'display_name',
+        label: 'Отображаемое имя',
+        error_message: 'Отображаемое имя не должно быть короче 3 символов',
+        validation_type: 'text'
+      },
+      {
+        field_class: 'primary-form__fields-item',
+        type: 'text',
+        name: 'first_name',
+        label: 'Имя',
+        error_message: 'Имя не должно быть короче 3 символов',
+        validation_type: 'text'
+      },
+      {
+        field_class: 'primary-form__fields-item',
+        type: 'text',
+        name: 'second_name',
+        label: 'Фамилия',
+        error_message: 'Укажите фамилию',
+        validation_type: 'text'
+      },
+      {
+        field_class: 'primary-form__fields-item',
+        type: 'password',
+        name: 'oldPassword',
+        label: 'Старый пароль',
+        error_message: 'Пароль должен содержать строчные и прописные латинские буквы, цифры и не должен быть короче 8 символов',
+        validation_type: 'password'
+      },
+      {
+        field_class: 'primary-form__fields-item',
+        type: 'password',
+        name: 'newPassword',
+        label: 'Новый пароль',
+        error_message: 'Пароль должен содержать строчные и прописные латинские буквы, цифры и не должен быть короче 8 символов',
+        validation_type: 'password'
+      },
+    ],
+  },
+  button: {
+    button_class: 'primary-form__button',
+    text: 'Сохранить'
+  }
+});
+
+render('.root', page);

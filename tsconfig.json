@@ -2,11 +2,15 @@
   "compilerOptions": {
     "module": "ES6",
     "target": "ES6",
-    "outDir": "./static/",
-    "sourceMap": true
+    "outDir": "./static/js",
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true
   },
   "include": [
-    "src/**/*",
+    "src/js/**/*",
     "global.d.ts"
   ],
   "exclude": [
