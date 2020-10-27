@@ -1,1 +1,0 @@
-{"version":3,"file":"render.js","sourceRoot":"","sources":["../../../src/utils/render.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,OAAO,UAAU,MAAM,CAAC,KAAa,EAAE,KAAgB;IAC5D,MAAM,IAAI,GAAG,QAAQ,CAAC,aAAa,CAAC,KAAK,CAAC,CAAC;IAE3C,IAAI,IAAI,EAAE;QACR,IAAI,CAAC,WAAW,CAAC,KAAK,CAAC,UAAU,EAAE,CAAC,CAAC;KACtC;IAED,OAAO,IAAI,CAAC;AACd,CAAC"}
