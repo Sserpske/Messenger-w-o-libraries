@@ -128,7 +128,7 @@ const page = new EditProfile({
         type: 'password',
         name: 'oldPassword',
         label: 'Старый пароль',
-        error_message: 'Не менее 8 символов, строчных и прописных латинских букв и цифр',
+        error_message: 'Не менее 8 символов, строчных и прописных букв и цифр',
         validation_type: 'password'
       },
       {
@@ -136,7 +136,7 @@ const page = new EditProfile({
         type: 'password',
         name: 'newPassword',
         label: 'Новый пароль',
-        error_message: 'Не менее 8 символов, строчных и прописных латинских букв и цифр',
+        error_message: 'Не менее 8 символов, строчных и прописных букв и цифр',
         validation_type: 'password'
       },
     ],
