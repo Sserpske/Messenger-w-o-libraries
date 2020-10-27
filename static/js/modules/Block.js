@@ -1,13 +1,6 @@
-import EventBus from "./event-bus.js";
+import EventBus from "./EventBus.js";
 export default class Block {
-    /** JSDoc
-     * @param {string} tagName
-     * @param {Object} props
-     *
-     * @returns {void}
-     */
     constructor(tagName = 'div', props = {}) {
-        // @ts-ignore
         this.setProps = (nextProps) => {
             if (!nextProps) {
                 return;
@@ -38,38 +31,27 @@ export default class Block {
         this._createResources();
         this.eventBus().emit(Block.EVENTS.FLOW_CDM);
     }
-    _componentDidMount(oldProps) {
+    _componentDidMount() {
         this._render();
-        this.componentDidMount(oldProps);
+        this.componentDidMount();
     }
-    // Может переопределять пользователь, необязательно трогать
-    //TODO вернуться сюда и разобраться как использовать old new props
-    // @ts-ignore
-    componentDidMount(oldProps) {
+    componentDidMount() {
     }
     _componentDidUpdate() {
         this._render();
-        // @ts-ignore
-        const response = this.componentDidUpdate();
+        this.componentDidUpdate();
     }
-    // Может переопределять пользователь, необязательно трогать
-    // @ts-ignore
     componentDidUpdate() {
     }
     get element() {
         return this._element;
     }
     _render() {
-        const block = this.render();
-        // Этот небезопасный метод для упрощения логики
-        // Используйте шаблонизатор из npm или напишите свой безопасный
-        // Нужно не в строку компилировать (или делать это правильно),
-        // либо сразу в DOM-элементы возвращать из compile DOM-ноду
-        // @ts-ignore
-        this._element.innerHTML = block;
+        this._element.innerHTML = this.render();
     }
     // Может переопределять пользователь, необязательно трогать
     render() {
+        return '';
     }
     getContent() {
         return this.element;
@@ -77,7 +59,6 @@ export default class Block {
     _makePropsProxy(props) {
         props = new Proxy(props, {
             set: (target, prop, value) => {
-                // @ts-ignore
                 target[prop] = value;
                 this.eventBus().emit(Block.EVENTS.FLOW_CDU);
                 return true;

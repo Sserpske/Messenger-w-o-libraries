@@ -1,5 +1,5 @@
 import error_template from "./error.tmpl.js";
-import Block from "../../modules/block.js";
+import Block from "../../modules/Block.js";
 export default class ErrorPage extends Block {
     constructor(props) {
         super('div', props);

@@ -1,27 +1,43 @@
-import EventBus from "./event-bus.js";
+import EventBus, {IEventBus} from "./EventBus.js";
+import { props_type } from "../types/Types.js"
 
-export default class Block {
+export interface IBlock {
+  _element: HTMLElement,
+  _meta: {
+    tagName: string,
+    props: {}
+  },
+  props: {},
+  eventBus: () => EventBus,
+  _registerEvents(EventBus: IEventBus): void,
+  _createResources(): void,
+  init(): void,
+  _componentDidMount(): void,
+  componentDidMount(): void,
+  _componentDidUpdate(): void,
+  componentDidUpdate(): void,
+  setProps(nextProps:{}): void,
+  _render(): void,
+  render(): string,
+  getContent(): HTMLElement
+}
+
+export default class Block implements IBlock {
+  _element: HTMLElement;
+  _meta: {
+    tagName: string,
+    props: {}
+  };
+  props: props_type;
+  eventBus: () => EventBus;
+
   static EVENTS = {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",
     FLOW_RENDER: "flow:render",
     FLOW_CDU: "flow:component-did-update"
-  };
+  }
 
-  protected _element: HTMLElement;
-  private _meta: {
-    tagName: string,
-    props: object
-  };
-  public props: object;
-  private eventBus: () => EventBus;
-
-  /** JSDoc
-   * @param {string} tagName
-   * @param {Object} props
-   *
-   * @returns {void}
-   */
   constructor(tagName: string = 'div', props: object = {}) {
     const eventBus = new EventBus();
     this._meta = {
@@ -37,49 +53,42 @@ export default class Block {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  _registerEvents(eventBus: any) {
+  _registerEvents(eventBus: IEventBus): void {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
   }
 
-  _createResources() {
+  _createResources(): void {
     const { tagName } = this._meta;
     this._element = this._createDocumentElement(tagName);
   }
 
-  init() {
+  init(): void {
     this._createResources();
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
   }
 
-  _componentDidMount(oldProps: object) {
+  _componentDidMount(): void {
     this._render();
 
-    this.componentDidMount(oldProps);
+    this.componentDidMount();
   }
 
-  // Может переопределять пользователь, необязательно трогать
-  //TODO вернуться сюда и разобраться как использовать old new props
-  // @ts-ignore
-  componentDidMount(oldProps) {
+  componentDidMount(): void {
   }
 
-  _componentDidUpdate() {
+  _componentDidUpdate(): void {
     this._render();
 
-    // @ts-ignore
-    const response = this.componentDidUpdate();
+    this.componentDidUpdate();
   }
 
-  // Может переопределять пользователь, необязательно трогать
-  // @ts-ignore
-  componentDidUpdate():void {
+  componentDidUpdate(): void {
   }
 
-  // @ts-ignore
-  setProps = (nextProps) => {
+  setProps = (nextProps: {}): void => {
     if (!nextProps) {
       return;
     }
@@ -87,32 +96,26 @@ export default class Block {
     Object.assign(this.props, nextProps);
   };
 
-  get element() {
+  get element(): HTMLElement {
     return this._element;
   }
 
-  _render() {
-    const block = this.render();
-    // Этот небезопасный метод для упрощения логики
-    // Используйте шаблонизатор из npm или напишите свой безопасный
-    // Нужно не в строку компилировать (или делать это правильно),
-    // либо сразу в DOM-элементы возвращать из compile DOM-ноду
-    // @ts-ignore
-    this._element.innerHTML = block;
+  _render(): void {
+    this._element.innerHTML = this.render();
   }
 
   // Может переопределять пользователь, необязательно трогать
-  render() {
+  render(): string {
+    return '';
   }
 
-  getContent() {
+  getContent(): HTMLElement {
     return this.element;
   }
 
   _makePropsProxy(props: object) {
     props = new Proxy(props, {
-      set: (target, prop, value) => {
-        // @ts-ignore
+      set: (target: {[key: string]: string}, prop: keyof {}, value: any): boolean => {
         target[prop] = value;
 
         this.eventBus().emit(Block.EVENTS.FLOW_CDU);

@@ -9,9 +9,6 @@ export default '' +
 '          <div class="messenger-app__user">\n' +
 '            <img class="messenger-app__user-avatar js-toggle-context" data-context="profile" src="images/user.jpeg">\n' +
 '          </div>\n' +
-'          <div class="search-bar">\n' +
-'            <input class="search-bar__input" placeholder="Поиск" type="search">\n' +
-'          </div>\n' +
 '          <div class="messenger-app__profile-menu context-menu js-context-profile hidden">\n' +
 '            <ul class="context-menu__list">\n' +
 '              <li class="context-menu__item">\n' +

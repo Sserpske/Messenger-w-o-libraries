@@ -1,4 +1,4 @@
-import Block from "../../modules/block.js";
+import Block from "../../modules/Block.js";
 import chats_template from "./profile.tmpl.js";
 import render from "../../utils/render.js";
 class ProfilePage extends Block {

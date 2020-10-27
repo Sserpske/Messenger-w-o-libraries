@@ -1,4 +1,4 @@
-import Block from "../../modules/block.js";
+import Block from "../../modules/Block.js";
 import chats_template from "./chats.tmpl.js";
 import render from "../../utils/render.js";
 import ChatCard from "../../components/ChatCard/ChatCard.js";
@@ -20,7 +20,6 @@ class ChatsPage extends Block {
         const button = this._element.querySelectorAll('.js-toggle-context');
         if (button) {
             button.forEach((element) => {
-                // @ts-ignore
                 const menu_type = element.dataset.context;
                 const context_menu = this._element.querySelector('.js-context-' + menu_type);
                 element.addEventListener('click', () => {
@@ -36,7 +35,6 @@ class ChatsPage extends Block {
     }
     render() {
         const template = Handlebars.compile(chats_template);
-        // @ts-ignore
         const { chat_cards, messages, conversation_name, conversation_img } = this.props;
         return template({ chat_cards: chat_cards.render(), messages: messages.render(), conversation_name, conversation_img });
     }
@@ -162,6 +160,3 @@ const page = new ChatsPage({
     ]
 });
 render('.root', page);
-const chat_window = document.querySelector('.messenger-app__chat-window');
-// @ts-ignore
-chat_window.scrollTop = chat_window.scrollHeight;
