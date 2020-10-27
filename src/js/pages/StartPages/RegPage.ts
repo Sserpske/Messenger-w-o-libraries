@@ -54,7 +54,7 @@ const page = new StartPages({
         type: 'password',
         name: 'password',
         label: 'Пароль',
-        error_message: 'Пароль должен содержать строчные и прописные латинские буквы, цифры и не должен быть короче 8 символов',
+        error_message: 'Не менее 8 символов, строчных и прописных латинских букв и цифр',
         validation_type: 'password'
       },
     ],

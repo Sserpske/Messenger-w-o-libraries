@@ -46,20 +46,24 @@ export default class StartPages extends Block {
 
     const button = this._element.querySelector('.js-send-form');
 
-    if (button) {
-      button.addEventListener('click', (e) => {
-        const fields_data: { [key: string]: string } = {};
-        e.preventDefault();
-
-        if (this.validate.isFormValid(e)) {
-          this.fields.forEach((input: HTMLInputElement) => {
-            fields_data[input.name] = input.value;
-          })
-
-          console.log(fields_data);
-        }
-      })
+    if (!button) {
+      return;
     }
+
+    button.addEventListener('click', (e) => {
+      const fields_data: { [key: string]: string } = {};
+      e.preventDefault();
+
+      if (!this.validate.isFormValid(e)) {
+        return;
+      }
+
+      this.fields.forEach((input: HTMLInputElement) => {
+        fields_data[input.name] = input.value;
+      })
+
+      console.log(fields_data);
+    })
   }
 
   componentDidMount() {

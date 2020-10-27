@@ -39,20 +39,24 @@ class EditProfile extends Block {
 
     const button = this._element.querySelector('.js-send-form');
 
-    if (button) {
-      button.addEventListener('click', (e) => {
-        const fields_data: { [key: string]: string } = {};
-        e.preventDefault();
-
-        if (this.validate.isFormValid(e)) {
-          this.fields.forEach((input: HTMLInputElement) => {
-            fields_data[input.name] = input.value;
-          })
-
-          console.log(fields_data);
-        }
-      })
+    if (!button) {
+      return;
     }
+
+    button.addEventListener('click', (e) => {
+      const fields_data: { [key: string]: string } = {};
+      e.preventDefault();
+
+      if (!this.validate.isFormValid(e)) {
+        return;
+      }
+
+      this.fields.forEach((input: HTMLInputElement) => {
+        fields_data[input.name] = input.value;
+      })
+
+      console.log(fields_data);
+    })
   }
 
   componentDidMount() {
@@ -124,7 +128,7 @@ const page = new EditProfile({
         type: 'password',
         name: 'oldPassword',
         label: 'Старый пароль',
-        error_message: 'Пароль должен содержать строчные и прописные латинские буквы, цифры и не должен быть короче 8 символов',
+        error_message: 'Не менее 8 символов, строчных и прописных латинских букв и цифр',
         validation_type: 'password'
       },
       {
@@ -132,7 +136,7 @@ const page = new EditProfile({
         type: 'password',
         name: 'newPassword',
         label: 'Новый пароль',
-        error_message: 'Пароль должен содержать строчные и прописные латинские буквы, цифры и не должен быть короче 8 символов',
+        error_message: 'Не менее 8 символов, строчных и прописных латинских букв и цифр',
         validation_type: 'password'
       },
     ],
