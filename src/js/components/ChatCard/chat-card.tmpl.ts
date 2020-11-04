@@ -1,6 +1,6 @@
 export default '' +
 '{{#each chat_cards_data}}' +
-'  <div class="chat-card">\n' +
+'  <div class="chat-card js-select-chat">\n' +
 '    <img class="chat-card__avatar" src="{{this.avatar}}">\n' +
 '    <div class="chat-card__user-info">\n' +
 '      <span class="chat-card__name">{{this.name}}</span>\n' +

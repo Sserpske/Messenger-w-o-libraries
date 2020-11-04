@@ -106,7 +106,7 @@ export default class Block implements IBlock {
 
   // Может переопределять пользователь, необязательно трогать
   render(): string {
-    return '';
+    return 'Метод render не определён';
   }
 
   getContent(): HTMLElement {
