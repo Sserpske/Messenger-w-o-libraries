@@ -12,7 +12,7 @@ export default '' +
 '          <div class="messenger-app__profile-menu context-menu js-context-profile hidden">\n' +
 '            <ul class="context-menu__list">\n' +
 '              <li class="context-menu__item">\n' +
-'                <a class="context-menu__action" href="profile.html">\n' +
+'                <a class="context-menu__action" href="profile">\n' +
 '                  <div class="context-menu__icon">\n' +
 '                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">\n' +
 '                      <path\n' +

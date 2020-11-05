@@ -1,10 +1,11 @@
 import Block from "../../modules/Block.js";
 import chats_template from "./profile.tmpl.js";
-import render from "../../utils/render.js";
 import { props_type } from "../../types/Types.js";
 
-class ProfilePage extends Block {
-  constructor(props: props_type) {
+export default class ProfilePage extends Block {
+  constructor(props: props_type = {}) {
+    Object.assign(props, data)
+
     super('div', props);
   }
 
@@ -15,11 +16,9 @@ class ProfilePage extends Block {
   }
 }
 
-const page = new ProfilePage({
+const data = {
   first_name: 'Саша',
   email: '26october@gmail.com',
   display_name: 'grey october',
   avatar: 'images/user.jpeg'
-});
-
-render('.root', page)
+}
