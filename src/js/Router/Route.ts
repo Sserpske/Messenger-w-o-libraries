@@ -26,7 +26,7 @@ export default class Route {
     }
   }
 
-  match(pathname: any) {
+  match(pathname: string) {
     return isEqual(pathname, this._pathname);
   }
 

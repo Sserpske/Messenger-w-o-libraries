@@ -1,4 +1,5 @@
 import Route from './Route.js'
+import AuthStore from "../modules/AuthStore.js";
 
 export default class Router {
   //@ts-ignore
@@ -7,6 +8,7 @@ export default class Router {
   private _currentRoute: any;
   private _rootQuery: any;
   private static __instance: Router;
+  private auth: AuthStore;
   constructor(rootQuery: any) {
     //@ts-ignore
     if (Router.__instance) {
@@ -18,6 +20,7 @@ export default class Router {
     this.history = window.history;
     this._currentRoute = null;
     this._rootQuery = rootQuery;
+    this.auth = new AuthStore();
 
     Router.__instance = this;
   }
@@ -41,6 +44,27 @@ export default class Router {
   _onRoute(pathname: string) {
     const route = this.getRoute(pathname);
 
+    this.auth.checkAuth()
+      .then(() => {
+        if (['/auth', '/'].includes(pathname)) {
+          this.go('/chat');
+
+          return;
+        }
+
+        this.__onRoute(route, pathname);
+      })
+      .catch(() => {
+        if (pathname === '/auth') {
+          this.__onRoute(route, pathname);
+        } else {
+          this.go('/auth');
+        }
+      });
+  }
+
+  // @ts-ignore
+  __onRoute(route, pathname) {
     if (!route) {
       this.go('/404');
 

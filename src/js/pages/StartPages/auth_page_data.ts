@@ -8,11 +8,11 @@ export default {
     fields: [
       {
         field_class: 'primary-form__fields-item',
-        type: 'email',
-        name: 'email',
-        label: 'Почта',
-        error_message: 'Не правильная почта',
-        validation_type: 'email'
+        type: 'text',
+        name: 'login',
+        label: 'Логин',
+        error_message: 'Длина логина должна быть не менее 3 символов',
+        validation_type: 'text'
       },
       {
         field_class: 'primary-form__fields-item',
