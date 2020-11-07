@@ -25,7 +25,7 @@ export default '' +
 '        </div>\n' +
 '        <div class="profile__actions">\n' +
 '          <a class="profile__link profile__link_green" href="/edit">Изменить данные</a>\n' +
-'          <a class="profile__link profile__link_red" href="/auth?logout=yes">Выйти</a>\n' +
+'          <button class="profile__link profile__link_red js-button-logout">Выйти</button>\n' +
 '        </div>\n' +
 '      </div>\n' +
 '    </div>\n' +

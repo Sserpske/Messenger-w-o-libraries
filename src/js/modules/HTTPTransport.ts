@@ -17,17 +17,17 @@ export default class HTTPTransport {
   };
 
   // @ts-ignore
-  put(url: string, options) {
+  put(url: string, options? = {}) {
     return this.request(url, { ...options, method: METHODS.PUT });
   }
 
   // @ts-ignore
-  post(url: string, options) {
+  post(url: string, options? = {}) {
     return this.request(url, { ...options, method: METHODS.POST });
   }
 
   // @ts-ignore
-  delete(url: string, options) {
+  delete(url: string, options? = {}) {
     return this.request(url, { ...options, method: METHODS.DELETE });
   }
 

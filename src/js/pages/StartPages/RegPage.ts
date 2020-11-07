@@ -31,7 +31,10 @@ export default class RegPage extends StartPages {
         fields_data[input.name] = input.value;
       })
 
-      this.apiClient.signup(fields_data);
+      this.apiClient.signup(fields_data)
+        .then(() => {
+          this.router.go('/chat')
+        });
     })
   }
 }

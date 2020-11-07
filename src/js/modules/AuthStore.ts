@@ -33,4 +33,10 @@ export default class AuthStore {
       return sessionStorage.getItem('user_info');
     }
   }
+
+  deleteInfo() {
+    if (sessionStorage.getItem('user_info')) {
+      sessionStorage.removeItem('user_info');
+    }
+  }
 }

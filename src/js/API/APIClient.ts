@@ -5,6 +5,7 @@ const ENDPOINTS = {
   SIGNUP: '/auth/signup',
   SIGNIN: '/auth/signin',
   USER_INFO: '/auth/user',
+  LOGOUT: '/auth/logout',
 }
 
 export default class APIClient {
@@ -40,6 +41,10 @@ export default class APIClient {
 
   getUser() {
     return this.httpTransport.get(this.getUrl(ENDPOINTS.USER_INFO));
+  }
+
+  logout() {
+    return this.httpTransport.post(this.getUrl(ENDPOINTS.LOGOUT));
   }
 
   getUrl(path: string) {

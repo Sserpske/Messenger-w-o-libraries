@@ -31,7 +31,10 @@ export default class AuthPage extends StartPages {
         fields_data[input.name] = input.value;
       })
 
-      this.apiClient.signin(fields_data);
+      this.apiClient.signin(fields_data)
+        .then(() => {
+          this.router.go('/chat')
+        });
     })
   }
 }
