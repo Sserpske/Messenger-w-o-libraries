@@ -9,8 +9,8 @@ export default class MainField extends Block {
 
   render() {
     const template = Handlebars.compile(message_template);
-    const { messages_list, conversation_name, conversation_img } = this.props.messages_data;
+    const { messages_list, title, avatar, id } = this.props.messages_data;
 
-    return template({ messages_list, conversation_name, conversation_img });
+    return template({ messages_list, title, avatar, id });
   }
 }

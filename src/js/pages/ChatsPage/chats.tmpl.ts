@@ -29,9 +29,15 @@ export default '' +
 '            </ul>\n' +
 '          </div>\n' +
 '        </div>\n' +
-'        <div class="messenger-app__chats-list">\n' +
-'          {{{chat_cards}}}\n' +
-'        </div>\n' +
+'        <div class="messenger-app__chats-wrapper">' +
+'          <div class="messenger-app__create-chat">' +
+'            {{{new_chat_input}}}' +
+'            {{{create_chat_button}}}' +
+'          </div>' +
+  '        <div class="messenger-app__chats-list">\n' +
+  '          {{{chat_cards}}}\n' +
+  '        </div>\n' +
+'        </div>' +
 '      </div>\n' +
 '      <div class="messenger-app__right-side">\n' +
 '        {{{messages}}}' +

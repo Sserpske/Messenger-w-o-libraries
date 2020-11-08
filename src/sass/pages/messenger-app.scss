@@ -57,8 +57,8 @@
 
 .messenger-app__left-head {
   position: relative;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px 14px;
+  border-bottom: 1px solid #EAEAEA;
 }
 
 .messenger-app__user {
@@ -76,7 +76,6 @@
 
 .messenger-app__chats-list {
   padding-left: 0;
-  margin-top: 14px;
 }
 
 .messenger-app__right-side {
@@ -135,6 +134,7 @@
 
 .messenger-app__current-user-avatar {
   width: 35px;
+  height: 35px;
   border-radius: 50%;
   margin-right: 8px;
 }
@@ -232,4 +232,49 @@
   width: 100%;
   padding: 10px 20px;
   box-sizing: border-box;
+}
+
+.messenger-app__chats-wrapper {
+  position: relative;
+}
+
+.messenger-app__create-chat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: none;
+  border-bottom: 1px solid #EAEAEA;
+  background: transparent;
+  width: 100%;
+  min-height: 72px;
+  color: #999999;
+  padding: 18px 10px;
+  transition: .15s;
+}
+
+.messenger-app__new-chat-field {
+  width: 285px;
+
+  input {
+    padding: 5px;
+    border: 1px solid #1BA5AB;
+    border-radius: 5px;
+    font-weight: 500;
+  }
+
+  label {
+    left: 6px;
+    top: 7px;
+  }
+}
+
+.messenger-app__new-chat-button {
+  width: 285px;
+  background-color: #1BA5AB;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: #1D6669;
+  }
 }

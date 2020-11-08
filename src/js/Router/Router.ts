@@ -55,11 +55,13 @@ export default class Router {
         this.__onRoute(route, pathname);
       })
       .catch(() => {
-        if (pathname === '/auth') {
+        if (['/auth', '/'].includes(pathname)) {
           this.__onRoute(route, pathname);
-        } else {
-          this.go('/auth');
+
+          return;
         }
+
+        this.go('/auth');
       });
   }
 

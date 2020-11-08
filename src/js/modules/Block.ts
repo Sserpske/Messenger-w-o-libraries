@@ -1,5 +1,6 @@
 import EventBus, {IEventBus} from "./EventBus.js";
 import { props_type } from "../types/Types.js"
+import APIClient from "../API/APIClient.js";
 
 export interface IBlock {
   _element: HTMLElement,
@@ -37,6 +38,7 @@ export default class Block implements IBlock {
     FLOW_RENDER: "flow:render",
     FLOW_CDU: "flow:component-did-update"
   }
+  protected apiClient: APIClient;
 
   constructor(tagName: string = 'div', props: object = {}) {
     const eventBus = new EventBus();
@@ -48,6 +50,8 @@ export default class Block implements IBlock {
     this.props = this._makePropsProxy(props);
 
     this.eventBus = () => eventBus;
+
+    this.apiClient = new APIClient();
 
     this._registerEvents(eventBus);
     eventBus.emit(Block.EVENTS.INIT);

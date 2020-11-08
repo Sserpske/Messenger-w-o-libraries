@@ -2,8 +2,8 @@ export default '' +
 '         <div class="messenger-app__chat-area-wrapper">\n' +
 '          <div class="messenger-app__user-tab">\n' +
 '            <div class="messenger-app__current-user-info">\n' +
-'              <img src="{{conversation_img}}" class="messenger-app__current-user-avatar">\n' +
-'              <div class="messenger-app__current-user-name">{{conversation_name}}</div>\n' +
+'              <img src="{{#if avatar}}{{avatar}}{{else}}images/default_avatar.png{{/if}}" class="messenger-app__current-user-avatar">\n' +
+'              <div class="messenger-app__current-user-name">{{title}}</div>\n' +
 '            </div>\n' +
 '            <div class="messenger-app__user-tab-menu-wrapper">\n' +
 '              <button class="messenger-app__user-tab-button js-toggle-context" data-context="user-tab"><svg xmlns="http://www.w3.org/2000/svg" width="3" height="16" viewBox="0 0 3 16" fill="none">\n' +
@@ -25,7 +25,7 @@ export default '' +
 '                    </button>\n' +
 '                  </li>\n' +
 '                  <li class="context-menu__item">\n' +
-'                    <button class="context-menu__action">\n' +
+'                    <button class="context-menu__action js-delete-chat" data-chat-id="{{id}}">\n' +
 '                      <div class="context-menu__icon">\n' +
 '                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">\n' +
 '                          <circle cx="11" cy="11" r="10.25" stroke="#1BA5AB" stroke-width="1.5"/>\n' +

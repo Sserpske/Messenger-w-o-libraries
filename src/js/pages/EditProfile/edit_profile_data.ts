@@ -69,7 +69,7 @@ export default {
     ],
   },
   button: {
-    button_class: 'primary-form__button',
+    button_class: 'primary-form__button js-send-form',
     text: 'Сохранить'
   }
 };

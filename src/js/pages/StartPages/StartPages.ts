@@ -3,7 +3,6 @@ import Block from "../../modules/Block.js";
 import MainField from "../../components/MainField/MainField.js";
 import Validate from "../../modules/Validate.js";
 import Button from "../../components/Button/Button.js";
-import APIClient from "../../API/APIClient.js";
 import Router from "../../Router/Router.js";
 
 interface IStartPages {
@@ -24,7 +23,6 @@ interface IStartPages {
 export default class StartPages extends Block {
   protected validate: Validate;
   protected fields: NodeListOf<HTMLInputElement> | HTMLInputElement[];
-  protected apiClient: APIClient;
   protected router: Router;
 
   constructor(props: IStartPages) {
@@ -44,7 +42,6 @@ export default class StartPages extends Block {
     });
 
     this.validate = new Validate(this._element);
-    this.apiClient = new APIClient();
     this.router = new Router('.root');
   }
 
