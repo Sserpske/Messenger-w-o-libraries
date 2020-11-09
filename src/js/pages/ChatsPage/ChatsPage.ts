@@ -35,7 +35,7 @@ export default class ChatsPage extends Block {
   }
 
   renderChatCards () {
-    this.apiClient.getChats()
+    return this.apiClient.getChats()
       .then((chats_list: []) => {
         this.chats_list = chats_list.reverse();
 
@@ -49,6 +49,10 @@ export default class ChatsPage extends Block {
 
   getMessagesData (id: Number) {
     const chat_data = getObjectById(this.chats_list, id);
+
+    if (!chat_data) {
+      return;
+    }
 
     this.messages_list = {};
     Object.assign(this.messages_list, chat_data);
@@ -84,7 +88,32 @@ export default class ChatsPage extends Block {
         this.getMessagesData(id);
         this.initDeleteChatEvent();
         this.initHideChatEvent();
+        this.initUploadChatAvatar();
       })
+    });
+  }
+
+  initUploadChatAvatar() {
+    const input: HTMLInputElement | null = this._element.querySelector('.context-menu__avatar-input');
+
+    if (!input) {
+      return;
+    }
+
+    input.addEventListener('input', (e: any) => {
+      const form_data = new FormData();
+      const chat_id = e.target.dataset.chatId;
+
+      form_data.append('chatId', chat_id);
+      form_data.append('avatar', e.target.files[0]);
+
+      this.apiClient.putChatAvatar(form_data)
+        .then(() => {
+          return this.renderChatCards();
+        })
+        .then(() => {
+          this.getMessagesData(Number(chat_id));
+        })
     });
   }
 

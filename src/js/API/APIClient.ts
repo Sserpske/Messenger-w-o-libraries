@@ -8,6 +8,7 @@ const ENDPOINTS = {
   USER_INFO: '/auth/user',
   LOGOUT: '/auth/logout',
   CHATS: '/chats',
+  CHATS_AVATAR: '/chats/avatar',
 }
 
 export default class APIClient {
@@ -87,6 +88,14 @@ export default class APIClient {
     };
 
     return this.httpTransport.delete(this.getUrl(ENDPOINTS.CHATS), options);
+  }
+
+  putChatAvatar(data: FormData) {
+    const options = {
+      data: data
+    }
+
+    return this.httpTransport.put(this.getUrl(ENDPOINTS.CHATS_AVATAR), options);
   }
 
   getUrl(path: string) {
