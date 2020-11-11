@@ -41,6 +41,7 @@ export default '' +
 '      </div>\n' +
 '      <div class="messenger-app__right-side">\n' +
 '        {{{messages}}}' +
+'      <div class="messenger-app__users-container"></div>' +
 '      </div>\n' +
 '    </div>\n' +
 '  </main>\n' +

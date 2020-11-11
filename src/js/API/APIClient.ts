@@ -9,6 +9,8 @@ const ENDPOINTS = {
   LOGOUT: '/auth/logout',
   CHATS: '/chats',
   CHATS_AVATAR: '/chats/avatar',
+  CHATS_USERS: '/chats/users',
+  USER_SEARCH: '/user/search',
 }
 
 export default class APIClient {
@@ -96,6 +98,55 @@ export default class APIClient {
     }
 
     return this.httpTransport.put(this.getUrl(ENDPOINTS.CHATS_AVATAR), options);
+  }
+
+  getChatUsers(chat_id: string) {
+    const url = ENDPOINTS.CHATS + '/' + chat_id + '/users'
+
+    return this.httpTransport.get(this.getUrl(url))
+      .then((response: XMLHttpRequest) => JSON.parse(response.response));
+  }
+
+  deleteChatUsers(user_id: string, chat_id: string) {
+    const options = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: JSON.stringify({
+        users: [user_id],
+        chatId: chat_id
+      })
+    }
+
+    return this.httpTransport.delete(this.getUrl(ENDPOINTS.CHATS_USERS), options);
+  }
+
+  searchUsers() {
+    const options = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: JSON.stringify({
+        login: ''
+      }),
+    };
+
+    return this.httpTransport.post(this.getUrl(ENDPOINTS.USER_SEARCH), options)
+      .then((response: XMLHttpRequest) => JSON.parse(response.response));
+  }
+
+  addUsersToChat(user_id: string, chat_id: string) {
+    const options = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: JSON.stringify({
+        'users': [user_id],
+        'chatId': chat_id
+      }),
+    }
+
+    return this.httpTransport.put(this.getUrl(ENDPOINTS.CHATS_USERS), options);
   }
 
   getUrl(path: string) {

@@ -31,6 +31,12 @@ export default class Block implements IBlock {
   };
   props: props_type;
   eventBus: () => EventBus;
+  static _instances = [];
+  hydrate = function() {
+       for (const i of this._instances) {
+             i.setElement(document.querySelector(`[_key=${i.getId()}`));
+          }
+  }
 
   static EVENTS = {
     INIT: "init",
@@ -39,13 +45,19 @@ export default class Block implements IBlock {
     FLOW_CDU: "flow:component-did-update"
   }
   protected apiClient: APIClient;
+  private _id: any;
 
   constructor(tagName: string = 'div', props: object = {}) {
+    // @ts-ignore
+    this._id = 'uniq' + parseInt(Math.random() * 1000000);
     const eventBus = new EventBus();
     this._meta = {
       tagName,
       props
     };
+
+    // @ts-ignore
+    // Block._instances.push(this);
 
     this.props = this._makePropsProxy(props);
 
@@ -57,11 +69,30 @@ export default class Block implements IBlock {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
+
+  getId() {
+    return this._id;
+  }
+
   _registerEvents(eventBus: IEventBus): void {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
+// debugger;
+//     this._element.setAttribute('_key', this.getId());
+  }
+
+  setElement(element: HTMLElement) {
+    this._element = element;
+   }
+
+  renderToString() {
+    const wrapper = document.createElement('div');
+    this._element.innerHTML = this.render();
+    wrapper.appendChild(this._element);
+
+    return wrapper.innerHTML;
   }
 
   _createResources(): void {

@@ -4,15 +4,17 @@ import no_chat_selected from "./no_chat_selected.tmpl.js";
 import ChatCard from "../../components/ChatCard/ChatCard.js";
 import Message from "../../components/Message/Message.js";
 import messages_data from "./messages_data.js";
-import { props_type } from "../../types/Types.js";
+import {props_type} from "../../types/Types.js";
 import Button from "../../components/Button/Button.js";
 import MainField from "../../components/MainField/MainField.js";
 import Validate from "../../modules/Validate.js";
 import getObjectById from "../../utils/getObjectByValue.js";
+import ChatUsers from "../../components/ChatUsers/ChatUsers.js";
 
 export default class ChatsPage extends Block {
   private chats_list: props_type;
   private messages_list: props_type;
+  private users_container: Element | null;
   constructor() {
     super('div', {
       chat_cards: null,
@@ -76,6 +78,7 @@ export default class ChatsPage extends Block {
     this.initSelectChatEvent();
     this.initContextMenuEvent();
     this.initCreateChatEvent();
+    this.users_container = this._element.querySelector('.messenger-app__users-container');
   }
 
   initSelectChatEvent () {
@@ -87,8 +90,128 @@ export default class ChatsPage extends Block {
 
         this.getMessagesData(id);
         this.initDeleteChatEvent();
-        this.initHideChatEvent();
+        this.initDocumentEvents();
         this.initUploadChatAvatar();
+        this.initShowUsersEvent();
+        this.initShowAvailableToAddUsers();
+      })
+    });
+  }
+
+  initShowAvailableToAddUsers() {
+    const button: HTMLElement | null = this._element.querySelector('.js-add-users');
+
+    if (!button) {
+      return;
+    }
+
+    const chat_id: string | undefined = button.dataset.chatId;
+    const action: string | undefined = button.dataset.action;
+
+    if (!chat_id || !action) {
+      return;
+    }
+
+    button.addEventListener('click', () => {
+      this.renderAvailableToAddUsers(action)
+        .then(() => {
+          this.initAddUsersEvent(chat_id);
+        })
+    });
+  }
+
+  renderAvailableToAddUsers(action: string) {
+    return this.apiClient.searchUsers()
+      .then((response) => {
+        if (!this.users_container) {
+          return;
+        }
+
+        this.users_container.innerHTML = new ChatUsers({
+          users: response,
+          action: action
+        }).render();
+      })
+  }
+
+  initAddUsersEvent(chat_id: string) {
+    const add_button: NodeList = this._element.querySelectorAll('.js-user-add');
+
+    add_button.forEach((element: HTMLElement) => {
+      const user_id = element.dataset.userId;
+      const user_action = element.dataset.userAction;
+
+      if (!user_id || !user_action) {
+        return;
+      }
+
+      element.addEventListener('click',() => {
+        this.apiClient.addUsersToChat(user_id, chat_id)
+          .then(() => {
+            return this.renderAvailableToAddUsers(user_action)
+          })
+          .then(() => {
+            this.initAddUsersEvent(chat_id);
+          });
+      })
+    });
+  }
+
+  initShowUsersEvent() {
+    const button: HTMLElement | null = this._element.querySelector('.js-show-users');
+
+    if (!button) {
+      return;
+    }
+
+    const chat_id: string | undefined = button.dataset.chatId;
+    const action: string | undefined = button.dataset.action;
+
+    if (!chat_id || !action) {
+      return;
+    }
+
+    button.addEventListener('click', () => {
+      this.renderUsersList(action, chat_id)
+        .then(() => {
+          this.initRemoveUsersEvent(chat_id);
+        })
+    });
+  }
+
+  renderUsersList(action: string, chat_id: string) {
+    return this.apiClient.getChatUsers(chat_id)
+      .then((response) => {
+        if (!this.users_container) {
+          return;
+        }
+
+        this.users_container.innerHTML = new ChatUsers({
+          users: response,
+          action: action
+        }).render();
+      })
+  }
+
+  initRemoveUsersEvent(chat_id: string) {
+    const delete_button: NodeList = this._element.querySelectorAll('.js-user-delete');
+
+    delete_button.forEach((element: HTMLElement) => {
+      const user_id = element.dataset.userId;
+      const user_action = element.dataset.userAction;
+
+      if (!user_id || !user_action) {
+        return;
+      }
+
+      element.addEventListener('click',() => {
+        this.apiClient.deleteChatUsers(user_id, chat_id)
+          .then(() => {
+            return this.renderUsersList(user_action, chat_id)
+          })
+          .then(() => {
+            this.initRemoveUsersEvent(chat_id);
+          })
       })
     });
   }
@@ -117,12 +240,22 @@ export default class ChatsPage extends Block {
     });
   }
 
-  initHideChatEvent() {
+  initDocumentEvents() {
     document.addEventListener('keyup', (e) => {
       if (e.code === 'Escape') {
         this.setProps({ messages: no_chat_selected });
       }
     })
+
+    document.addEventListener('click', (e) => {
+      // @ts-ignore
+      if (e.target.classList.contains('messenger-app__overlay')) {
+        // @ts-ignore
+        this.users_container?.innerHTML = '';
+
+        return false;
+      }
+    });
   }
 
   initDeleteChatEvent() {

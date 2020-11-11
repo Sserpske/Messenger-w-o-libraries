@@ -79,6 +79,7 @@
 }
 
 .messenger-app__right-side {
+  position: relative;
   width: 71%;
 }
 
@@ -277,4 +278,16 @@
   &:hover {
     background-color: #1D6669;
   }
+}
+
+.messenger-app__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  backdrop-filter: blur(3px);
 }
