@@ -1,20 +1,19 @@
 import Block from "../../modules/Block.js";
 import chats_template from "./profile.tmpl.js";
-import { props_type } from "../../types/Types.js";
 import Router from "../../Router/Router.js";
 import AuthStore from "../../modules/AuthStore.js";
 
 export default class ProfilePage extends Block {
   protected router: Router;
   protected auth: AuthStore;
+  private info: {};
 
-  constructor(props: props_type = {}) {
-    Object.assign(props, data)
-
-    super('div', props);
+  constructor() {
+    super('div', {
+      profile: null
+    });
 
     this.router = new Router('.root');
-    this.auth = new AuthStore();
   }
 
   bindEvents() {
@@ -33,7 +32,19 @@ export default class ProfilePage extends Block {
     });
   }
 
+  renderProfileInfo() {
+    this.info = this.auth.getInfo();
+
+    this.setProps({
+      profile: {
+        ...this.info
+      }
+    })
+  }
+
   componentDidMount() {
+    this.auth = new AuthStore();
+    this.renderProfileInfo();
     this.bindEvents();
   }
 
@@ -46,11 +57,4 @@ export default class ProfilePage extends Block {
 
     return template(this.props);
   }
-}
-
-const data = {
-  first_name: 'Саша',
-  email: '26october@gmail.com',
-  display_name: 'grey october',
-  avatar: 'images/user.jpeg'
 }

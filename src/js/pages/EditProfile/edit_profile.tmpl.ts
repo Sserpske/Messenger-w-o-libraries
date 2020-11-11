@@ -11,7 +11,7 @@ export default '' +
 '        </svg>\n' +
 '      </a>\n' +
 '      <div class="profile__data-wrapper">\n' +
-'        <img class="profile__avatar" src="images/user.jpeg">\n' +
+'        <img class="profile__avatar profile__avatar_editable" src="images/user.jpeg">\n' +
 '        <div class="profile__form primary-form">\n' +
 '          <form class="primary-form__form" method="post" action="">\n' +
 '            <div class="primary-form__fields-wrapper">\n' +

@@ -11,16 +11,16 @@ export default '' +
 '        </svg>\n' +
 '      </a>\n' +
 '      <div class="profile__data-wrapper">\n' +
-'        <img class="profile__avatar" src="{{avatar}}">\n' +
-'        <div class="profile__display-name">{{first_name}}</div>\n' +
+'        <img class="profile__avatar" src="{{#if profile.avatar}}https://ya-praktikum.tech{{profile.avatar}}{{else}}images/default_avatar.png{{/if}}">\n' +
+'        <div class="profile__display-name">{{profile.first_name}}</div>\n' +
 '        <div class="profile__data">\n' +
 '          <div class="profile__data-line">\n' +
 '            <div class="profile__line-title">Почта</div>\n' +
-'            <div class="profile__line-value">{{email}}</div>\n' +
+'            <div class="profile__line-value">{{profile.email}}</div>\n' +
 '          </div>\n' +
 '          <div class="profile__data-line">\n' +
 '            <div class="profile__line-title">Логин</div>\n' +
-'            <div class="profile__line-value">{{display_name}}</div>\n' +
+'            <div class="profile__line-value">{{profile.login}}</div>\n' +
 '          </div>\n' +
 '        </div>\n' +
 '        <div class="profile__actions">\n' +

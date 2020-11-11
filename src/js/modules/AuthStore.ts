@@ -2,9 +2,18 @@ import APIClient from "../API/APIClient.js";
 
 export default class AuthStore {
   private apiClient: APIClient;
+  private static __instance: AuthStore;
 
   constructor() {
+    //@ts-ignore
+    if (AuthStore.__instance) {
+      //@ts-ignore
+      return AuthStore.__instance;
+    }
+
     this.apiClient = new APIClient();
+
+    AuthStore.__instance = this;
   }
 
   checkAuth() {
@@ -30,7 +39,7 @@ export default class AuthStore {
 
   getInfo() {
     if (sessionStorage.getItem('user_info')) {
-      return sessionStorage.getItem('user_info');
+      return JSON.parse(<string>sessionStorage.getItem('user_info'));
     }
   }
 

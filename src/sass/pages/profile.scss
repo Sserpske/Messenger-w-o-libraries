@@ -64,8 +64,11 @@
 .profile__avatar {
   width: 130px;
   border-radius: 50%;
-  cursor: pointer;
   margin-bottom: 20px;
+
+  &_editable {
+    cursor: pointer;
+  }
 }
 
 .profile__display-name {
