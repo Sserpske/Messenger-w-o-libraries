@@ -11,6 +11,9 @@ const ENDPOINTS = {
   CHATS_AVATAR: '/chats/avatar',
   CHATS_USERS: '/chats/users',
   USER_SEARCH: '/user/search',
+  USER_PROFILE: '/user/profile',
+  USER_PASSWORD: '/user/password',
+  USER_AVATAR: '/user/profile/avatar',
 }
 
 export default class APIClient {
@@ -147,6 +150,36 @@ export default class APIClient {
     }
 
     return this.httpTransport.put(this.getUrl(ENDPOINTS.CHATS_USERS), options);
+  }
+
+  updateUserProfile(data: props_type) {
+    const options = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: JSON.stringify(data),
+    }
+
+    return this.httpTransport.put(this.getUrl(ENDPOINTS.USER_PROFILE), options);
+  }
+
+  updateUserPassword(data: props_type) {
+    const options = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: JSON.stringify(data),
+    }
+
+    return this.httpTransport.put(this.getUrl(ENDPOINTS.USER_PASSWORD), options);
+  }
+
+  updateUserAvatar(data: FormData) {
+    const options = {
+      data: data
+    }
+
+    return this.httpTransport.put(this.getUrl(ENDPOINTS.USER_AVATAR), options);
   }
 
   getUrl(path: string) {

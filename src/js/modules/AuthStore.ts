@@ -33,8 +33,14 @@ export default class AuthStore {
       })
   }
 
-  setInfo(user_info: string) {
-    sessionStorage.setItem('user_info', user_info);
+  setInfo(user_info: {} | string) {
+    if (typeof user_info !== 'string') {
+      user_info = JSON.stringify(user_info);
+    }
+
+    if (typeof user_info === 'string') {
+      sessionStorage.setItem('user_info', user_info);
+    }
   }
 
   getInfo() {

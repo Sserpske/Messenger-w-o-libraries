@@ -50,6 +50,11 @@ export default {
         error_message: 'Укажите фамилию',
         validation_type: 'text'
       },
+    ],
+  },
+  fields_password_data: {
+    wrapper_class: 'primary-form__fields-wrapper',
+    fields: [
       {
         field_class: 'primary-form__fields-item',
         type: 'password',
@@ -66,9 +71,13 @@ export default {
         error_message: 'Не менее 8 символов, строчных и прописных букв и цифр',
         validation_type: 'password'
       },
-    ],
+    ]
   },
-  button: {
+  button_password: {
+    button_class: 'primary-form__button js-send-password',
+    text: 'Сменить пароль'
+  },
+  button_data: {
     button_class: 'primary-form__button js-send-form',
     text: 'Сохранить'
   }

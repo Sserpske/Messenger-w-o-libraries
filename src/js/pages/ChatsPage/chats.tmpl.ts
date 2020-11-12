@@ -7,7 +7,7 @@ export default '' +
 '      <div class="messenger-app__left-side">\n' +
 '        <div class="messenger-app__left-head">\n' +
 '          <div class="messenger-app__user">\n' +
-'            <img class="messenger-app__user-avatar js-toggle-context" data-context="profile" src="images/user.jpeg">\n' +
+'            <img class="messenger-app__user-avatar js-toggle-context js-chats-avatar-container" data-context="profile" src="images/default_avatar.png">\n' +
 '          </div>\n' +
 '          <div class="messenger-app__profile-menu context-menu js-context-profile hidden">\n' +
 '            <ul class="context-menu__list">\n' +

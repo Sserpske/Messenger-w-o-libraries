@@ -11,14 +11,25 @@ export default '' +
 '        </svg>\n' +
 '      </a>\n' +
 '      <div class="profile__data-wrapper">\n' +
-'        <img class="profile__avatar profile__avatar_editable" src="images/user.jpeg">\n' +
+'        <label class="profile__avatar profile__avatar_editable">' +
+'          <img class="profile__avatar-img js-profile-avatar-container" src="images/user.jpeg">\n' +
+'          <input class="profile__avatar-input js-profile-update-avatar" type="file">' +
+'        </label>' +
 '        <div class="profile__form primary-form">\n' +
-'          <form class="primary-form__form" method="post" action="">\n' +
+'          <form class="primary-form__form profile__user-data-form" method="post" action="">\n' +
 '            <div class="primary-form__fields-wrapper">\n' +
-'              {{{fields}}}\n' +
+'              {{{fields_data}}}\n' +
 '            </div>\n' +
 '            <div class="primary-form__buttons">\n' +
-'              {{{button}}}\n' +
+'              {{{button_data}}}\n' +
+'            </div>\n' +
+'          </form>\n' +
+'          <form class="primary-form__form profile__password-data-form" method="post" action="">\n' +
+'            <div class="primary-form__fields-wrapper">\n' +
+'              {{{fields_password}}}\n' +
+'            </div>\n' +
+'            <div class="primary-form__buttons">\n' +
+'              {{{button_password}}}\n' +
 '            </div>\n' +
 '          </form>\n' +
 '        </div>\n' +

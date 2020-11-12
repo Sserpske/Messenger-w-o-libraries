@@ -10,11 +10,14 @@ import MainField from "../../components/MainField/MainField.js";
 import Validate from "../../modules/Validate.js";
 import getObjectById from "../../utils/getObjectByValue.js";
 import ChatUsers from "../../components/ChatUsers/ChatUsers.js";
+import AuthStore from "../../modules/AuthStore.js";
 
 export default class ChatsPage extends Block {
   private chats_list: props_type;
   private messages_list: props_type;
   private users_container: Element | null;
+  // @ts-ignore
+  private auth: AuthStore;
   constructor() {
     super('div', {
       chat_cards: null,
@@ -323,13 +326,25 @@ export default class ChatsPage extends Block {
     });
   }
 
+  insertAvatarImage() {
+    const avatar: HTMLElement | null = this._element.querySelector('.js-chats-avatar-container');
+    const info = this.auth.getInfo();
+
+    if (avatar && info.avatar) {
+      avatar.setAttribute('src', `https://ya-praktikum.tech${info.avatar}`)
+    }
+  }
+
   componentDidMount() {
     this.bindEvents();
     this.renderChatCards();
+    this.auth = new AuthStore();
+    this.insertAvatarImage();
   }
 
   componentDidUpdate() {
     this.bindEvents();
+    this.insertAvatarImage();
   }
 
   render() {
