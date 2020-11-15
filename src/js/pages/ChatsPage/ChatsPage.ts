@@ -15,8 +15,7 @@ import AuthStore from "../../modules/AuthStore.js";
 export default class ChatsPage extends Block {
   private chats_list: props_type;
   private messages_list: props_type;
-  private users_container: Element | null;
-  // @ts-ignore
+  private users_container: HTMLElement | null;
   private auth: AuthStore;
   constructor() {
     super('div', {
@@ -251,10 +250,12 @@ export default class ChatsPage extends Block {
     })
 
     document.addEventListener('click', (e) => {
-      // @ts-ignore
-      if (e.target.classList.contains('messenger-app__overlay')) {
-        // @ts-ignore
-        this.users_container?.innerHTML = '';
+      if (!e.target || !this.users_container) {
+        return;
+      }
+
+      if ((<HTMLElement>e.target).classList.contains('messenger-app__overlay')) {
+        this.users_container.innerHTML = '';
 
         return false;
       }

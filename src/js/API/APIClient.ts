@@ -23,17 +23,14 @@ export default class APIClient {
   constructor() {
     this.httpTransport = new HTTPTransport();
 
-    //@ts-ignore
     if (APIClient.__instance) {
-      //@ts-ignore
       return APIClient.__instance;
     }
 
     APIClient.__instance = this;
   }
 
-  // @ts-ignore
-  signup(data) {
+  signup(data: props_type) {
     const options = {
       headers: {
         'Content-Type': 'application/json',
@@ -44,8 +41,7 @@ export default class APIClient {
     return this.httpTransport.post(this.getUrl(ENDPOINTS.SIGNUP), options);
   }
 
-  // @ts-ignore
-  signin(data) {
+  signin(data: props_type) {
     const options = {
       headers: {
         'Content-Type': 'application/json',

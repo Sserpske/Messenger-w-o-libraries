@@ -1,18 +1,16 @@
-import Route from './Route.js'
+import Route, {IRoute} from './Route.js'
 import AuthStore from "../modules/AuthStore.js";
 
 export default class Router {
-  //@ts-ignore
-  private routes: any[];
+  private routes: IRoute[];
   private history: History;
-  private _currentRoute: any;
-  private _rootQuery: any;
+  private _currentRoute: IRoute | null;
+  private _rootQuery: string;
   private static __instance: Router;
   private auth: AuthStore;
-  constructor(rootQuery: any) {
-    //@ts-ignore
+
+  constructor(rootQuery: string) {
     if (Router.__instance) {
-      //@ts-ignore
       return Router.__instance;
     }
 
@@ -25,7 +23,7 @@ export default class Router {
     Router.__instance = this;
   }
 
-  use(pathname: any, block: any) {
+  use(pathname: string, block: any): this {
     const route = new Route(pathname, block, {rootQuery: this._rootQuery});
     this.routes.push(route);
 
@@ -33,15 +31,14 @@ export default class Router {
   }
 
   start() {
-    //@ts-ignore
-    window.onpopstate = (event => {
-      this._onRoute(event.currentTarget.location.pathname);
+    window.onpopstate = ((event: PopStateEvent): void => {
+      this._onRoute((<Window>event.currentTarget).location.pathname);
     }).bind(this);
 
     this._onRoute(window.location.pathname);
   }
 
-  _onRoute(pathname: string) {
+  _onRoute(pathname: string): void {
     const route = this.getRoute(pathname);
 
     this.auth.checkAuth()
@@ -52,11 +49,11 @@ export default class Router {
           return;
         }
 
-        this.__onRoute(route, pathname);
+        this.__onRoute(route);
       })
       .catch(() => {
         if (['/auth', '/'].includes(pathname)) {
-          this.__onRoute(route, pathname);
+          this.__onRoute(route);
 
           return;
         }
@@ -65,8 +62,7 @@ export default class Router {
       });
   }
 
-  // @ts-ignore
-  __onRoute(route, pathname) {
+  __onRoute(route: IRoute | undefined) {
     if (!route) {
       this.go('/404');
 
@@ -78,11 +74,10 @@ export default class Router {
     }
 
     this._currentRoute = route;
-    route.render(route, pathname);
+    route.render();
   }
 
-  //@ts-ignore
-  go(pathname) {
+  go(pathname: string) {
     this.history.pushState({}, "", pathname);
     this._onRoute(pathname);
   }

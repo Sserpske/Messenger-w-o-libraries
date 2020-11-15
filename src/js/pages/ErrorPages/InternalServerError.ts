@@ -1,8 +1,8 @@
 import ErrorPage from "./ErrorPage.js";
+import {props_type} from "../../types/Types";
 
 export default class InternalServerError extends ErrorPage {
-  // @ts-ignore
-  constructor(props?) {
+  constructor(props?: props_type) {
     props = props ? props : {};
     Object.assign(props, data)
 

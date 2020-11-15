@@ -5,9 +5,7 @@ export default class AuthStore {
   private static __instance: AuthStore;
 
   constructor() {
-    //@ts-ignore
     if (AuthStore.__instance) {
-      //@ts-ignore
       return AuthStore.__instance;
     }
 
@@ -22,8 +20,7 @@ export default class AuthStore {
     }
 
     return this.apiClient.getUser()
-      // @ts-ignore
-      .then((response: Promise) => {
+      .then((response: XMLHttpRequest) => {
         this.setInfo(response.response);
 
         return Promise.resolve();

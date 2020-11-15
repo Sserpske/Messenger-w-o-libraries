@@ -1,9 +1,9 @@
 import StartPages from "./StartPages.js";
 import reg_page_data from "./reg_page_data.js";
+import {props_type} from "../../types/Types.js";
 
 export default class RegPage extends StartPages {
-  // @ts-ignore
-  constructor(props?) {
+  constructor(props?: props_type) {
     props = props ? props : {};
     Object.assign(props, reg_page_data)
 

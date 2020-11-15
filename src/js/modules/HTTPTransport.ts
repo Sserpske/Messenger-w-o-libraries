@@ -1,4 +1,5 @@
 import queryStringify from "../utils/queryStringify.js";
+import {props_type} from "../types/Types.js";
 
 const METHODS = {
   GET: 'GET',
@@ -8,38 +9,33 @@ const METHODS = {
 };
 
 export default class HTTPTransport {
-  get = (url: string, options = {}) => {
-    // @ts-ignore
+  get = (url: string, options: props_type = {}): Promise<XMLHttpRequest> => {
     const { data = {} } = options;
     url = url + queryStringify(data);
 
     return this.request(url, {...options, method: METHODS.GET});
   };
 
-  // @ts-ignore
-  put(url: string, options? = {}) {
+  put(url: string, options: props_type = {}): Promise<XMLHttpRequest> {
     return this.request(url, { ...options, method: METHODS.PUT });
   }
 
-  // @ts-ignore
-  post(url: string, options? = {}) {
+  post(url: string, options: props_type = {}): Promise<XMLHttpRequest> {
     return this.request(url, { ...options, method: METHODS.POST });
   }
 
-  // @ts-ignore
-  delete(url: string, options? = {}) {
+  delete(url: string, options: props_type = {}): Promise<XMLHttpRequest> {
     return this.request(url, { ...options, method: METHODS.DELETE });
   }
 
-  // @ts-ignore
-  request = (url: string | any, options, timeout: number = 5000) => {
+  request = (url: string | any, options: props_type, timeout: number = 5000): Promise<XMLHttpRequest> => {
     const { method, data, headers = {} } = options;
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
 
       if (!url || typeof url !== 'string') {
-        return Promise.reject();
+        reject(xhr);
       }
 
       xhr.open(method, url);

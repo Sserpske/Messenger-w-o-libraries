@@ -4,28 +4,14 @@ import MainField from "../../components/MainField/MainField.js";
 import Validate from "../../modules/Validate.js";
 import Button from "../../components/Button/Button.js";
 import Router from "../../Router/Router.js";
-
-interface IStartPages {
-  fields_data: {
-    wrapper_class: string,
-    fields: Object[]
-  },
-  title: string,
-  button: {
-    text: string;
-    button_class: string;
-  },
-  change_button: string,
-  page_class: string,
-  link: string
-}
+import {props_type} from "../../types/Types.js";
 
 export default class StartPages extends Block {
   protected validate: Validate;
   protected fields: NodeListOf<HTMLInputElement> | HTMLInputElement[];
   protected router: Router;
 
-  constructor(props: IStartPages) {
+  constructor(props: props_type) {
     super('div', {
       fields: new MainField({
         wrapper_class: props.fields_data.wrapper_class,
