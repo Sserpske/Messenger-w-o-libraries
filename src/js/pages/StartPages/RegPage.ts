@@ -1,68 +1,40 @@
-import render from "../../utils/render.js";
 import StartPages from "./StartPages.js";
+import reg_page_data from "./reg_page_data.js";
+import {props_type} from "../../types/Types.js";
 
-const page = new StartPages({
-  title: 'Регистрация',
-  page_class: 'registration',
-  change_button: 'Войти',
-  link: '/auth.html',
-  fields_data: {
-    wrapper_class: 'primary-form__fields-wrapper',
-    fields: [
-      {
-        field_class: 'primary-form__fields-item',
-        type: 'email',
-        name: 'email',
-        label: 'Почта',
-        error_message: 'Не правильная почта',
-        validation_type: 'email'
-      },
-      {
-        field_class: 'primary-form__fields-item',
-        type: 'text',
-        name: 'login',
-        label: 'Логин',
-        error_message: 'Длина логина должна быть не менее 3 символов',
-        validation_type: 'text'
-      },
-      {
-        field_class: 'primary-form__fields-item',
-        type: 'text',
-        name: 'phone',
-        label: 'Телефон',
-        error_message: 'Не правильный номер',
-        validation_type: 'phone'
-      },
-      {
-        field_class: 'primary-form__fields-item',
-        type: 'text',
-        name: 'first_name',
-        label: 'Имя',
-        error_message: 'Укажите имя',
-        validation_type: 'text'
-      },
-      {
-        field_class: 'primary-form__fields-item',
-        type: 'text',
-        name: 'second_name',
-        label: 'Фамилия',
-        error_message: 'Укажите фамилию',
-        validation_type: 'text'
-      },
-      {
-        field_class: 'primary-form__fields-item',
-        type: 'password',
-        name: 'password',
-        label: 'Пароль',
-        error_message: 'Не менее 8 символов, строчных и прописных букв и цифр',
-        validation_type: 'password'
-      },
-    ],
-  },
-  button: {
-    button_class: 'primary-form__button',
-    text: 'Зарегистрироваться'
+export default class RegPage extends StartPages {
+  constructor(props?: props_type) {
+    props = props ? props : {};
+    Object.assign(props, reg_page_data)
+
+    super(props);
   }
-});
 
-render('.root', page);
+  bindEvents() {
+    this.fields = this._element.querySelectorAll('input');
+
+    const button = this._element.querySelector('.js-send-form');
+
+    if (!button) {
+      return;
+    }
+
+    button.addEventListener('click', (e) => {
+      const fields_data: { [key: string]: string } = {};
+      e.preventDefault();
+
+      if (!this.validate.isFormValid(e)) {
+        return;
+      }
+
+      this.fields.forEach((input: HTMLInputElement) => {
+        fields_data[input.name] = input.value;
+      })
+
+      this.apiClient.signup(fields_data)
+        .then(() => {
+          this.router.go('/chat')
+        });
+    })
+  }
+}

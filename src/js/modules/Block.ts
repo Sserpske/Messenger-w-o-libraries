@@ -1,5 +1,6 @@
 import EventBus, {IEventBus} from "./EventBus.js";
 import { props_type } from "../types/Types.js"
+import APIClient from "../API/APIClient.js";
 
 export interface IBlock {
   _element: HTMLElement,
@@ -37,6 +38,7 @@ export default class Block implements IBlock {
     FLOW_RENDER: "flow:render",
     FLOW_CDU: "flow:component-did-update"
   }
+  protected apiClient: APIClient;
 
   constructor(tagName: string = 'div', props: object = {}) {
     const eventBus = new EventBus();
@@ -49,6 +51,8 @@ export default class Block implements IBlock {
 
     this.eventBus = () => eventBus;
 
+    this.apiClient = new APIClient();
+
     this._registerEvents(eventBus);
     eventBus.emit(Block.EVENTS.INIT);
   }
@@ -58,6 +62,10 @@ export default class Block implements IBlock {
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
+  }
+
+  setElement(element: HTMLElement) {
+    this._element = element;
   }
 
   _createResources(): void {
@@ -104,9 +112,8 @@ export default class Block implements IBlock {
     this._element.innerHTML = this.render();
   }
 
-  // Может переопределять пользователь, необязательно трогать
   render(): string {
-    return '';
+    return 'Метод render не определён';
   }
 
   getContent(): HTMLElement {

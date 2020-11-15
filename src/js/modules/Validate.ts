@@ -54,7 +54,7 @@ export default class Validate {
   validateMap:{[key: string]: RegExp} = {
     email: /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,}$/,
     password: /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
-    text: /^[a-zа-я][a-zа-я0-9\w\s]{2,}$/ui,
+    text: /^[a-z0-9а-я\w\s.-]{3,}$/ui,
     phone: /^([+]+)*[0-9\x20\x28\x29\-]{5,20}$/
   }
 }

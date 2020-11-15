@@ -3,27 +3,15 @@ import Block from "../../modules/Block.js";
 import MainField from "../../components/MainField/MainField.js";
 import Validate from "../../modules/Validate.js";
 import Button from "../../components/Button/Button.js";
-
-interface IStartPages {
-  fields_data: {
-    wrapper_class: string,
-    fields: Object[]
-  },
-  title: string,
-  button: {
-    text: string;
-    button_class: string;
-  },
-  change_button: string,
-  page_class: string,
-  link: string
-}
+import Router from "../../Router/Router.js";
+import {props_type} from "../../types/Types.js";
 
 export default class StartPages extends Block {
-  private validate: Validate;
-  private fields: NodeListOf<HTMLInputElement> | HTMLInputElement[];
+  protected validate: Validate;
+  protected fields: NodeListOf<HTMLInputElement> | HTMLInputElement[];
+  protected router: Router;
 
-  constructor(props: IStartPages) {
+  constructor(props: props_type) {
     super('div', {
       fields: new MainField({
         wrapper_class: props.fields_data.wrapper_class,
@@ -38,32 +26,12 @@ export default class StartPages extends Block {
         text: props.button.text
       })
     });
+
+    this.validate = new Validate(this._element);
+    this.router = new Router('.root');
   }
 
   bindEvents() {
-    this.validate = new Validate(this._element);
-    this.fields = this._element.querySelectorAll('input');
-
-    const button = this._element.querySelector('.js-send-form');
-
-    if (!button) {
-      return;
-    }
-
-    button.addEventListener('click', (e) => {
-      const fields_data: { [key: string]: string } = {};
-      e.preventDefault();
-
-      if (!this.validate.isFormValid(e)) {
-        return;
-      }
-
-      this.fields.forEach((input: HTMLInputElement) => {
-        fields_data[input.name] = input.value;
-      })
-
-      console.log(fields_data);
-    })
   }
 
   componentDidMount() {
