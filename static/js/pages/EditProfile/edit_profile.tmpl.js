@@ -12,7 +12,7 @@ export default '' +
     '      </a>\n' +
     '      <div class="profile__data-wrapper">\n' +
     '        <label class="profile__avatar profile__avatar_editable">' +
-    '          <img class="profile__avatar-img js-profile-avatar-container" src="images/user.jpeg">\n' +
+    '          <img class="profile__avatar-img js-profile-avatar-container" src="images/default_avatar.png">\n' +
     '          <input class="profile__avatar-input js-profile-update-avatar" type="file">' +
     '        </label>' +
     '        <div class="profile__form primary-form">\n' +
