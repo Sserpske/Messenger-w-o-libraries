@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "moduleResolution": "node",
     "module": "ES6",
     "target": "es2016",
     "outDir": "./static/js",
@@ -14,6 +15,7 @@
     "global.d.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/js/**/*.test.ts"
   ]
 }

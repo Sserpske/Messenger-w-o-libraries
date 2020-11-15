@@ -32,11 +32,15 @@ export default class HTTPTransport {
   }
 
   // @ts-ignore
-  request = (url: string, options, timeout: number = 5000) => {
+  request = (url: string | any, options, timeout: number = 5000) => {
     const { method, data, headers = {} } = options;
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
+
+      if (!url || typeof url !== 'string') {
+        return Promise.reject();
+      }
 
       xhr.open(method, url);
 
