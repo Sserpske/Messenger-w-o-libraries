@@ -1,10 +1,8 @@
 import StartPages from "./StartPages.js";
 import auth_page_data from "./auth_page_data.js";
 export default class AuthPage extends StartPages {
-    constructor(props) {
-        props = props ? props : {};
-        Object.assign(props, auth_page_data);
-        super(props);
+    constructor() {
+        super(auth_page_data);
     }
     bindEvents() {
         this.fields = this._element.querySelectorAll('input');

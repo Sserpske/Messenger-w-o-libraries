@@ -1,4 +1,5 @@
 import APIClient from "../API/APIClient.js";
+const USER_INFO_KEY = 'user_info';
 export default class AuthStore {
     constructor() {
         if (AuthStore.__instance) {
@@ -8,7 +9,7 @@ export default class AuthStore {
         AuthStore.__instance = this;
     }
     checkAuth() {
-        if (sessionStorage.getItem('user_info')) {
+        if (sessionStorage.getItem(USER_INFO_KEY)) {
             return Promise.resolve();
         }
         return this.apiClient.getUser()
@@ -25,17 +26,17 @@ export default class AuthStore {
             user_info = JSON.stringify(user_info);
         }
         if (typeof user_info === 'string') {
-            sessionStorage.setItem('user_info', user_info);
+            sessionStorage.setItem(USER_INFO_KEY, user_info);
         }
     }
     getInfo() {
-        if (sessionStorage.getItem('user_info')) {
-            return JSON.parse(sessionStorage.getItem('user_info'));
+        if (sessionStorage.getItem(USER_INFO_KEY)) {
+            return JSON.parse(sessionStorage.getItem(USER_INFO_KEY));
         }
     }
     deleteInfo() {
-        if (sessionStorage.getItem('user_info')) {
-            sessionStorage.removeItem('user_info');
+        if (sessionStorage.getItem(USER_INFO_KEY)) {
+            sessionStorage.removeItem(USER_INFO_KEY);
         }
     }
 }

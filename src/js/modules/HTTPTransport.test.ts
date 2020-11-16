@@ -13,7 +13,7 @@ describe('Тест HTTPTransport', () => {
   test('Тест положительного POST запроса', () => {
     const httpTransport = new HTTPTransport();
     const mock = jest.fn();
-    XMLHttpRequest.prototype.send = mock;
+    httpTransport.request = mock;
 
     httpTransport.post('https://ya.ru', options);
     expect(mock).toBeCalled();
@@ -22,7 +22,7 @@ describe('Тест HTTPTransport', () => {
   test('Тест положительного GET запроса', () => {
     const httpTransport = new HTTPTransport();
     const mock = jest.fn();
-    XMLHttpRequest.prototype.send = mock;
+    httpTransport.request = mock;
 
     httpTransport.get('https://ya.ru', options);
     expect(mock).toBeCalled();

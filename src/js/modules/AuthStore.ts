@@ -1,4 +1,5 @@
 import APIClient from "../API/APIClient.js";
+const USER_INFO_KEY = 'user_info';
 
 export default class AuthStore {
   private apiClient: APIClient;
@@ -15,7 +16,7 @@ export default class AuthStore {
   }
 
   checkAuth() {
-    if (sessionStorage.getItem('user_info')) {
+    if (sessionStorage.getItem(USER_INFO_KEY)) {
       return Promise.resolve();
     }
 
@@ -36,19 +37,19 @@ export default class AuthStore {
     }
 
     if (typeof user_info === 'string') {
-      sessionStorage.setItem('user_info', user_info);
+      sessionStorage.setItem(USER_INFO_KEY, user_info);
     }
   }
 
   getInfo() {
-    if (sessionStorage.getItem('user_info')) {
-      return JSON.parse(<string>sessionStorage.getItem('user_info'));
+    if (sessionStorage.getItem(USER_INFO_KEY)) {
+      return JSON.parse(<string>sessionStorage.getItem(USER_INFO_KEY));
     }
   }
 
   deleteInfo() {
-    if (sessionStorage.getItem('user_info')) {
-      sessionStorage.removeItem('user_info');
+    if (sessionStorage.getItem(USER_INFO_KEY)) {
+      sessionStorage.removeItem(USER_INFO_KEY);
     }
   }
 }

@@ -1,3 +1,9 @@
+const VALIDATE_MAP = {
+    email: /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,}$/,
+    password: /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
+    text: /^[a-z0-9а-я\w\s.-]{3,}$/ui,
+    phone: /^([+]+)*[0-9\x20\x28\x29\-]{5,20}$/
+};
 export default class Validate {
     constructor(form) {
         this.isFormValid = (e) => {
@@ -15,7 +21,7 @@ export default class Validate {
             const type = inputElement.dataset.validationType || 'text';
             const wrapper = inputElement.parentNode;
             const error_message = wrapper ? wrapper.querySelector('.main-field__error-message') : null;
-            const regex = this.validateMap[type];
+            const regex = VALIDATE_MAP[type];
             if (error_message) {
                 if (regex.test(inputElement.value)) {
                     error_message.classList.add('hidden');
@@ -24,12 +30,6 @@ export default class Validate {
                 error_message.classList.remove('hidden');
             }
             return false;
-        };
-        this.validateMap = {
-            email: /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,}$/,
-            password: /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
-            text: /^[a-z0-9а-я\w\s.-]{3,}$/ui,
-            phone: /^([+]+)*[0-9\x20\x28\x29\-]{5,20}$/
         };
         this.form = form;
         this.init();
