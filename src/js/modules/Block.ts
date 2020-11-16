@@ -40,10 +40,10 @@ export default class Block implements IBlock {
   }
   protected apiClient: APIClient;
 
-  constructor(tagName: string = 'div', props: object = {}) {
+  constructor(tag_name: string = 'div', props: object = {}) {
     const eventBus = new EventBus();
     this._meta = {
-      tagName,
+      tagName: tag_name,
       props
     };
 
@@ -96,12 +96,12 @@ export default class Block implements IBlock {
   componentDidUpdate(): void {
   }
 
-  setProps = (nextProps: {}): void => {
-    if (!nextProps) {
+  setProps = (next_props: {}): void => {
+    if (!next_props) {
       return;
     }
 
-    Object.assign(this.props, nextProps);
+    Object.assign(this.props, next_props);
   };
 
   get element(): HTMLElement {
@@ -137,9 +137,9 @@ export default class Block implements IBlock {
     return props;
   }
 
-  _createDocumentElement(tagName: string) {
+  _createDocumentElement(tag_name: string) {
     // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
-    return document.createElement(tagName);
+    return document.createElement(tag_name);
   }
 
   show() {

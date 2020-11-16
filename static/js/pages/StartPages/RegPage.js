@@ -1,10 +1,8 @@
 import StartPages from "./StartPages.js";
 import reg_page_data from "./reg_page_data.js";
 export default class RegPage extends StartPages {
-    constructor(props) {
-        props = props ? props : {};
-        Object.assign(props, reg_page_data);
-        super(props);
+    constructor() {
+        super(reg_page_data);
     }
     bindEvents() {
         this.fields = this._element.querySelectorAll('input');

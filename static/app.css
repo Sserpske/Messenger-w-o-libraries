@@ -1212,7 +1212,6 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
   width: 80%;
-  max-width: 90%;
   max-width: fit-content;
 }
 .message_right {

@@ -1,16 +1,16 @@
 import EventBus from "./EventBus.js";
 import APIClient from "../API/APIClient.js";
 export default class Block {
-    constructor(tagName = 'div', props = {}) {
-        this.setProps = (nextProps) => {
-            if (!nextProps) {
+    constructor(tag_name = 'div', props = {}) {
+        this.setProps = (next_props) => {
+            if (!next_props) {
                 return;
             }
-            Object.assign(this.props, nextProps);
+            Object.assign(this.props, next_props);
         };
         const eventBus = new EventBus();
         this._meta = {
-            tagName,
+            tagName: tag_name,
             props
         };
         this.props = this._makePropsProxy(props);
@@ -73,9 +73,9 @@ export default class Block {
         });
         return props;
     }
-    _createDocumentElement(tagName) {
+    _createDocumentElement(tag_name) {
         // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
-        return document.createElement(tagName);
+        return document.createElement(tag_name);
     }
     show() {
         this._element.style.display = 'block';

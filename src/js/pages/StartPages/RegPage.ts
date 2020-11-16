@@ -1,13 +1,9 @@
 import StartPages from "./StartPages.js";
 import reg_page_data from "./reg_page_data.js";
-import {props_type} from "../../types/Types.js";
 
 export default class RegPage extends StartPages {
-  constructor(props?: props_type) {
-    props = props ? props : {};
-    Object.assign(props, reg_page_data)
-
-    super(props);
+  constructor() {
+    super(reg_page_data);
   }
 
   bindEvents() {
