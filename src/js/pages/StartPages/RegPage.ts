@@ -1,5 +1,5 @@
-import StartPages from "./StartPages.js";
-import reg_page_data from "./reg_page_data.js";
+import StartPages from './StartPages.js';
+import reg_page_data from './reg_page_data.js';
 
 export default class RegPage extends StartPages {
   constructor() {
@@ -15,8 +15,8 @@ export default class RegPage extends StartPages {
       return;
     }
 
-    button.addEventListener('click', (e) => {
-      const fields_data: { [key: string]: string } = {};
+    button.addEventListener('click', e => {
+      const fields_data: {[key: string]: string} = {};
       e.preventDefault();
 
       if (!this.validate.isFormValid(e)) {
@@ -25,12 +25,11 @@ export default class RegPage extends StartPages {
 
       this.fields.forEach((input: HTMLInputElement) => {
         fields_data[input.name] = input.value;
-      })
+      });
 
-      this.apiClient.signup(fields_data)
-        .then(() => {
-          this.router.go('/chat')
-        });
-    })
+      this.apiClient.signup(fields_data).then(() => {
+        this.router.go('/chat');
+      });
+    });
   }
 }

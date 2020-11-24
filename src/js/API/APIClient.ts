@@ -1,5 +1,5 @@
-import HTTPTransport from "../modules/HTTPTransport.js";
-import {props_type} from "../types/Types";
+import HTTPTransport from '../modules/HTTPTransport.js';
+import {props_type} from '../types/Types';
 
 const ENDPOINTS = {
   SIGNUP: '/auth/signup',
@@ -58,7 +58,8 @@ export default class APIClient {
       headers: {},
     };
 
-    return this.httpTransport.get(ENDPOINTS.CHATS, options)
+    return this.httpTransport
+      .get(ENDPOINTS.CHATS, options)
       .then((response: XMLHttpRequest) => JSON.parse(response.response));
   }
 
@@ -67,7 +68,8 @@ export default class APIClient {
       data: JSON.stringify(data),
     };
 
-    return this.httpTransport.post(ENDPOINTS.CHATS, options)
+    return this.httpTransport
+      .post(ENDPOINTS.CHATS, options)
       .then((response: XMLHttpRequest) => JSON.parse(response.response));
   }
 
@@ -94,7 +96,7 @@ export default class APIClient {
     const options = {
       headers: {},
       data: data,
-    }
+    };
 
     return this.httpTransport.put(ENDPOINTS.CHATS_AVATAR, options);
   }
@@ -105,7 +107,8 @@ export default class APIClient {
     };
     const url = `${ENDPOINTS.CHATS}/${chat_id}/users`;
 
-    return this.httpTransport.get(url, options)
+    return this.httpTransport
+      .get(url, options)
       .then((response: XMLHttpRequest) => JSON.parse(response.response));
   }
 
@@ -114,7 +117,7 @@ export default class APIClient {
       data: JSON.stringify({
         users: [user_id],
         chatId: chat_id,
-      })
+      }),
     };
 
     return this.httpTransport.delete(ENDPOINTS.CHATS_USERS, options);
@@ -127,15 +130,16 @@ export default class APIClient {
       }),
     };
 
-    return this.httpTransport.post(ENDPOINTS.USER_SEARCH, options)
+    return this.httpTransport
+      .post(ENDPOINTS.USER_SEARCH, options)
       .then((response: XMLHttpRequest) => JSON.parse(response.response));
   }
 
   addUsersToChat(user_id: string, chat_id: string) {
     const options = {
       data: JSON.stringify({
-        'users': [user_id],
-        'chatId': chat_id,
+        users: [user_id],
+        chatId: chat_id,
       }),
     };
 

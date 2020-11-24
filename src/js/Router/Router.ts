@@ -1,5 +1,5 @@
-import Route, {IRoute} from './Route.js'
-import AuthStore from "../modules/AuthStore.js";
+import Route, {IRoute} from './Route.js';
+import AuthStore from '../modules/AuthStore.js';
 
 export default class Router {
   private routes: IRoute[];
@@ -41,7 +41,8 @@ export default class Router {
   _onRoute(pathname: string): void {
     const route = this.getRoute(pathname);
 
-    this.auth.checkAuth()
+    this.auth
+      .checkAuth()
       .then(() => {
         if (['/auth', '/'].includes(pathname)) {
           this.go('/chat');
@@ -78,7 +79,7 @@ export default class Router {
   }
 
   go(pathname: string) {
-    this.history.pushState({}, "", pathname);
+    this.history.pushState({}, '', pathname);
     this._onRoute(pathname);
   }
 

@@ -3,11 +3,12 @@
 Учебный проект Мессенджер.
 
 ##Запуск проекта
-1. Установить зависимости ```npm i```
-2. Собрать стили ```npm run sass```
-3. Собрать TypeScript ```npm run ts```
-4. Запустить сервер ```npm run start```
-5. Запустить тесты ```npm run test```
+
+1. Установить зависимости `npm i`
+2. Собрать стили `npm run sass`
+3. Собрать TypeScript `npm run ts`
+4. Запустить сервер `npm run start`
+5. Запустить тесты `npm run test`
 
 ##Страницы
 
@@ -20,4 +21,5 @@
 7. /500 - 500 ошибка
 
 [Ссылка](https://peaceful-hodgkin-c33196.netlify.app/) на размещённый проект в Netlify.  
-[Ссылка](https://www.figma.com/file/hObqNtfawSoaepH31ebwXC/Chat-Biryuza?node-id=0%3A1) на макет в Фигме.
+[Ссылка](https://www.figma.com/file/hObqNtfawSoaepH31ebwXC/Chat-Biryuza?node-id=0%3A1) на макет в
+Фигме.

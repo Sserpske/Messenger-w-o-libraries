@@ -1,5 +1,5 @@
-import Router from "./Router";
-import Block from "../modules/Block";
+import Router from './Router';
+import Block from '../modules/Block';
 
 describe('Тест роутера', () => {
   class TestComponent extends Block {
@@ -8,10 +8,7 @@ describe('Тест роутера', () => {
 
   const router = new Router('.root');
 
-  router.use('/', TestComponent)
-    .use('/chat', TestComponent)
-    .use('/404', TestComponent)
-    .start();
+  router.use('/', TestComponent).use('/chat', TestComponent).use('/404', TestComponent).start();
 
   test('Добавление в history при переходе по страницам', () => {
     router.go('/chat');
@@ -20,11 +17,11 @@ describe('Тест роутера', () => {
     router.back();
 
     expect(window.history).toHaveLength(3);
-  })
+  });
 
   test('Переход по ссылкам с помощью go()', () => {
     router.go('/chat');
 
     expect(window.location.pathname).toBe('/chat');
-  })
+  });
 });

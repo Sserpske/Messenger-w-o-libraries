@@ -1,7 +1,7 @@
-import Block from "../../modules/Block.js";
-import chats_template from "./profile.tmpl.js";
-import Router from "../../Router/Router.js";
-import AuthStore from "../../modules/AuthStore.js";
+import Block from '../../modules/Block.js';
+import chats_template from './profile.tmpl.js';
+import Router from '../../Router/Router.js';
+import AuthStore from '../../modules/AuthStore.js';
 
 export default class ProfilePage extends Block {
   protected router: Router;
@@ -10,7 +10,7 @@ export default class ProfilePage extends Block {
 
   constructor() {
     super('div', {
-      profile: null
+      profile: null,
     });
 
     this.router = new Router('.root');
@@ -24,11 +24,10 @@ export default class ProfilePage extends Block {
     }
 
     logout_button.addEventListener('click', () => {
-      this.apiClient.logout()
-        .then(() => {
-          this.auth.deleteInfo();
-          this.router.go('/auth');
-        })
+      this.apiClient.logout().then(() => {
+        this.auth.deleteInfo();
+        this.router.go('/auth');
+      });
     });
   }
 
@@ -37,9 +36,9 @@ export default class ProfilePage extends Block {
 
     this.setProps({
       profile: {
-        ...this.info
-      }
-    })
+        ...this.info,
+      },
+    });
   }
 
   componentDidMount() {

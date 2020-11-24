@@ -1,50 +1,50 @@
-import EventBus, {IEventBus} from "./EventBus.js";
-import { props_type } from "../types/Types.js"
-import APIClient from "../API/APIClient.js";
+import EventBus, {IEventBus} from './EventBus.js';
+import {props_type} from '../types/Types.js';
+import APIClient from '../API/APIClient.js';
 
 export interface IBlock {
-  _element: HTMLElement,
+  _element: HTMLElement;
   _meta: {
-    tagName: string,
-    props: {}
-  },
-  props: {},
-  eventBus: () => EventBus,
-  _registerEvents(EventBus: IEventBus): void,
-  _createResources(): void,
-  init(): void,
-  _componentDidMount(): void,
-  componentDidMount(): void,
-  _componentDidUpdate(): void,
-  componentDidUpdate(): void,
-  setProps(nextProps:{}): void,
-  _render(): void,
-  render(): string,
-  getContent(): HTMLElement
+    tagName: string;
+    props: {};
+  };
+  props: {};
+  eventBus: () => EventBus;
+  _registerEvents(EventBus: IEventBus): void;
+  _createResources(): void;
+  init(): void;
+  _componentDidMount(): void;
+  componentDidMount(): void;
+  _componentDidUpdate(): void;
+  componentDidUpdate(): void;
+  setProps(nextProps: {}): void;
+  _render(): void;
+  render(): string;
+  getContent(): HTMLElement;
 }
 
 export default class Block implements IBlock {
   _element: HTMLElement;
   _meta: {
-    tagName: string,
-    props: {}
+    tagName: string;
+    props: {};
   };
   props: props_type;
   eventBus: () => EventBus;
 
   static EVENTS = {
-    INIT: "init",
-    FLOW_CDM: "flow:component-did-mount",
-    FLOW_RENDER: "flow:render",
-    FLOW_CDU: "flow:component-did-update"
-  }
+    INIT: 'init',
+    FLOW_CDM: 'flow:component-did-mount',
+    FLOW_RENDER: 'flow:render',
+    FLOW_CDU: 'flow:component-did-update',
+  };
   protected apiClient: APIClient;
 
   constructor(tag_name: string = 'div', props: object = {}) {
     const eventBus = new EventBus();
     this._meta = {
       tagName: tag_name,
-      props
+      props,
     };
 
     this.props = this._makePropsProxy(props);
@@ -69,7 +69,7 @@ export default class Block implements IBlock {
   }
 
   _createResources(): void {
-    const { tagName } = this._meta;
+    const {tagName} = this._meta;
     this._element = this._createDocumentElement(tagName);
   }
 
@@ -84,8 +84,7 @@ export default class Block implements IBlock {
     this.componentDidMount();
   }
 
-  componentDidMount(): void {
-  }
+  componentDidMount(): void {}
 
   _componentDidUpdate(): void {
     this._render();
@@ -93,8 +92,7 @@ export default class Block implements IBlock {
     this.componentDidUpdate();
   }
 
-  componentDidUpdate(): void {
-  }
+  componentDidUpdate(): void {}
 
   setProps = (next_props: {}): void => {
     if (!next_props) {
@@ -131,8 +129,8 @@ export default class Block implements IBlock {
 
       deleteProperty() {
         throw new Error('нет доступа');
-      }
-    })
+      },
+    });
 
     return props;
   }

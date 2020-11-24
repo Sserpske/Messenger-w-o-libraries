@@ -1,43 +1,47 @@
-import queryStringify from "../utils/queryStringify.js";
-import {props_type} from "../types/Types.js";
+import queryStringify from '../utils/queryStringify.js';
+import {props_type} from '../types/Types.js';
 
 const API_URL = 'https://ya-praktikum.tech/api/v2';
 const DEFAULT_HEADER = {
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
 };
 const METHODS = {
   GET: 'GET',
   PUT: 'PUT',
   POST: 'POST',
-  DELETE: 'DELETE'
+  DELETE: 'DELETE',
 };
 
 export default class HTTPTransport {
   get = (url: string, options: props_type = {}): Promise<XMLHttpRequest> => {
-    const { data = {} } = options;
+    const {data = {}} = options;
     url = url + queryStringify(data);
 
     return this.request(url, {...options, method: METHODS.GET});
   };
 
   put(url: string, options: props_type = {}): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHODS.PUT });
+    return this.request(url, {...options, method: METHODS.PUT});
   }
 
   post(url: string, options: props_type = {}): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHODS.POST });
+    return this.request(url, {...options, method: METHODS.POST});
   }
 
   delete(url: string, options: props_type = {}): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHODS.DELETE });
+    return this.request(url, {...options, method: METHODS.DELETE});
   }
 
   getUrl(path: string) {
     return API_URL + path;
   }
 
-  request = (url: string | any, options: props_type, timeout: number = 5000): Promise<XMLHttpRequest> => {
-    const { method, data, headers = DEFAULT_HEADER } = options;
+  request = (
+    url: string | any,
+    options: props_type,
+    timeout: number = 5000
+  ): Promise<XMLHttpRequest> => {
+    const {method, data, headers = DEFAULT_HEADER} = options;
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
@@ -51,7 +55,7 @@ export default class HTTPTransport {
 
       xhr.open(method, full_url);
 
-      xhr.onload = function() {
+      xhr.onload = function () {
         if (this.status === 200) {
           resolve(xhr);
         } else {
@@ -59,7 +63,7 @@ export default class HTTPTransport {
         }
       };
 
-      Object.keys(headers).forEach((key) => {
+      Object.keys(headers).forEach(key => {
         xhr.setRequestHeader(key, headers[key]);
       });
 

@@ -12,21 +12,21 @@
   &_right {
     margin-left: auto;
     margin-right: 10px;
-    background-color: #CAE8EA;
+    background-color: #cae8ea;
     border-radius: 12px 12px 0;
 
     .message__time {
-      color: #1D6669;
+      color: #1d6669;
     }
 
-    &+ .message:not(:last-child) {
+    & + .message:not(:last-child) {
       margin-bottom: 20px;
     }
   }
 }
 
 .message__body {
-  color: #1E1E1E;
+  color: #1e1e1e;
 }
 
 .message__time {

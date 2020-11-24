@@ -1,5 +1,5 @@
-import StartPages from "./StartPages.js";
-import auth_page_data from "./auth_page_data.js";
+import StartPages from './StartPages.js';
+import auth_page_data from './auth_page_data.js';
 
 export default class AuthPage extends StartPages {
   constructor() {
@@ -15,8 +15,8 @@ export default class AuthPage extends StartPages {
       return;
     }
 
-    button.addEventListener('click', (e) => {
-      const fields_data: { [key: string]: string } = {};
+    button.addEventListener('click', e => {
+      const fields_data: {[key: string]: string} = {};
       e.preventDefault();
 
       if (!this.validate.isFormValid(e)) {
@@ -25,13 +25,11 @@ export default class AuthPage extends StartPages {
 
       this.fields.forEach((input: HTMLInputElement) => {
         fields_data[input.name] = input.value;
-      })
+      });
 
-      this.apiClient.signin(fields_data)
-        .then(() => {
-          this.router.go('/chat')
-        });
-    })
+      this.apiClient.signin(fields_data).then(() => {
+        this.router.go('/chat');
+      });
+    });
   }
 }
-

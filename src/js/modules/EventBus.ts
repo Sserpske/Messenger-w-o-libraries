@@ -1,7 +1,7 @@
 export interface IEventBus {
   listeners: {
-    [key: string]: Function[]
-  }
+    [key: string]: Function[];
+  };
   on(event: string, callback: () => void): void;
   off(event: string, callback: () => void): void;
   emit(event: string, ...args: []): void;
@@ -9,7 +9,7 @@ export interface IEventBus {
 
 export default class EventBus implements IEventBus {
   listeners: {
-    [key: string]: Function[]
+    [key: string]: Function[];
   };
 
   constructor() {
@@ -29,12 +29,10 @@ export default class EventBus implements IEventBus {
       throw new Error(`Нет события: ${event}`);
     }
 
-    this.listeners[event] = this.listeners[event].filter(
-      listener => listener !== callback
-    );
+    this.listeners[event] = this.listeners[event].filter(listener => listener !== callback);
   }
 
-  emit(event: string, ...args: []):void {
+  emit(event: string, ...args: []): void {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`);
     }

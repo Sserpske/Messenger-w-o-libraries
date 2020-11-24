@@ -2,11 +2,11 @@
   display: flex;
   padding: 12px 10px;
   cursor: pointer;
-  transition: .15s;
-  border-bottom: 1px solid #EAEAEA;
+  transition: 0.15s;
+  border-bottom: 1px solid #eaeaea;
 
   &:hover {
-    background-color: #CAE8EA;
+    background-color: #cae8ea;
   }
 }
 
@@ -14,7 +14,7 @@
   width: 47px;
   height: 47px;
   border-radius: 50%;
-  background-color: #EFEFEF;
+  background-color: #efefef;
 }
 
 .chat-card__user-info {
@@ -45,7 +45,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.1;
-  margin-right: 20px
+  margin-right: 20px;
 }
 
 .chat-card__tech-info {
@@ -62,7 +62,7 @@
 }
 
 .chat-card__new-messages-number {
-  background-color: #1BA5AB;
+  background-color: #1ba5ab;
   color: #ffffff;
   font-size: 13px;
   line-height: 1;

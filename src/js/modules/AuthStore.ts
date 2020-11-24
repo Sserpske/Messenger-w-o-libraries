@@ -1,4 +1,4 @@
-import APIClient from "../API/APIClient.js";
+import APIClient from '../API/APIClient.js';
 const USER_INFO_KEY = 'user_info';
 
 export default class AuthStore {
@@ -20,7 +20,8 @@ export default class AuthStore {
       return Promise.resolve();
     }
 
-    return this.apiClient.getUser()
+    return this.apiClient
+      .getUser()
       .then((response: XMLHttpRequest) => {
         this.setInfo(response.response);
 
@@ -28,7 +29,7 @@ export default class AuthStore {
       })
       .catch(() => {
         return Promise.reject();
-      })
+      });
   }
 
   setInfo(user_info: {} | string) {

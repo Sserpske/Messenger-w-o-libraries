@@ -10,12 +10,6 @@
     "alwaysStrict": true,
     "strictNullChecks": true
   },
-  "include": [
-    "src/js/**/*",
-    "global.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "src/js/**/*.test.ts"
-  ]
+  "include": ["src/js/**/*", "global.d.ts"],
+  "exclude": ["node_modules", "src/js/**/*.test.ts"]
 }
