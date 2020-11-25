@@ -1,6 +1,6 @@
-import Block from '../../modules/Block.js';
-import users_template from './chat-users.tmpl.js';
-import {props_type} from '../../types/Types.js';
+import Block from '../../modules/Block';
+import users_template from './chat-users.tmpl';
+import {props_type} from '../../types/Types';
 
 export default class ChatUsers extends Block {
   constructor(props: props_type) {

@@ -1,6 +1,6 @@
-import render from '../utils/render.js';
-import isEqual from '../utils/isEqual.js';
-import {extendedBlock, props_type} from '../types/Types.js';
+import render from '../utils/render';
+import isEqual from '../utils/isEqual';
+import {extendedBlock, props_type} from '../types/Types';
 
 export interface IRoute {
   _pathname: string;

@@ -1,10 +1,10 @@
-import auth_template from '../StartPages/start.tmpl.js';
-import Block from '../../modules/Block.js';
-import MainField from '../../components/MainField/MainField.js';
-import Validate from '../../modules/Validate.js';
-import Button from '../../components/Button/Button.js';
-import Router from '../../Router/Router.js';
-import {props_type} from '../../types/Types.js';
+import auth_template from '../StartPages/start.tmpl';
+import Block from '../../modules/Block';
+import MainField from '../../components/MainField/MainField';
+import Validate from '../../modules/Validate';
+import Button from '../../components/Button/Button';
+import Router from '../../Router/Router';
+import {props_type} from '../../types/Types';
 
 export default class StartPages extends Block {
   protected validate: Validate;

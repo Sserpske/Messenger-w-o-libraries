@@ -1,6 +1,6 @@
-import EventBus, {IEventBus} from './EventBus.js';
-import {props_type} from '../types/Types.js';
-import APIClient from '../API/APIClient.js';
+import EventBus, {IEventBus} from './EventBus';
+import {props_type} from '../types/Types';
+import APIClient from '../API/APIClient';
 
 export interface IBlock {
   _element: HTMLElement;

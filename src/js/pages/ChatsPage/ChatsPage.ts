@@ -1,16 +1,16 @@
-import Block from '../../modules/Block.js';
-import chats_template from './chats.tmpl.js';
-import no_chat_selected from './no_chat_selected.tmpl.js';
-import ChatCard from '../../components/ChatCard/ChatCard.js';
-import Message from '../../components/Message/Message.js';
-import messages_data from './messages_data.js';
-import {props_type} from '../../types/Types.js';
-import Button from '../../components/Button/Button.js';
-import MainField from '../../components/MainField/MainField.js';
-import Validate from '../../modules/Validate.js';
-import getObjectById from '../../utils/getObjectByValue.js';
-import ChatUsers from '../../components/ChatUsers/ChatUsers.js';
-import AuthStore from '../../modules/AuthStore.js';
+import Block from '../../modules/Block';
+import chats_template from './chats.tmpl';
+import no_chat_selected from './no_chat_selected.tmpl';
+import ChatCard from '../../components/ChatCard/ChatCard';
+import Message from '../../components/Message/Message';
+import messages_data from './messages_data';
+import {props_type} from '../../types/Types';
+import Button from '../../components/Button/Button';
+import MainField from '../../components/MainField/MainField';
+import Validate from '../../modules/Validate';
+import getObjectById from '../../utils/getObjectByValue';
+import ChatUsers from '../../components/ChatUsers/ChatUsers';
+import AuthStore from '../../modules/AuthStore';
 
 export default class ChatsPage extends Block {
   private chats_list: props_type;

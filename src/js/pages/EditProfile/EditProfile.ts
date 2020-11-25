@@ -1,11 +1,11 @@
-import auth_template from './edit_profile.tmpl.js';
-import Block from '../../modules/Block.js';
-import MainField from '../../components/MainField/MainField.js';
-import Validate from '../../modules/Validate.js';
-import Button from '../../components/Button/Button.js';
-import edit_profile_data from './edit_profile_data.js';
-import {props_type} from '../../types/Types.js';
-import AuthStore from '../../modules/AuthStore.js';
+import auth_template from './edit_profile.tmpl';
+import Block from '../../modules/Block';
+import MainField from '../../components/MainField/MainField';
+import Validate from '../../modules/Validate';
+import Button from '../../components/Button/Button';
+import edit_profile_data from './edit_profile_data';
+import {props_type} from '../../types/Types';
+import AuthStore from '../../modules/AuthStore';
 
 export default class EditProfile extends Block {
   private auth: AuthStore;

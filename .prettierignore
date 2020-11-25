@@ -1,3 +1,4 @@
 jest/
 vendors/
 node_modules/
+dist/

@@ -1,4 +1,4 @@
-import HTTPTransport from '../modules/HTTPTransport.js';
+import HTTPTransport from '../modules/HTTPTransport';
 import {props_type} from '../types/Types';
 
 const ENDPOINTS = {

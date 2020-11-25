@@ -1,5 +1,5 @@
-import Route, {IRoute} from './Route.js';
-import AuthStore from '../modules/AuthStore.js';
+import Route, {IRoute} from './Route';
+import AuthStore from '../modules/AuthStore';
 
 export default class Router {
   private routes: IRoute[];

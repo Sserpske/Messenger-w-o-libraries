@@ -1,4 +1,4 @@
-import APIClient from '../API/APIClient.js';
+import APIClient from '../API/APIClient';
 const USER_INFO_KEY = 'user_info';
 
 export default class AuthStore {

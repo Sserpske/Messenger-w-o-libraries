@@ -1,5 +1,5 @@
-import queryStringify from '../utils/queryStringify.js';
-import {props_type} from '../types/Types.js';
+import queryStringify from '../utils/queryStringify';
+import {props_type} from '../types/Types';
 
 const API_URL = 'https://ya-praktikum.tech/api/v2';
 const DEFAULT_HEADER = {

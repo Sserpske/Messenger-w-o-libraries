@@ -1,6 +1,6 @@
-import main_field_template from './main-field.tmpl.js';
-import Block from '../../modules/Block.js';
-import {props_type} from '../../types/Types.js';
+import main_field_template from './main-field.tmpl';
+import Block from '../../modules/Block';
+import {props_type} from '../../types/Types';
 
 export default class MainField extends Block {
   constructor(props: props_type) {

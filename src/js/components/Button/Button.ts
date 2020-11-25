@@ -1,6 +1,6 @@
-import Block from '../../modules/Block.js';
-import button_template from './button.tmpl.js';
-import {props_type} from '../../types/Types.js';
+import Block from '../../modules/Block';
+import button_template from './button.tmpl';
+import {props_type} from '../../types/Types';
 
 export default class Button extends Block {
   constructor(props: props_type) {

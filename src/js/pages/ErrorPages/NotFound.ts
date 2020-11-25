@@ -1,4 +1,4 @@
-import ErrorPage from './ErrorPage.js';
+import ErrorPage from './ErrorPage';
 import {props_type} from '../../types/Types';
 
 export default class NotFound extends ErrorPage {

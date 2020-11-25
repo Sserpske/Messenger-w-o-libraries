@@ -1,5 +1,5 @@
-import StartPages from './StartPages.js';
-import reg_page_data from './reg_page_data.js';
+import StartPages from './StartPages';
+import reg_page_data from './reg_page_data';
 
 export default class RegPage extends StartPages {
   constructor() {

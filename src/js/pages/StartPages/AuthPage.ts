@@ -1,5 +1,5 @@
-import StartPages from './StartPages.js';
-import auth_page_data from './auth_page_data.js';
+import StartPages from './StartPages';
+import auth_page_data from './auth_page_data';
 
 export default class AuthPage extends StartPages {
   constructor() {

@@ -1,7 +1,7 @@
-import Block from '../../modules/Block.js';
-import chats_template from './profile.tmpl.js';
-import Router from '../../Router/Router.js';
-import AuthStore from '../../modules/AuthStore.js';
+import Block from '../../modules/Block';
+import chats_template from './profile.tmpl';
+import Router from '../../Router/Router';
+import AuthStore from '../../modules/AuthStore';
 
 export default class ProfilePage extends Block {
   protected router: Router;
