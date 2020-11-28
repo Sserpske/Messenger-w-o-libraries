@@ -20,6 +20,7 @@
 6. /404 - 404 ошибка
 7. /500 - 500 ошибка
 
-[Ссылка](https://peaceful-hodgkin-c33196.netlify.app/) на размещённый проект в Netlify.  
+[Ссылка](https://peaceful-hodgkin-c33196.netlify.app/) на приложение в Netlify.  
+[Ссылка](https://biryuza.herokuapp.com/) на приложение в Heroku.  
 [Ссылка](https://www.figma.com/file/hObqNtfawSoaepH31ebwXC/Chat-Biryuza?node-id=0%3A1) на макет в
 Фигме.

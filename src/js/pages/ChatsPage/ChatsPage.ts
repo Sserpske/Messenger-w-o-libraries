@@ -114,7 +114,7 @@ export default class ChatsPage extends Block {
       return;
     }
 
-    const chat_id: string | undefined = button.dataset.chatId;
+    const chat_id: number | undefined = Number(button.dataset.chatId);
     const action: string | undefined = button.dataset.action;
 
     if (!chat_id || !action) {
@@ -141,11 +141,11 @@ export default class ChatsPage extends Block {
     });
   }
 
-  initAddUsersEvent(chat_id: string) {
+  initAddUsersEvent(chat_id: number) {
     const add_button: NodeList = this._element.querySelectorAll('.js-user-add');
 
     add_button.forEach((element: HTMLElement) => {
-      const user_id = element.dataset.userId;
+      const user_id = Number(element.dataset.userId);
       const user_action = element.dataset.userAction;
 
       if (!user_id || !user_action) {
@@ -172,7 +172,7 @@ export default class ChatsPage extends Block {
       return;
     }
 
-    const chat_id: string | undefined = button.dataset.chatId;
+    const chat_id: number | undefined = Number(button.dataset.chatId);
     const action: string | undefined = button.dataset.action;
 
     if (!chat_id || !action) {
@@ -186,7 +186,7 @@ export default class ChatsPage extends Block {
     });
   }
 
-  renderUsersList(action: string, chat_id: string) {
+  renderUsersList(action: string, chat_id: number) {
     return this.apiClient.getChatUsers(chat_id).then(response => {
       if (!this.users_container) {
         return;
@@ -199,12 +199,12 @@ export default class ChatsPage extends Block {
     });
   }
 
-  initRemoveUsersEvent(chat_id: string) {
+  initRemoveUsersEvent(chat_id: number) {
     const delete_button: NodeList = this._element.querySelectorAll('.js-user-delete');
 
     delete_button.forEach((element: HTMLElement) => {
-      const user_id = element.dataset.userId;
-      const user_action = element.dataset.userAction;
+      const user_id: number = Number(element.dataset.userId);
+      const user_action: string | undefined = element.dataset.userAction;
 
       if (!user_id || !user_action) {
         return;

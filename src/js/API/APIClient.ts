@@ -101,7 +101,7 @@ export default class APIClient {
     return this.httpTransport.put(ENDPOINTS.CHATS_AVATAR, options);
   }
 
-  getChatUsers(chat_id: string) {
+  getChatUsers(chat_id: number) {
     const options = {
       headers: {},
     };
@@ -112,7 +112,7 @@ export default class APIClient {
       .then((response: XMLHttpRequest) => JSON.parse(response.response));
   }
 
-  deleteChatUsers(user_id: string, chat_id: string) {
+  deleteChatUsers(user_id: number, chat_id: number) {
     const options = {
       data: JSON.stringify({
         users: [user_id],
@@ -135,7 +135,7 @@ export default class APIClient {
       .then((response: XMLHttpRequest) => JSON.parse(response.response));
   }
 
-  addUsersToChat(user_id: string, chat_id: string) {
+  addUsersToChat(user_id: number, chat_id: number) {
     const options = {
       data: JSON.stringify({
         users: [user_id],
