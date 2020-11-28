@@ -4,7 +4,7 @@ import no_chat_selected from './no_chat_selected.tmpl';
 import ChatCard from '../../components/ChatCard/ChatCard';
 import Message from '../../components/Message/Message';
 import messages_data from './messages_data';
-import {props_type} from '../../types/Types';
+import { props_type } from '../../types/Types';
 import Button from '../../components/Button/Button';
 import MainField from '../../components/MainField/MainField';
 import Validate from '../../modules/Validate';
@@ -14,9 +14,13 @@ import AuthStore from '../../modules/AuthStore';
 
 export default class ChatsPage extends Block {
   private chats_list: props_type;
+
   private messages_list: props_type;
+
   private users_container: HTMLElement | null;
+
   private auth: AuthStore;
+
   constructor() {
     super('div', {
       chat_cards: null,
@@ -73,7 +77,7 @@ export default class ChatsPage extends Block {
     });
 
     const chat_window: HTMLElement | null = this._element.querySelector(
-      '.messenger-app__chat-window'
+      '.messenger-app__chat-window',
     );
 
     if (!chat_window) {
@@ -115,7 +119,7 @@ export default class ChatsPage extends Block {
     }
 
     const chat_id: number | undefined = Number(button.dataset.chatId);
-    const action: string | undefined = button.dataset.action;
+    const { action } = button.dataset;
 
     if (!chat_id || !action) {
       return;
@@ -129,14 +133,14 @@ export default class ChatsPage extends Block {
   }
 
   renderAvailableToAddUsers(action: string) {
-    return this.apiClient.searchUsers().then(response => {
+    return this.apiClient.searchUsers().then((response) => {
       if (!this.users_container) {
         return;
       }
 
       this.users_container.innerHTML = new ChatUsers({
         users: response,
-        action: action,
+        action,
       }).render();
     });
   }
@@ -155,9 +159,7 @@ export default class ChatsPage extends Block {
       element.addEventListener('click', () => {
         this.apiClient
           .addUsersToChat(user_id, chat_id)
-          .then(() => {
-            return this.renderAvailableToAddUsers(user_action);
-          })
+          .then(() => this.renderAvailableToAddUsers(user_action))
           .then(() => {
             this.initAddUsersEvent(chat_id);
           });
@@ -173,7 +175,7 @@ export default class ChatsPage extends Block {
     }
 
     const chat_id: number | undefined = Number(button.dataset.chatId);
-    const action: string | undefined = button.dataset.action;
+    const { action } = button.dataset;
 
     if (!chat_id || !action) {
       return;
@@ -187,14 +189,14 @@ export default class ChatsPage extends Block {
   }
 
   renderUsersList(action: string, chat_id: number) {
-    return this.apiClient.getChatUsers(chat_id).then(response => {
+    return this.apiClient.getChatUsers(chat_id).then((response) => {
       if (!this.users_container) {
         return;
       }
 
       this.users_container.innerHTML = new ChatUsers({
         users: response,
-        action: action,
+        action,
       }).render();
     });
   }
@@ -213,9 +215,7 @@ export default class ChatsPage extends Block {
       element.addEventListener('click', () => {
         this.apiClient
           .deleteChatUsers(user_id, chat_id)
-          .then(() => {
-            return this.renderUsersList(user_action, chat_id);
-          })
+          .then(() => this.renderUsersList(user_action, chat_id))
           .then(() => {
             this.initRemoveUsersEvent(chat_id);
           });
@@ -225,7 +225,7 @@ export default class ChatsPage extends Block {
 
   initUploadChatAvatar() {
     const input: HTMLInputElement | null = this._element.querySelector(
-      '.context-menu__avatar-input'
+      '.context-menu__avatar-input',
     );
 
     if (!input) {
@@ -241,9 +241,7 @@ export default class ChatsPage extends Block {
 
       this.apiClient
         .putChatAvatar(form_data)
-        .then(() => {
-          return this.renderChatCards();
-        })
+        .then(() => this.renderChatCards())
         .then(() => {
           this.getMessagesData(Number(chat_id));
         });
@@ -251,13 +249,13 @@ export default class ChatsPage extends Block {
   }
 
   initDocumentEvents() {
-    document.addEventListener('keyup', e => {
+    document.addEventListener('keyup', (e) => {
       if (e.code === 'Escape') {
-        this.setProps({messages: no_chat_selected});
+        this.setProps({ messages: no_chat_selected });
       }
     });
 
-    document.addEventListener('click', e => {
+    document.addEventListener('click', (e) => {
       if (!e.target || !this.users_container) {
         return;
       }
@@ -282,7 +280,7 @@ export default class ChatsPage extends Block {
 
       this.apiClient.deleteChat(chat_id).then(() => {
         this.renderChatCards();
-        this.setProps({messages: no_chat_selected});
+        this.setProps({ messages: no_chat_selected });
       });
     });
   }
@@ -292,7 +290,7 @@ export default class ChatsPage extends Block {
 
     buttons.forEach((element: HTMLElement) => {
       const menu_type = element.dataset.context;
-      const context_menu = this._element.querySelector('.js-context-' + menu_type);
+      const context_menu = this._element.querySelector(`.js-context-${menu_type}`);
 
       if (!context_menu) {
         return;

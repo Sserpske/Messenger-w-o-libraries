@@ -5,7 +5,9 @@ import AuthStore from '../../modules/AuthStore';
 
 export default class ProfilePage extends Block {
   protected router: Router;
+
   protected auth: AuthStore;
+
   private info: {};
 
   constructor() {

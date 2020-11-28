@@ -1,6 +1,6 @@
 import render from '../utils/render';
 import isEqual from '../utils/isEqual';
-import {extendedBlock, props_type} from '../types/Types';
+import { extendedBlock, props_type } from '../types/Types';
 
 export interface IRoute {
   _pathname: string;
@@ -16,9 +16,13 @@ export interface IRoute {
 
 export default class Route implements IRoute {
   _pathname: string;
+
   _blockClass: extendedBlock;
+
   _block: any;
+
   _props: props_type;
+
   constructor(pathname: string, view: extendedBlock, props: props_type) {
     this._pathname = pathname;
     this._blockClass = view;

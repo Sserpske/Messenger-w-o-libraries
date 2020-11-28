@@ -1,5 +1,5 @@
 import HTTPTransport from '../modules/HTTPTransport';
-import {props_type} from '../types/Types';
+import { props_type } from '../types/Types';
 
 const ENDPOINTS = {
   SIGNUP: '/auth/signup',
@@ -17,6 +17,7 @@ const ENDPOINTS = {
 
 export default class APIClient {
   private httpTransport: HTTPTransport;
+
   private static __instance: APIClient;
 
   constructor() {
@@ -95,7 +96,7 @@ export default class APIClient {
   putChatAvatar(data: FormData) {
     const options = {
       headers: {},
-      data: data,
+      data,
     };
 
     return this.httpTransport.put(ENDPOINTS.CHATS_AVATAR, options);
@@ -165,7 +166,7 @@ export default class APIClient {
   updateUserAvatar(data: FormData) {
     const options = {
       headers: {},
-      data: data,
+      data,
     };
 
     return this.httpTransport.put(ENDPOINTS.USER_AVATAR, options);

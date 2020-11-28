@@ -4,11 +4,13 @@ import MainField from '../../components/MainField/MainField';
 import Validate from '../../modules/Validate';
 import Button from '../../components/Button/Button';
 import Router from '../../Router/Router';
-import {props_type} from '../../types/Types';
+import { props_type } from '../../types/Types';
 
 export default class StartPages extends Block {
   protected validate: Validate;
+
   protected fields: NodeListOf<HTMLInputElement> | HTMLInputElement[];
+
   protected router: Router;
 
   constructor(props: props_type) {
@@ -39,7 +41,9 @@ export default class StartPages extends Block {
 
   render() {
     const template = Handlebars.compile(auth_template);
-    const {title, fields, button, change_button, page_class, link} = this.props;
+    const {
+      title, fields, button, change_button, page_class, link,
+    } = this.props;
 
     return template({
       fields: fields.render(),

@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -66,7 +66,7 @@ module.exports = {
       template: 'static/index.html',
     }),
     new CopyWebpackPlugin({
-      patterns: [{from: 'static/images/', to: 'images'}],
+      patterns: [{ from: 'static/images/', to: 'images' }],
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',

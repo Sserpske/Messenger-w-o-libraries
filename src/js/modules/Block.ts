@@ -1,5 +1,5 @@
-import EventBus, {IEventBus} from './EventBus';
-import {props_type} from '../types/Types';
+import EventBus, { IEventBus } from './EventBus';
+import { props_type } from '../types/Types';
 import APIClient from '../API/APIClient';
 
 export interface IBlock {
@@ -25,11 +25,14 @@ export interface IBlock {
 
 export default class Block implements IBlock {
   _element: HTMLElement;
+
   _meta: {
     tagName: string;
     props: {};
   };
+
   props: props_type;
+
   eventBus: () => EventBus;
 
   static EVENTS = {
@@ -38,6 +41,7 @@ export default class Block implements IBlock {
     FLOW_RENDER: 'flow:render',
     FLOW_CDU: 'flow:component-did-update',
   };
+
   protected apiClient: APIClient;
 
   constructor(tag_name: string = 'div', props: object = {}) {
@@ -69,7 +73,7 @@ export default class Block implements IBlock {
   }
 
   _createResources(): void {
-    const {tagName} = this._meta;
+    const { tagName } = this._meta;
     this._element = this._createDocumentElement(tagName);
   }
 
@@ -120,7 +124,7 @@ export default class Block implements IBlock {
 
   _makePropsProxy(props: object) {
     props = new Proxy(props, {
-      set: (target: {[key: string]: string}, prop: keyof {}, value: any): boolean => {
+      set: (target: { [key: string]: string }, prop: keyof {}, value: any): boolean => {
         target[prop] = value;
 
         this.eventBus().emit(Block.EVENTS.FLOW_CDU);

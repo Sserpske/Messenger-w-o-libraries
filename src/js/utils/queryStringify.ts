@@ -1,4 +1,4 @@
-import {props_type} from '../types/Types';
+import { props_type } from '../types/Types';
 
 type StringIndexed = Record<string, string>;
 

@@ -1,12 +1,17 @@
-import Route, {IRoute} from './Route';
+import Route, { IRoute } from './Route';
 import AuthStore from '../modules/AuthStore';
 
 export default class Router {
   private routes: IRoute[];
+
   private history: History;
+
   private _currentRoute: IRoute | null;
+
   private _rootQuery: string;
+
   private static __instance: Router;
+
   private auth: AuthStore;
 
   constructor(rootQuery: string) {
@@ -24,7 +29,7 @@ export default class Router {
   }
 
   use(pathname: string, block: any): this {
-    const route = new Route(pathname, block, {rootQuery: this._rootQuery});
+    const route = new Route(pathname, block, { rootQuery: this._rootQuery });
     this.routes.push(route);
 
     return this;
@@ -33,7 +38,7 @@ export default class Router {
   start() {
     window.onpopstate = ((event: PopStateEvent): void => {
       this._onRoute((<Window>event.currentTarget).location.pathname);
-    }).bind(this);
+    });
 
     this._onRoute(window.location.pathname);
   }
@@ -92,6 +97,6 @@ export default class Router {
   }
 
   getRoute(pathname: string) {
-    return this.routes.find(route => route.match(pathname));
+    return this.routes.find((route) => route.match(pathname));
   }
 }

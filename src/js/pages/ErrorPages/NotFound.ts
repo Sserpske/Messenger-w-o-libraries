@@ -1,9 +1,9 @@
 import ErrorPage from './ErrorPage';
-import {props_type} from '../../types/Types';
+import { props_type } from '../../types/Types';
 
 export default class NotFound extends ErrorPage {
   constructor(props?: props_type) {
-    props = props ? props : {};
+    props = props || {};
     Object.assign(props, data);
 
     super(props);

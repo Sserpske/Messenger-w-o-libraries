@@ -1,5 +1,5 @@
 import queryStringify from '../utils/queryStringify';
-import {props_type} from '../types/Types';
+import { props_type } from '../types/Types';
 
 const API_URL = 'https://ya-praktikum.tech/api/v2';
 const DEFAULT_HEADER = {
@@ -14,22 +14,22 @@ const METHODS = {
 
 export default class HTTPTransport {
   get = (url: string, options: props_type = {}): Promise<XMLHttpRequest> => {
-    const {data = {}} = options;
-    url = url + queryStringify(data);
+    const { data = {} } = options;
+    url += queryStringify(data);
 
-    return this.request(url, {...options, method: METHODS.GET});
+    return this.request(url, { ...options, method: METHODS.GET });
   };
 
   put(url: string, options: props_type = {}): Promise<XMLHttpRequest> {
-    return this.request(url, {...options, method: METHODS.PUT});
+    return this.request(url, { ...options, method: METHODS.PUT });
   }
 
   post(url: string, options: props_type = {}): Promise<XMLHttpRequest> {
-    return this.request(url, {...options, method: METHODS.POST});
+    return this.request(url, { ...options, method: METHODS.POST });
   }
 
   delete(url: string, options: props_type = {}): Promise<XMLHttpRequest> {
-    return this.request(url, {...options, method: METHODS.DELETE});
+    return this.request(url, { ...options, method: METHODS.DELETE });
   }
 
   getUrl(path: string) {
@@ -39,9 +39,9 @@ export default class HTTPTransport {
   request = (
     url: string | any,
     options: props_type,
-    timeout: number = 5000
+    timeout: number = 5000,
   ): Promise<XMLHttpRequest> => {
-    const {method, data, headers = DEFAULT_HEADER} = options;
+    const { method, data, headers = DEFAULT_HEADER } = options;
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
@@ -63,7 +63,7 @@ export default class HTTPTransport {
         }
       };
 
-      Object.keys(headers).forEach(key => {
+      Object.keys(headers).forEach((key) => {
         xhr.setRequestHeader(key, headers[key]);
       });
 

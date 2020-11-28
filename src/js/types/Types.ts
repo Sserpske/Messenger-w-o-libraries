@@ -1,4 +1,4 @@
-import {IBlock} from '../modules/Block';
+import { IBlock } from '../modules/Block';
 
 export type props_type = {
   [key: string]: any;

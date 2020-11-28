@@ -15,8 +15,8 @@ export default class AuthPage extends StartPages {
       return;
     }
 
-    button.addEventListener('click', e => {
-      const fields_data: {[key: string]: string} = {};
+    button.addEventListener('click', (e) => {
+      const fields_data: { [key: string]: string } = {};
       e.preventDefault();
 
       if (!this.validate.isFormValid(e)) {

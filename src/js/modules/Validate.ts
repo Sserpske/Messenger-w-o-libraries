@@ -1,4 +1,4 @@
-const VALIDATE_MAP: {[key: string]: RegExp} = {
+const VALIDATE_MAP: { [key: string]: RegExp } = {
   email: /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,}$/,
   password: /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
   text: /^[a-z0-9а-я\w\s.-]{3,}$/iu,
@@ -7,6 +7,7 @@ const VALIDATE_MAP: {[key: string]: RegExp} = {
 
 export default class Validate {
   private form: HTMLElement;
+
   private inputs: NodeList;
 
   constructor(form: HTMLElement) {
@@ -30,11 +31,11 @@ export default class Validate {
       valid_keys.push(this.checkInput(e, input));
     });
 
-    return valid_keys.every(item => item);
+    return valid_keys.every((item) => item);
   };
 
   checkInput = (e: Event, input?: HTMLInputElement): boolean => {
-    const inputElement: HTMLInputElement | EventTarget | null = input ? input : e.currentTarget;
+    const inputElement: HTMLInputElement | EventTarget | null = input || e.currentTarget;
 
     if (!(inputElement instanceof HTMLInputElement)) {
       return false;

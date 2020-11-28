@@ -4,13 +4,14 @@ import MainField from '../../components/MainField/MainField';
 import Validate from '../../modules/Validate';
 import Button from '../../components/Button/Button';
 import edit_profile_data from './edit_profile_data';
-import {props_type} from '../../types/Types';
+import { props_type } from '../../types/Types';
 import AuthStore from '../../modules/AuthStore';
 
 export default class EditProfile extends Block {
   private auth: AuthStore;
+
   constructor(props: props_type) {
-    props = props ? props : {};
+    props = props || {};
 
     Object.assign(props, edit_profile_data);
 
@@ -45,8 +46,8 @@ export default class EditProfile extends Block {
     const validate_data = new Validate(data_form);
     const fields = data_form.querySelectorAll('input');
 
-    button.addEventListener('click', e => {
-      const fields_data: {[key: string]: string} = {};
+    button.addEventListener('click', (e) => {
+      const fields_data: { [key: string]: string } = {};
       e.preventDefault();
 
       if (!validate_data.isFormValid(e)) {
@@ -68,7 +69,7 @@ export default class EditProfile extends Block {
 
   initUserPasswordUpdateEvent() {
     const password_form: HTMLElement | null = this._element.querySelector(
-      '.profile__password-data-form'
+      '.profile__password-data-form',
     );
     const button = this._element.querySelector('.js-send-password');
 
@@ -79,8 +80,8 @@ export default class EditProfile extends Block {
     const validate_password = new Validate(password_form);
     const fields_password = password_form.querySelectorAll('input');
 
-    button.addEventListener('click', e => {
-      const fields_data: {[key: string]: string} = {};
+    button.addEventListener('click', (e) => {
+      const fields_data: { [key: string]: string } = {};
       e.preventDefault();
 
       if (!validate_password.isFormValid(e)) {

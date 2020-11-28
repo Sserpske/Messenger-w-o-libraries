@@ -1,8 +1,10 @@
 import APIClient from '../API/APIClient';
+
 const USER_INFO_KEY = 'user_info';
 
 export default class AuthStore {
   private apiClient: APIClient;
+
   private static __instance: AuthStore;
 
   constructor() {
@@ -27,9 +29,7 @@ export default class AuthStore {
 
         return Promise.resolve();
       })
-      .catch(() => {
-        return Promise.reject();
-      });
+      .catch(() => Promise.reject());
   }
 
   setInfo(user_info: {} | string) {
