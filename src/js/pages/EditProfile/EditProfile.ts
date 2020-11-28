@@ -4,13 +4,14 @@ import MainField from '../../components/MainField/MainField';
 import Validate from '../../modules/Validate';
 import Button from '../../components/Button/Button';
 import edit_profile_data from './edit_profile_data';
-import { props_type } from '../../types/Types';
+import { propsType } from '../../types/types';
 import AuthStore from '../../modules/AuthStore';
+import * as Handlebars from 'handlebars'
 
 export default class EditProfile extends Block {
   private auth: AuthStore;
 
-  constructor(props: props_type) {
+  constructor(props: propsType) {
     props = props || {};
 
     Object.assign(props, edit_profile_data);

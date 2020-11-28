@@ -1,9 +1,10 @@
 import Block from '../../modules/Block';
 import users_template from './chat-users.tmpl';
-import { props_type } from '../../types/Types';
+import { propsType } from '../../types/types';
+import * as Handlebars from 'handlebars'
 
 export default class ChatUsers extends Block {
-  constructor(props: props_type) {
+  constructor(props: propsType) {
     super('div', props);
   }
 

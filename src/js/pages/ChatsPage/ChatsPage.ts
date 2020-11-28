@@ -4,18 +4,19 @@ import no_chat_selected from './no_chat_selected.tmpl';
 import ChatCard from '../../components/ChatCard/ChatCard';
 import Message from '../../components/Message/Message';
 import messages_data from './messages_data';
-import { props_type } from '../../types/Types';
+import { propsType } from '../../types/types';
 import Button from '../../components/Button/Button';
 import MainField from '../../components/MainField/MainField';
 import Validate from '../../modules/Validate';
 import getObjectById from '../../utils/getObjectByValue';
 import ChatUsers from '../../components/ChatUsers/ChatUsers';
 import AuthStore from '../../modules/AuthStore';
+import * as Handlebars from 'handlebars'
 
 export default class ChatsPage extends Block {
-  private chats_list: props_type;
+  private chats_list: propsType;
 
-  private messages_list: props_type;
+  private messages_list: propsType;
 
   private users_container: HTMLElement | null;
 
@@ -305,7 +306,7 @@ export default class ChatsPage extends Block {
   initCreateChatEvent() {
     const button: HTMLElement | null = this._element.querySelector('.js-create-chat');
     const field: HTMLElement | null = this._element.querySelector('.messenger-app__new-chat-field');
-    const fields_data: props_type = {};
+    const fields_data: propsType = {};
 
     if (!button || !field) {
       return;

@@ -1,9 +1,10 @@
 import Block from '../../modules/Block';
 import button_template from './button.tmpl';
-import { props_type } from '../../types/Types';
+import { propsType } from '../../types/types';
+import * as Handlebars from 'handlebars'
 
 export default class Button extends Block {
-  constructor(props: props_type) {
+  constructor(props: propsType) {
     super('button', props);
   }
 

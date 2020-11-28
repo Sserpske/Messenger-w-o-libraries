@@ -2,7 +2,7 @@ const VALIDATE_MAP: { [key: string]: RegExp } = {
   email: /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,}$/,
   password: /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
   text: /^[a-z0-9а-я\w\s.-]{3,}$/iu,
-  phone: /^([+]+)*[0-9\x20\x28\x29\-]{5,20}$/,
+  phone: /^([+]+)*[0-9\x20\x28\x29-]{5,20}$/,
 };
 
 export default class Validate {

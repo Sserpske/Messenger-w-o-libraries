@@ -1,9 +1,10 @@
 import main_field_template from './main-field.tmpl';
 import Block from '../../modules/Block';
-import { props_type } from '../../types/Types';
+import { propsType } from '../../types/types';
+import * as Handlebars from 'handlebars'
 
 export default class MainField extends Block {
-  constructor(props: props_type) {
+  constructor(props: propsType) {
     super('div', props);
   }
 

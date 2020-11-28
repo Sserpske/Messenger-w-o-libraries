@@ -1,5 +1,5 @@
 import HTTPTransport from '../modules/HTTPTransport';
-import { props_type } from '../types/Types';
+import { propsType } from '../types/types';
 
 const ENDPOINTS = {
   SIGNUP: '/auth/signup',
@@ -30,7 +30,7 @@ export default class APIClient {
     APIClient.__instance = this;
   }
 
-  signup(data: props_type) {
+  signup(data: propsType) {
     const options = {
       data: JSON.stringify(data),
     };
@@ -38,7 +38,7 @@ export default class APIClient {
     return this.httpTransport.post(ENDPOINTS.SIGNUP, options);
   }
 
-  signin(data: props_type) {
+  signin(data: propsType) {
     const options = {
       data: JSON.stringify(data),
     };
@@ -64,7 +64,7 @@ export default class APIClient {
       .then((response: XMLHttpRequest) => JSON.parse(response.response));
   }
 
-  createChat(data: props_type) {
+  createChat(data: propsType) {
     const options = {
       data: JSON.stringify(data),
     };
@@ -82,9 +82,9 @@ export default class APIClient {
     return this.httpTransport.post(ENDPOINTS.LOGOUT, options);
   }
 
-  deleteChat(chat_id: Number) {
+  deleteChat(chatId: Number) {
     const data = {
-      chatId: chat_id,
+      chatId,
     };
     const options = {
       data: JSON.stringify(data),
@@ -102,22 +102,22 @@ export default class APIClient {
     return this.httpTransport.put(ENDPOINTS.CHATS_AVATAR, options);
   }
 
-  getChatUsers(chat_id: number) {
+  getChatUsers(chatId: number) {
     const options = {
       headers: {},
     };
-    const url = `${ENDPOINTS.CHATS}/${chat_id}/users`;
+    const url = `${ENDPOINTS.CHATS}/${chatId}/users`;
 
     return this.httpTransport
       .get(url, options)
       .then((response: XMLHttpRequest) => JSON.parse(response.response));
   }
 
-  deleteChatUsers(user_id: number, chat_id: number) {
+  deleteChatUsers(userId: number, chatId: number) {
     const options = {
       data: JSON.stringify({
-        users: [user_id],
-        chatId: chat_id,
+        users: [userId],
+        chatId,
       }),
     };
 
@@ -136,18 +136,18 @@ export default class APIClient {
       .then((response: XMLHttpRequest) => JSON.parse(response.response));
   }
 
-  addUsersToChat(user_id: number, chat_id: number) {
+  addUsersToChat(userId: number, chatId: number) {
     const options = {
       data: JSON.stringify({
-        users: [user_id],
-        chatId: chat_id,
+        users: [userId],
+        chatId,
       }),
     };
 
     return this.httpTransport.put(ENDPOINTS.CHATS_USERS, options);
   }
 
-  updateUserProfile(data: props_type) {
+  updateUserProfile(data: propsType) {
     const options = {
       data: JSON.stringify(data),
     };
@@ -155,7 +155,7 @@ export default class APIClient {
     return this.httpTransport.put(ENDPOINTS.USER_PROFILE, options);
   }
 
-  updateUserPassword(data: props_type) {
+  updateUserPassword(data: propsType) {
     const options = {
       data: JSON.stringify(data),
     };

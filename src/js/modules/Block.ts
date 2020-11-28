@@ -1,5 +1,5 @@
 import EventBus, { IEventBus } from './EventBus';
-import { props_type } from '../types/Types';
+import { propsType } from '../types/types';
 import APIClient from '../API/APIClient';
 
 export interface IBlock {
@@ -10,6 +10,7 @@ export interface IBlock {
   };
   props: {};
   eventBus: () => EventBus;
+  // eslint-disable-next-line no-unused-vars
   _registerEvents(EventBus: IEventBus): void;
   _createResources(): void;
   init(): void;
@@ -17,6 +18,7 @@ export interface IBlock {
   componentDidMount(): void;
   _componentDidUpdate(): void;
   componentDidUpdate(): void;
+  // eslint-disable-next-line no-unused-vars
   setProps(nextProps: {}): void;
   _render(): void;
   render(): string;
@@ -31,7 +33,7 @@ export default class Block implements IBlock {
     props: {};
   };
 
-  props: props_type;
+  props: propsType;
 
   eventBus: () => EventBus;
 

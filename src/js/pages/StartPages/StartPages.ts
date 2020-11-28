@@ -4,16 +4,19 @@ import MainField from '../../components/MainField/MainField';
 import Validate from '../../modules/Validate';
 import Button from '../../components/Button/Button';
 import Router from '../../Router/Router';
-import { props_type } from '../../types/Types';
+import { propsType } from '../../types/types';
+import * as Handlebars from 'handlebars'
 
 export default class StartPages extends Block {
   protected validate: Validate;
 
+  // а тут то почему 'NodeListOf' is not defined, вроде eslint в курсе про ts в проекте
+  // eslint-disable-next-line no-undef
   protected fields: NodeListOf<HTMLInputElement> | HTMLInputElement[];
 
   protected router: Router;
 
-  constructor(props: props_type) {
+  constructor(props: propsType) {
     super('div', {
       fields: new MainField({
         wrapper_class: props.fields_data.wrapper_class,
