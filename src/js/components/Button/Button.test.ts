@@ -7,9 +7,10 @@ describe('Тест Button', () => {
       button_class: 'messenger-app__new-chat-button js-create-chat',
     }).render();
 
-    const expected = '<button class="messenger-app__new-chat-button js-create-chat main-button">\n'
-      + '  <span class="main-button__inner-text">Создать чат</span>\n'
-      + '</button>\n';
+    const expected =
+      '<button class="messenger-app__new-chat-button js-create-chat main-button">\n' +
+      '  <span class="main-button__inner-text">Создать чат</span>\n' +
+      '</button>\n';
 
     expect(rendered).toEqual(expected);
   });
@@ -24,9 +25,10 @@ describe('Тест Button', () => {
 
     const rendered = button.render();
 
-    const expected = '<button class="messenger-app__new-chat-button js-create-chat main-button">\n'
-      + '  <span class="main-button__inner-text">Удалить чат</span>\n'
-      + '</button>\n';
+    const expected =
+      '<button class="messenger-app__new-chat-button js-create-chat main-button">\n' +
+      '  <span class="main-button__inner-text">Удалить чат</span>\n' +
+      '</button>\n';
 
     expect(rendered).toEqual(expected);
   });

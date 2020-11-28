@@ -36,9 +36,9 @@ export default class Router {
   }
 
   start() {
-    window.onpopstate = ((event: PopStateEvent): void => {
+    window.onpopstate = (event: PopStateEvent): void => {
       this._onRoute((<Window>event.currentTarget).location.pathname);
-    });
+    };
 
     this._onRoute(window.location.pathname);
   }
@@ -97,6 +97,6 @@ export default class Router {
   }
 
   getRoute(pathname: string) {
-    return this.routes.find((route) => route.match(pathname));
+    return this.routes.find(route => route.match(pathname));
   }
 }

@@ -31,7 +31,7 @@ export default class Validate {
       valid_keys.push(this.checkInput(e, input));
     });
 
-    return valid_keys.every((item) => item);
+    return valid_keys.every(item => item);
   };
 
   checkInput = (e: Event, input?: HTMLInputElement): boolean => {

@@ -1,7 +1,7 @@
 import Block from '../../modules/Block';
 import users_template from './chat-users.tmpl';
 import { propsType } from '../../types/types';
-import * as Handlebars from 'handlebars'
+import * as Handlebars from 'handlebars';
 
 export default class ChatUsers extends Block {
   constructor(props: propsType) {

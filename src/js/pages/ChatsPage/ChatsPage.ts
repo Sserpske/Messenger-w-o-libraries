@@ -11,7 +11,7 @@ import Validate from '../../modules/Validate';
 import getObjectById from '../../utils/getObjectByValue';
 import ChatUsers from '../../components/ChatUsers/ChatUsers';
 import AuthStore from '../../modules/AuthStore';
-import * as Handlebars from 'handlebars'
+import * as Handlebars from 'handlebars';
 
 export default class ChatsPage extends Block {
   private chats_list: propsType;
@@ -78,7 +78,7 @@ export default class ChatsPage extends Block {
     });
 
     const chat_window: HTMLElement | null = this._element.querySelector(
-      '.messenger-app__chat-window',
+      '.messenger-app__chat-window'
     );
 
     if (!chat_window) {
@@ -134,7 +134,7 @@ export default class ChatsPage extends Block {
   }
 
   renderAvailableToAddUsers(action: string) {
-    return this.apiClient.searchUsers().then((response) => {
+    return this.apiClient.searchUsers().then(response => {
       if (!this.users_container) {
         return;
       }
@@ -190,7 +190,7 @@ export default class ChatsPage extends Block {
   }
 
   renderUsersList(action: string, chat_id: number) {
-    return this.apiClient.getChatUsers(chat_id).then((response) => {
+    return this.apiClient.getChatUsers(chat_id).then(response => {
       if (!this.users_container) {
         return;
       }
@@ -226,7 +226,7 @@ export default class ChatsPage extends Block {
 
   initUploadChatAvatar() {
     const input: HTMLInputElement | null = this._element.querySelector(
-      '.context-menu__avatar-input',
+      '.context-menu__avatar-input'
     );
 
     if (!input) {
@@ -250,13 +250,13 @@ export default class ChatsPage extends Block {
   }
 
   initDocumentEvents() {
-    document.addEventListener('keyup', (e) => {
+    document.addEventListener('keyup', e => {
       if (e.code === 'Escape') {
         this.setProps({ messages: no_chat_selected });
       }
     });
 
-    document.addEventListener('click', (e) => {
+    document.addEventListener('click', e => {
       if (!e.target || !this.users_container) {
         return;
       }

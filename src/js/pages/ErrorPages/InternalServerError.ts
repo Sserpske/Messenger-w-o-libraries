@@ -13,6 +13,6 @@ export default class InternalServerError extends ErrorPage {
 const data = {
   error_code: '500',
   error_text:
-    'На сервере произошла ошибка. <br>\n'
-    + '        Мы уже знаем об этом и работаем над исправлением.',
+    'На сервере произошла ошибка. <br>\n' +
+    '        Мы уже знаем об этом и работаем над исправлением.',
 };

@@ -15,7 +15,7 @@ export default class RegPage extends StartPages {
       return;
     }
 
-    button.addEventListener('click', (e) => {
+    button.addEventListener('click', e => {
       const fields_data: { [key: string]: string } = {};
       e.preventDefault();
 

@@ -2,7 +2,7 @@ import Block from '../../modules/Block';
 import chats_template from './profile.tmpl';
 import Router from '../../Router/Router';
 import AuthStore from '../../modules/AuthStore';
-import * as Handlebars from 'handlebars'
+import * as Handlebars from 'handlebars';
 
 export default class ProfilePage extends Block {
   protected router: Router;

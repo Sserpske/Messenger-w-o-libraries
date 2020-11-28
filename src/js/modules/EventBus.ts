@@ -33,7 +33,7 @@ export default class EventBus implements IEventBus {
       throw new Error(`Нет события: ${event}`);
     }
 
-    this.listeners[event] = this.listeners[event].filter((listener) => listener !== callback);
+    this.listeners[event] = this.listeners[event].filter(listener => listener !== callback);
   }
 
   emit(event: string, ...args: []): void {

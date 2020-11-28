@@ -5,7 +5,7 @@ import Validate from '../../modules/Validate';
 import Button from '../../components/Button/Button';
 import Router from '../../Router/Router';
 import { propsType } from '../../types/types';
-import * as Handlebars from 'handlebars'
+import * as Handlebars from 'handlebars';
 
 export default class StartPages extends Block {
   protected validate: Validate;
@@ -44,9 +44,7 @@ export default class StartPages extends Block {
 
   render() {
     const template = Handlebars.compile(auth_template);
-    const {
-      title, fields, button, change_button, page_class, link,
-    } = this.props;
+    const { title, fields, button, change_button, page_class, link } = this.props;
 
     return template({
       fields: fields.render(),

@@ -39,7 +39,7 @@ export default class HTTPTransport {
   request = (
     url: string | any,
     options: propsType,
-    timeout: number = 5000,
+    timeout: number = 5000
   ): Promise<XMLHttpRequest> => {
     const { method, data, headers = DEFAULT_HEADER } = options;
 
@@ -63,7 +63,7 @@ export default class HTTPTransport {
         }
       };
 
-      Object.keys(headers).forEach((key) => {
+      Object.keys(headers).forEach(key => {
         xhr.setRequestHeader(key, headers[key]);
       });
 
