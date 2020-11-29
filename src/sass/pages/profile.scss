@@ -8,9 +8,9 @@
   width: 100%;
   position: absolute;
   z-index: -2;
-  opacity: 0.20;
+  opacity: 0.2;
   background-color: rgba(#000000, 0.08);
-  background-image: url("images/pattern-cucumber.png");
+  background-image: url('/static/images/pattern-cucumber.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -87,15 +87,15 @@
   padding-bottom: 10px;
   line-height: 1;
 
-  &+ .profile__data-line {
-    border-top: 1px solid #EAEAEA;
+  & + .profile__data-line {
+    border-top: 1px solid #eaeaea;
     padding-top: 10px;
   }
 }
 
 .profile__line-title {
   font-weight: 600;
-  color: #1E1E1E;
+  color: #1e1e1e;
 }
 
 .profile__line-value {
@@ -120,17 +120,17 @@
   background-color: transparent;
   cursor: pointer;
 
-  &+ .profile__link {
+  & + .profile__link {
     padding: 10px 0 0;
-    border-top: 1px solid #EAEAEA;
+    border-top: 1px solid #eaeaea;
   }
 
   &_green {
-    color: #1D6669;
+    color: #1d6669;
   }
 
   &_red {
-    color: #E2534F;
+    color: #e2534f;
   }
 }
 
@@ -141,7 +141,7 @@
   width: 35px;
   height: 35px;
   position: absolute;
-  background-color: #1BA5AB;
+  background-color: #1ba5ab;
   border-radius: 50%;
   top: 10px;
   left: 10px;

@@ -1,21 +1,21 @@
 /* Helpers */
-@import "helpers/normalize";
-@import "helpers/mixins";
+@import 'helpers/normalize';
+@import 'helpers/mixins';
 
-@import "global";
+@import 'global';
 
 /* Pages */
-@import "pages/registration";
-@import "pages/authorization";
-@import "pages/messenger-app";
-@import "pages/profile";
-@import "pages/error";
+@import 'pages/registration';
+@import 'pages/authorization';
+@import 'pages/messenger-app';
+@import 'pages/profile';
+@import 'pages/error';
 
 /* Blocks */
-@import "blocks/primary-form";
-@import "blocks/main-field";
-@import "blocks/main-button";
-@import "blocks/chat-card";
-@import "blocks/context-menu";
-@import "blocks/message";
-@import "blocks/chat-users";
+@import 'blocks/primary-form';
+@import 'blocks/main-field';
+@import 'blocks/main-button';
+@import 'blocks/chat-card';
+@import 'blocks/context-menu';
+@import 'blocks/message';
+@import 'blocks/chat-users';

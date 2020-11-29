@@ -1,15 +1,19 @@
 export interface IEventBus {
   listeners: {
-    [key: string]: Function[]
-  }
+    [key: string]: Function[];
+  };
+  // я совершенно не вкурил почему линтер ругается на все мои интерфейсы
+  // eslint-disable-next-line no-unused-vars
   on(event: string, callback: () => void): void;
+  // eslint-disable-next-line no-unused-vars
   off(event: string, callback: () => void): void;
+  // eslint-disable-next-line no-unused-vars
   emit(event: string, ...args: []): void;
 }
 
 export default class EventBus implements IEventBus {
   listeners: {
-    [key: string]: Function[]
+    [key: string]: Function[];
   };
 
   constructor() {
@@ -29,17 +33,16 @@ export default class EventBus implements IEventBus {
       throw new Error(`Нет события: ${event}`);
     }
 
-    this.listeners[event] = this.listeners[event].filter(
-      listener => listener !== callback
-    );
+    this.listeners[event] = this.listeners[event].filter(listener => listener !== callback);
   }
 
-  emit(event: string, ...args: []):void {
+  emit(event: string, ...args: []): void {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`);
     }
 
-    this.listeners[event].forEach(function (listener: (args?: []) => void) {
+    // eslint-disable-next-line no-unused-vars
+    this.listeners[event].forEach((listener: (args?: []) => void) => {
       listener(...args);
     });
   }

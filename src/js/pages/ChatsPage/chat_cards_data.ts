@@ -4,20 +4,20 @@ export default [
     name: 'Женя',
     preview: 'Изображение',
     time: '10:10',
-    new_messages_number: 2
+    new_messages_number: 2,
   },
   {
     avatar: '',
     name: 'Киноклуб',
     preview: 'Стикер',
-    time: '10:46'
+    time: '10:46',
   },
   {
     avatar: '',
     name: 'Илья',
     preview: 'Друзья, у меня для вас особенный выпуск новостей! Лалaлалалала',
     time: '11:11',
-    new_messages_number: 8
+    new_messages_number: 8,
   },
   {
     avatar: '',
@@ -79,4 +79,4 @@ export default [
     preview: 'В 2008 году художник Jon Rafman начал собирать и не собрал',
     time: 'Ср',
   },
-]
+];

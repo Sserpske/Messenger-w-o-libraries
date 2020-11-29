@@ -1,35 +1,37 @@
-import auth_template from "./edit_profile.tmpl.js"
-import Block from "../../modules/Block.js";
-import MainField from "../../components/MainField/MainField.js";
-import Validate from "../../modules/Validate.js";
-import Button from "../../components/Button/Button.js";
-import edit_profile_data from "./edit_profile_data.js";
-import {props_type} from "../../types/Types.js";
-import AuthStore from "../../modules/AuthStore.js";
+import auth_template from './edit_profile.tmpl';
+import Block from '../../modules/Block';
+import MainField from '../../components/MainField/MainField';
+import Validate from '../../modules/Validate';
+import Button from '../../components/Button/Button';
+import edit_profile_data from './edit_profile_data';
+import { propsType } from '../../types/types';
+import AuthStore from '../../modules/AuthStore';
+import * as Handlebars from 'handlebars';
 
 export default class EditProfile extends Block {
   private auth: AuthStore;
-  constructor(props: props_type) {
-    props = props ? props : {};
+
+  constructor(props: propsType) {
+    props = props || {};
 
     Object.assign(props, edit_profile_data);
 
     super('div', {
       fields_data: new MainField({
         wrapper_class: props.fields_data.wrapper_class,
-        fields: props.fields_data.fields
+        fields: props.fields_data.fields,
       }),
       button_data: new Button({
         button_class: props.button_data.button_class,
-        text: props.button_data.text
+        text: props.button_data.text,
       }),
       fields_password: new MainField({
         wrapper_class: props.fields_password_data.wrapper_class,
-        fields: props.fields_password_data.fields
+        fields: props.fields_password_data.fields,
       }),
       button_password: new Button({
         button_class: props.button_password.button_class,
-        text: props.button_password.text
+        text: props.button_password.text,
       }),
     });
   }
@@ -45,7 +47,7 @@ export default class EditProfile extends Block {
     const validate_data = new Validate(data_form);
     const fields = data_form.querySelectorAll('input');
 
-    button.addEventListener('click', (e) => {
+    button.addEventListener('click', e => {
       const fields_data: { [key: string]: string } = {};
       e.preventDefault();
 
@@ -55,20 +57,21 @@ export default class EditProfile extends Block {
 
       fields.forEach((input: HTMLInputElement) => {
         fields_data[input.name] = input.value;
-      })
+      });
 
-      this.apiClient.updateUserProfile(fields_data)
-        .then(() => {
-          const current_info = this.auth.getInfo();
+      this.apiClient.updateUserProfile(fields_data).then(() => {
+        const current_info = this.auth.getInfo();
 
-          Object.assign(current_info, fields_data);
-          this.auth.setInfo(current_info);
-        });
-    })
+        Object.assign(current_info, fields_data);
+        this.auth.setInfo(current_info);
+      });
+    });
   }
 
   initUserPasswordUpdateEvent() {
-    const password_form: HTMLElement | null = this._element.querySelector('.profile__password-data-form');
+    const password_form: HTMLElement | null = this._element.querySelector(
+      '.profile__password-data-form'
+    );
     const button = this._element.querySelector('.js-send-password');
 
     if (!password_form || !button) {
@@ -78,8 +81,7 @@ export default class EditProfile extends Block {
     const validate_password = new Validate(password_form);
     const fields_password = password_form.querySelectorAll('input');
 
-
-    button.addEventListener('click', (e) => {
+    button.addEventListener('click', e => {
       const fields_data: { [key: string]: string } = {};
       e.preventDefault();
 
@@ -89,10 +91,10 @@ export default class EditProfile extends Block {
 
       fields_password.forEach((input: HTMLInputElement) => {
         fields_data[input.name] = input.value;
-      })
+      });
 
       this.apiClient.updateUserPassword(fields_data);
-    })
+    });
   }
 
   initUpdateAvatarEvent() {
@@ -106,12 +108,11 @@ export default class EditProfile extends Block {
       const form_data = new FormData();
       form_data.append('avatar', e.target.files[0]);
 
-      this.apiClient.updateUserAvatar(form_data)
-        .then((response: XMLHttpRequest) => {
-          this.auth.setInfo(response.response);
-          this.insertAvatarImage();
-        });
-    })
+      this.apiClient.updateUserAvatar(form_data).then((response: XMLHttpRequest) => {
+        this.auth.setInfo(response.response);
+        this.insertAvatarImage();
+      });
+    });
   }
 
   bindEvents() {
@@ -124,7 +125,7 @@ export default class EditProfile extends Block {
     const fields: NodeList = this._element.querySelectorAll('input');
     const info = this.auth.getInfo();
 
-    fields.forEach((field:HTMLInputElement) => {
+    fields.forEach((field: HTMLInputElement) => {
       const field_name: string | null = field.name;
 
       if (!field_name || !info[field_name]) {
@@ -140,7 +141,7 @@ export default class EditProfile extends Block {
     const info = this.auth.getInfo();
 
     if (avatar && info.avatar) {
-      avatar.setAttribute('src', `https://ya-praktikum.tech${info.avatar}`)
+      avatar.setAttribute('src', `https://ya-praktikum.tech${info.avatar}`);
     }
   }
 
@@ -153,7 +154,16 @@ export default class EditProfile extends Block {
 
   render() {
     const template = Handlebars.compile(auth_template);
-    const { title, fields_data, button_data, change_button, page_class, link, fields_password, button_password } = this.props;
+    const {
+      title,
+      fields_data,
+      button_data,
+      change_button,
+      page_class,
+      link,
+      fields_password,
+      button_password,
+    } = this.props;
 
     return template({
       fields_data: fields_data.render(),
@@ -163,7 +173,7 @@ export default class EditProfile extends Block {
       title,
       change_button,
       page_class,
-      link
+      link,
     });
   }
 }

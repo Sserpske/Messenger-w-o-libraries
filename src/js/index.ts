@@ -1,15 +1,17 @@
-import RegPage from './pages/StartPages/RegPage.js';
-import AuthPage from "./pages/StartPages/AuthPage.js";
-import Router from "./Router/Router.js";
-import NotFound from "./pages/ErrorPages/NotFound.js";
-import InternalServerError from "./pages/ErrorPages/InternalServerError.js";
-import ChatsPage from "./pages/ChatsPage/ChatsPage.js";
-import ProfilePage from "./pages/Profile/Profile.js";
-import EditProfile from "./pages/EditProfile/EditProfile.js";
+import RegPage from './pages/StartPages/RegPage';
+import AuthPage from './pages/StartPages/AuthPage';
+import Router from './Router/Router';
+import NotFound from './pages/ErrorPages/NotFound';
+import InternalServerError from './pages/ErrorPages/InternalServerError';
+import ChatsPage from './pages/ChatsPage/ChatsPage';
+import ProfilePage from './pages/Profile/Profile';
+import EditProfile from './pages/EditProfile/EditProfile';
+import '../sass/app.scss';
 
 const router = new Router('.root');
 
-router.use('/', RegPage)
+router
+  .use('/', RegPage)
   .use('/auth', AuthPage)
   .use('/404', NotFound)
   .use('/500', InternalServerError)

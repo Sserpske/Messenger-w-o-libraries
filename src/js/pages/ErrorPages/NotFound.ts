@@ -1,10 +1,10 @@
-import ErrorPage from "./ErrorPage.js";
-import {props_type} from "../../types/Types";
+import ErrorPage from './ErrorPage';
+import { propsType } from '../../types/types';
 
 export default class NotFound extends ErrorPage {
-  constructor(props?: props_type) {
-    props = props ? props : {};
-    Object.assign(props, data)
+  constructor(props?: propsType) {
+    props = props || {};
+    Object.assign(props, data);
 
     super(props);
   }
@@ -12,5 +12,5 @@ export default class NotFound extends ErrorPage {
 
 const data = {
   error_code: '404',
-  error_text: 'Такой страницы у нас нет.'
+  error_text: 'Такой страницы у нас нет.',
 };

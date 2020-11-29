@@ -1,5 +1,5 @@
-import HTTPTransport from "../modules/HTTPTransport.js";
-import {props_type} from "../types/Types";
+import HTTPTransport from '../modules/HTTPTransport';
+import { propsType } from '../types/types';
 
 const ENDPOINTS = {
   SIGNUP: '/auth/signup',
@@ -17,6 +17,7 @@ const ENDPOINTS = {
 
 export default class APIClient {
   private httpTransport: HTTPTransport;
+
   private static __instance: APIClient;
 
   constructor() {
@@ -29,7 +30,7 @@ export default class APIClient {
     APIClient.__instance = this;
   }
 
-  signup(data: props_type) {
+  signup(data: propsType) {
     const options = {
       data: JSON.stringify(data),
     };
@@ -37,7 +38,7 @@ export default class APIClient {
     return this.httpTransport.post(ENDPOINTS.SIGNUP, options);
   }
 
-  signin(data: props_type) {
+  signin(data: propsType) {
     const options = {
       data: JSON.stringify(data),
     };
@@ -58,16 +59,18 @@ export default class APIClient {
       headers: {},
     };
 
-    return this.httpTransport.get(ENDPOINTS.CHATS, options)
+    return this.httpTransport
+      .get(ENDPOINTS.CHATS, options)
       .then((response: XMLHttpRequest) => JSON.parse(response.response));
   }
 
-  createChat(data: props_type) {
+  createChat(data: propsType) {
     const options = {
       data: JSON.stringify(data),
     };
 
-    return this.httpTransport.post(ENDPOINTS.CHATS, options)
+    return this.httpTransport
+      .post(ENDPOINTS.CHATS, options)
       .then((response: XMLHttpRequest) => JSON.parse(response.response));
   }
 
@@ -79,9 +82,9 @@ export default class APIClient {
     return this.httpTransport.post(ENDPOINTS.LOGOUT, options);
   }
 
-  deleteChat(chat_id: Number) {
+  deleteChat(chatId: Number) {
     const data = {
-      chatId: chat_id,
+      chatId,
     };
     const options = {
       data: JSON.stringify(data),
@@ -93,28 +96,29 @@ export default class APIClient {
   putChatAvatar(data: FormData) {
     const options = {
       headers: {},
-      data: data,
-    }
+      data,
+    };
 
     return this.httpTransport.put(ENDPOINTS.CHATS_AVATAR, options);
   }
 
-  getChatUsers(chat_id: string) {
+  getChatUsers(chatId: number) {
     const options = {
       headers: {},
     };
-    const url = `${ENDPOINTS.CHATS}/${chat_id}/users`;
+    const url = `${ENDPOINTS.CHATS}/${chatId}/users`;
 
-    return this.httpTransport.get(url, options)
+    return this.httpTransport
+      .get(url, options)
       .then((response: XMLHttpRequest) => JSON.parse(response.response));
   }
 
-  deleteChatUsers(user_id: string, chat_id: string) {
+  deleteChatUsers(userId: number, chatId: number) {
     const options = {
       data: JSON.stringify({
-        users: [user_id],
-        chatId: chat_id,
-      })
+        users: [userId],
+        chatId,
+      }),
     };
 
     return this.httpTransport.delete(ENDPOINTS.CHATS_USERS, options);
@@ -127,22 +131,23 @@ export default class APIClient {
       }),
     };
 
-    return this.httpTransport.post(ENDPOINTS.USER_SEARCH, options)
+    return this.httpTransport
+      .post(ENDPOINTS.USER_SEARCH, options)
       .then((response: XMLHttpRequest) => JSON.parse(response.response));
   }
 
-  addUsersToChat(user_id: string, chat_id: string) {
+  addUsersToChat(userId: number, chatId: number) {
     const options = {
       data: JSON.stringify({
-        'users': [user_id],
-        'chatId': chat_id,
+        users: [userId],
+        chatId,
       }),
     };
 
     return this.httpTransport.put(ENDPOINTS.CHATS_USERS, options);
   }
 
-  updateUserProfile(data: props_type) {
+  updateUserProfile(data: propsType) {
     const options = {
       data: JSON.stringify(data),
     };
@@ -150,7 +155,7 @@ export default class APIClient {
     return this.httpTransport.put(ENDPOINTS.USER_PROFILE, options);
   }
 
-  updateUserPassword(data: props_type) {
+  updateUserPassword(data: propsType) {
     const options = {
       data: JSON.stringify(data),
     };
@@ -161,7 +166,7 @@ export default class APIClient {
   updateUserAvatar(data: FormData) {
     const options = {
       headers: {},
-      data: data,
+      data,
     };
 
     return this.httpTransport.put(ENDPOINTS.USER_AVATAR, options);

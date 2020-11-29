@@ -1,9 +1,10 @@
-import message_template from "./message.tmpl.js"
-import Block from "../../modules/Block.js";
-import { props_type } from "../../types/Types.js";
+import message_template from './message.tmpl';
+import Block from '../../modules/Block';
+import { propsType } from '../../types/types';
+import * as Handlebars from 'handlebars';
 
 export default class MainField extends Block {
-  constructor(props: props_type) {
+  constructor(props: propsType) {
     super('div', props);
   }
 
@@ -11,6 +12,11 @@ export default class MainField extends Block {
     const template = Handlebars.compile(message_template);
     const { messages_list, title, avatar, id } = this.props.messages_data;
 
-    return template({ messages_list, title, avatar, id });
+    return template({
+      messages_list,
+      title,
+      avatar,
+      id,
+    });
   }
 }

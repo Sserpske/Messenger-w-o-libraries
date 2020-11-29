@@ -1,25 +1,31 @@
-import render from "../utils/render.js";
-import isEqual from "../utils/isEqual.js";
-import {extendedBlock, props_type} from "../types/Types.js";
+import render from '../utils/render';
+import isEqual from '../utils/isEqual';
+import { extendedBlock, propsType } from '../types/types';
 
 export interface IRoute {
   _pathname: string;
   _blockClass: extendedBlock;
   _block: any;
-  _props: props_type;
+  _props: propsType;
 
+  // eslint-disable-next-line no-unused-vars
   navigate(pathname: string): void;
   leave(): void;
+  // eslint-disable-next-line no-unused-vars
   match(pathname: string): boolean;
   render(): void;
 }
 
 export default class Route implements IRoute {
   _pathname: string;
+
   _blockClass: extendedBlock;
+
   _block: any;
-  _props: props_type;
-  constructor(pathname: string, view: extendedBlock, props: props_type) {
+
+  _props: propsType;
+
+  constructor(pathname: string, view: extendedBlock, props: propsType) {
     this._pathname = pathname;
     this._blockClass = view;
     this._block = null;

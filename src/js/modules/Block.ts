@@ -1,50 +1,56 @@
-import EventBus, {IEventBus} from "./EventBus.js";
-import { props_type } from "../types/Types.js"
-import APIClient from "../API/APIClient.js";
+import EventBus, { IEventBus } from './EventBus';
+import { propsType } from '../types/types';
+import APIClient from '../API/APIClient';
 
 export interface IBlock {
-  _element: HTMLElement,
+  _element: HTMLElement;
   _meta: {
-    tagName: string,
-    props: {}
-  },
-  props: {},
-  eventBus: () => EventBus,
-  _registerEvents(EventBus: IEventBus): void,
-  _createResources(): void,
-  init(): void,
-  _componentDidMount(): void,
-  componentDidMount(): void,
-  _componentDidUpdate(): void,
-  componentDidUpdate(): void,
-  setProps(nextProps:{}): void,
-  _render(): void,
-  render(): string,
-  getContent(): HTMLElement
+    tagName: string;
+    props: {};
+  };
+  props: {};
+  eventBus: () => EventBus;
+  // eslint-disable-next-line no-unused-vars
+  _registerEvents(EventBus: IEventBus): void;
+  _createResources(): void;
+  init(): void;
+  _componentDidMount(): void;
+  componentDidMount(): void;
+  _componentDidUpdate(): void;
+  componentDidUpdate(): void;
+  // eslint-disable-next-line no-unused-vars
+  setProps(nextProps: {}): void;
+  _render(): void;
+  render(): string;
+  getContent(): HTMLElement;
 }
 
 export default class Block implements IBlock {
   _element: HTMLElement;
+
   _meta: {
-    tagName: string,
-    props: {}
+    tagName: string;
+    props: {};
   };
-  props: props_type;
+
+  props: propsType;
+
   eventBus: () => EventBus;
 
   static EVENTS = {
-    INIT: "init",
-    FLOW_CDM: "flow:component-did-mount",
-    FLOW_RENDER: "flow:render",
-    FLOW_CDU: "flow:component-did-update"
-  }
+    INIT: 'init',
+    FLOW_CDM: 'flow:component-did-mount',
+    FLOW_RENDER: 'flow:render',
+    FLOW_CDU: 'flow:component-did-update',
+  };
+
   protected apiClient: APIClient;
 
   constructor(tag_name: string = 'div', props: object = {}) {
     const eventBus = new EventBus();
     this._meta = {
       tagName: tag_name,
-      props
+      props,
     };
 
     this.props = this._makePropsProxy(props);
@@ -84,8 +90,7 @@ export default class Block implements IBlock {
     this.componentDidMount();
   }
 
-  componentDidMount(): void {
-  }
+  componentDidMount(): void {}
 
   _componentDidUpdate(): void {
     this._render();
@@ -93,8 +98,7 @@ export default class Block implements IBlock {
     this.componentDidUpdate();
   }
 
-  componentDidUpdate(): void {
-  }
+  componentDidUpdate(): void {}
 
   setProps = (next_props: {}): void => {
     if (!next_props) {
@@ -122,7 +126,7 @@ export default class Block implements IBlock {
 
   _makePropsProxy(props: object) {
     props = new Proxy(props, {
-      set: (target: {[key: string]: string}, prop: keyof {}, value: any): boolean => {
+      set: (target: { [key: string]: string }, prop: keyof {}, value: any): boolean => {
         target[prop] = value;
 
         this.eventBus().emit(Block.EVENTS.FLOW_CDU);
@@ -131,8 +135,8 @@ export default class Block implements IBlock {
 
       deleteProperty() {
         throw new Error('нет доступа');
-      }
-    })
+      },
+    });
 
     return props;
   }

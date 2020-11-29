@@ -1,4 +1,4 @@
-import HTTPTransport from "./HTTPTransport";
+import HTTPTransport from './HTTPTransport';
 
 describe('Тест HTTPTransport', () => {
   const options = {

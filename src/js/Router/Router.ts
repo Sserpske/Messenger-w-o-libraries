@@ -1,12 +1,17 @@
-import Route, {IRoute} from './Route.js'
-import AuthStore from "../modules/AuthStore.js";
+import Route, { IRoute } from './Route';
+import AuthStore from '../modules/AuthStore';
 
 export default class Router {
   private routes: IRoute[];
+
   private history: History;
+
   private _currentRoute: IRoute | null;
+
   private _rootQuery: string;
+
   private static __instance: Router;
+
   private auth: AuthStore;
 
   constructor(rootQuery: string) {
@@ -24,26 +29,28 @@ export default class Router {
   }
 
   use(pathname: string, block: any): this {
-    const route = new Route(pathname, block, {rootQuery: this._rootQuery});
+    const route = new Route(pathname, block, { rootQuery: this._rootQuery });
     this.routes.push(route);
 
     return this;
   }
 
   start() {
-    window.onpopstate = ((event: PopStateEvent): void => {
+    window.onpopstate = (event: PopStateEvent): void => {
       this._onRoute((<Window>event.currentTarget).location.pathname);
-    }).bind(this);
+    };
 
     this._onRoute(window.location.pathname);
   }
 
   _onRoute(pathname: string): void {
     const route = this.getRoute(pathname);
+    const publicRoutes = ['/auth', '/'];
 
-    this.auth.checkAuth()
+    this.auth
+      .checkAuth()
       .then(() => {
-        if (['/auth', '/'].includes(pathname)) {
+        if (publicRoutes.includes(pathname)) {
           this.go('/chat');
 
           return;
@@ -52,7 +59,7 @@ export default class Router {
         this.__onRoute(route);
       })
       .catch(() => {
-        if (['/auth', '/'].includes(pathname)) {
+        if (publicRoutes.includes(pathname)) {
           this.__onRoute(route);
 
           return;
@@ -78,7 +85,7 @@ export default class Router {
   }
 
   go(pathname: string) {
-    this.history.pushState({}, "", pathname);
+    this.history.pushState({}, '', pathname);
     this._onRoute(pathname);
   }
 
