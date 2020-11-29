@@ -45,11 +45,12 @@ export default class Router {
 
   _onRoute(pathname: string): void {
     const route = this.getRoute(pathname);
+    const publicRoutes = ['/auth', '/'];
 
     this.auth
       .checkAuth()
       .then(() => {
-        if (['/auth', '/'].includes(pathname)) {
+        if (publicRoutes.includes(pathname)) {
           this.go('/chat');
 
           return;
@@ -58,7 +59,7 @@ export default class Router {
         this.__onRoute(route);
       })
       .catch(() => {
-        if (['/auth', '/'].includes(pathname)) {
+        if (publicRoutes.includes(pathname)) {
           this.__onRoute(route);
 
           return;

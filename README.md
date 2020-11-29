@@ -4,11 +4,17 @@
 
 ##Запуск проекта
 
-1. Установить зависимости `npm i`
-2. Собрать стили `npm run sass`
-3. Собрать TypeScript `npm run ts`
-4. Запустить сервер `npm run start`
-5. Запустить тесты `npm run test`
+1. Установить зависимости `npm ci`
+2. Запустить сборку `npm run build` для прода, `npm run dev` для дев-режима
+
+##Разные допы и хелперы проекта  
+- Запуск тестов `npm tun test`
+- Запуск prettier приведёт код к кодстайлу `npm run pretty`
+- Запустить линтер `npm run lint`
+
+##Docker
+- Собрать образ `docker build . --tag <app-name>`
+- Запустить контейнер `docker run --publish 8080:3000 <app-name>`
 
 ##Страницы
 
