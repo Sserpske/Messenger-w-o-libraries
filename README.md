@@ -8,7 +8,7 @@
 2. Запустить сборку `npm run build` для прода, `npm run dev` для дев-режима
 
 ##Разные допы и хелперы проекта  
-- Запуск тестов `npm tun test`
+- Запуск тестов `npm run test`
 - Запуск prettier приведёт код к кодстайлу `npm run pretty`
 - Запустить линтер `npm run lint`
 

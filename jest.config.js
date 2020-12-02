@@ -8,6 +8,5 @@ module.exports = {
   },
   moduleNameMapper: {
     '(.*)\\.js': '$1',
-  },
-  setupFiles: ['<rootDir>/jest/jest.setup.js'],
+  }
 };

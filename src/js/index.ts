@@ -6,6 +6,7 @@ import InternalServerError from './pages/ErrorPages/InternalServerError';
 import ChatsPage from './pages/ChatsPage/ChatsPage';
 import ProfilePage from './pages/Profile/Profile';
 import EditProfile from './pages/EditProfile/EditProfile';
+import 'normalize.css'
 import '../sass/app.scss';
 
 const router = new Router('.root');
