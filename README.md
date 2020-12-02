@@ -30,3 +30,6 @@
 [Ссылка](https://biryuza.herokuapp.com/) на приложение в Heroku.  
 [Ссылка](https://www.figma.com/file/hObqNtfawSoaepH31ebwXC/Chat-Biryuza?node-id=0%3A1) на макет в
 Фигме.
+
+Для ревьюера :)  
+К сожалению, поправил только критичные замечания, так как на работе предрелизная неделя и нет времени прям совсем
